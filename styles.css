@@ -1,0 +1,101 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background-color: transparent;
+}
+
+section {
+    min-height: 100vh; /* 讓每個區塊至少佔滿一個螢幕 */
+    padding: 100px 20px;
+}
+
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/* 讓 canvas 充滿整個畫面並固定在背景 */
+#bubbleCanvas {
+    position: fixed;  /* 固定位置 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;  /* 讓它保持在最底層 */
+    pointer-events: none;  /* 避免影響點擊操作 */
+}
+
+/* 讓內容顯示在最上層 */
+.content {
+    position: relative;  /* 確保內容在 canvas 之上 */
+    z-index: 1; 
+    text-align: center;
+    color: transparent; /* 依照你的設計調整顏色 */
+}
+.container {
+    display: flex; /* 使用 flexbox 排列 */
+    justify-content: space-between; /* 讓左右兩側元素分開 */
+    align-items: center; /* 讓內容垂直置中 */
+    width: 90%;
+    max-width: 1200px; /* 限制最大寬度，避免畫面過寬 */
+    margin: 0 auto; /* 讓 .container 置中 */
+    padding: 20px;
+    min-height: 80vh;
+}
+
+/* 讓 .left 和 .right 兩側圖片區塊各佔一定空間 */
+.left {
+    flex: 1; /* 讓左右兩側佔據同等空間 */
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    flex: 1; 
+    text-align: center;
+}
+
+.right {
+    flex: 2; 
+    display: flex;
+    justify-content: flex-end; /* 確保圖片靠右 */
+    align-items: center;
+    
+}
+
+.right img {
+    max-width: 100%; /* 讓圖片縮小 */
+    width: auto; /* 確保圖片不變形 */
+    height: auto;
+    display: block;
+    margin-right: -40vh; /* 讓圖片再往右 */
+    
+}
+.right h1 {
+    font-size: 5rem; /* 放大字體 */
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: -50px; /* 往上移動 */
+}
+
+/* 在小螢幕 (手機) 上調整排版 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* 讓內容改為直向排列 */
+        text-align: center;
+    }
+
+    .left, .right {
+        flex: none;
+        width: 100%; /* 讓圖片區塊寬度佔滿 */
+    }
+
+    .right img {
+        max-width: 80%; /* 小螢幕上放大圖片 */
+    }
+}
