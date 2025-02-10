@@ -7,69 +7,109 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
+    <div id="menu">
         <ul>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="#about us" data-key="about us">About Us</a></li>
+            <li><a href="#introduce-part1" data-key="introduce">Introduce</a></li>
+            <li><a href="#application" data-key="application">Application</a></li>
+            <li><a href="#recommend" data-key="other">Other</a></li>
         </ul>
-    </nav>
+        <div class="lang-toggle">
+            <label class="switch">
+                <input type="checkbox" id="langSwitch">
+                <span class="slider"></span>
+            </label>
+            <span id="langLabel">EN</span>
+        </div>
+    </div>
+    
 
     <!-- 首頁 -->
     <section id="home" class="container">
         <div class="left">
-            <img src="app_mockup2.png" alt="App Screenshot">
+            <img src="img/image1.png" alt="App Screenshot">
         </div>
         <div class="center">
-            <div class="download-buttons">
-                <a href="#" class="btn"> <img src="apple_icon.png" alt="App Store"> App Store </a>
-                <a href="#" class="btn"> <img src="google_icon.png" alt="Google Play"> Google Play </a>
-            </div>
-            <a href="#" class="download-btn">Download</a>
+            
         </div>
         <div class="right">
             <div class="float-text">
                 <h1>OiO+ <br>&nbsp;&nbsp;&nbsp;APP</h1>
-                <p>A Geo-Story building platform designed to help all marketers and content builders to host jaw-dropping experiences that drive revenue.</p>
+                <p data-key="Paragraph 1">OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design.</p>
+                <div class="download-section">
+                    <a href="#" class="download-btn">Download</a>
+                    <img src="img/image2.png" alt="Download on the App Store" class="download-img">
+                    
+                </div>  
             </div>
             <img src="img/app_phone_mockup.png" alt="Phone Mockup">
+            
         </div>
     </section>
 
-    <!-- 功能介紹 -->
-    <section id="features">
-        <h2>Features</h2>
-        <p>介紹 OiO+ APP 的功能...</p>
+    <!-- 團隊介紹 -->
+    <section id="about us" class="section-about-us">
+        <div class="section-about-us__left">
+            <img src="img/image_1.png" alt="7Hz design Inc." class="section-about-us__image fade-in">
+        </div>
     </section>
 
-    <!-- 定價 -->
-    <section id="pricing">
-        <h2>Pricing</h2>
-        <p>這裡是定價方案介紹...</p>
+    <!-- APP介紹 -->
+    <section id="introduce-part1" class="section-introduce">
+        <div class="section-introduce__left">
+            <img src="img/image_2.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+        </div>
     </section>
 
-    <!-- 活動 -->
-    <section id="events">
-        <h2>Events</h2>
-        <p>這裡可以放近期活動資訊...</p>
+    <!-- APP介紹 -->
+    <section id="introduce-part2" class="section-introduce">
+        <div class="section-introduce__left">
+            <img src="img/image_3.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+        </div>
+    </section>
+     <!-- APP介紹 -->
+     <section id="introduce-part3" class="section-introduce">
+        <div class="section-introduce__left">
+            <img src="img/image_4.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+        </div>
     </section>
 
-    <!-- 關於我們 -->
-    <section id="about">
-        <h2>About</h2>
-        <p>介紹 OiO+ 背後的團隊和理念...</p>
+    <!-- 主題式導覽應用 -->
+    <section id="application">
+        <div class="section-application__left">
+            <img src="img/image_6.png" alt="Themed navigation application" class="section-application__image fade-in">
+        </div>
     </section>
 
-    <footer>
+    <!-- 推薦作品 -->
+    <section id="recommend" class="section-recommend">
+        <div class="section-recommend__left">
+            <img src="img/image_5.png" alt="Recommended works" class="section-recommend__image fade-in">
+        </div>
+    </section>
+
+    <footer class="footer"> 
+        <div class="footer-content">
+            <div class="faq">
+                <h2>常見問題</h2>
+                <ul>
+                    <li><a href="#">詳細使用手冊連結？</a></li>
+                    <li><a href="#">隱私權說明連結？</a></li>
+                    <li><a href="#">如何下載 OiO APP？</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h2>聯絡我們</h2>
+                <p>Email: xxxxx@xxxxx.com</p>
+                <p>電話: 123-456-7890</p>
+                <p>地址: 台北市xxx區XX路X號</p>
+            </div>
+        </div>
         <p>&copy; 2025 OiO Editor. All Rights Reserved.</p>
     </footer>
-
     <canvas id="bubbleCanvas"></canvas>
     <script src="script.js"></script>
     <svg class="floating-blobs"></svg>
-
 </body>
 </html>
 
