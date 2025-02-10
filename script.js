@@ -63,3 +63,68 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+
+document.getElementById("langSwitch").addEventListener("change", function() {
+    if (this.checked) {
+        document.getElementById("langLabel").textContent = "中";
+        switchLanguage("zh");
+    } else {
+        document.getElementById("langLabel").textContent = "EN";
+        switchLanguage("en");
+    }
+});
+
+function switchLanguage(lang) {
+    const translations = {
+        "en": {
+            "about us": "About us",
+            "introduce": "Introduce",
+            "application": "Application",
+            "other": "Other",
+            "Paragraph 1" : "OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design."
+        },
+        "zh": {
+            "about us": "關於我們",
+            "introduce": "介紹",
+            "application": "應用",
+            "other": "其他",
+            "Paragraph 1" : "OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。"
+        }
+    };
+
+    // 切換菜單的文字
+    document.querySelectorAll("#menu ul li a").forEach(link => {
+        const key = link.getAttribute("data-key");
+        if (translations[lang][key]) {
+            link.textContent = translations[lang][key];
+        }
+    });
+
+    // 切換頁面中內容的文字
+    document.querySelectorAll("[data-key]").forEach(element => {
+        const key = element.getAttribute("data-key");
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+}
+
+// 監聽所有具有 "fade-in" 類別的元素
+const fadeInElements = document.querySelectorAll('.fade-in');
+
+// 創建 IntersectionObserver 來監聽每個元素是否進入視口
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // 當元素進入視口時，添加 "visible" 類別
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);  // 一旦元素已顯示後停止監控
+        }
+    });
+}, { threshold: 0.5 });  // 只有當元素進入視口 50% 時才觸發
+
+// 為每個元素註冊監控
+fadeInElements.forEach(element => {
+    observer.observe(element);
+});
+
