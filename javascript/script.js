@@ -40,8 +40,8 @@ class Bubble {
             this.x, this.y, this.radius * 0.3,  
             this.x, this.y, this.radius         
         );
-        gradient.addColorStop(0, 'rgba(200, 100, 255, 0.5)');
-        gradient.addColorStop(1, 'rgba(255, 150, 250, 0.1)');
+        gradient.addColorStop(0, 'rgba(211, 171, 233, 0.5)');
+        gradient.addColorStop(1, 'rgba(178, 115, 211, 0.1)');
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -73,6 +73,71 @@ document.getElementById("langSwitch").addEventListener("change", function() {
         switchLanguage("en");
     }
 });
+
+const container = document.querySelector(".bubble-container");
+
+/*你的圖片清單
+const images = [
+    "img/001.png", // 測試圖片
+    "img/002.png",
+    "img/003.png"
+];
+
+// 生成泡泡的函式
+function createBubble() {
+    const bubble = document.createElement("div");
+    bubble.classList.add("bubble");
+
+    // 隨機選擇圖片
+    const randomImg = images[Math.floor(Math.random() * images.length)];
+    bubble.style.backgroundImage = `url(${randomImg})`;
+
+    // 設定泡泡隨機大小
+    let size = Math.random() * 60 + 50; // 40px ~ 100px
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+
+    container.appendChild(bubble);
+
+    // 設定泡泡的初始 3D 位置
+    let startZ = Math.random() * -600 - 300; // 從更遠的地方開始 (-300 ~ -900px)
+    let randomX = (Math.random(1,2) - 0.5) * 300; // 左右隨機偏移
+    let randomY = (Math.random() - 0.5) * 300; // 上下隨機偏移
+    let rotateZ = (Math.random() - 0.5) * 30; // 隨機旋轉角度
+
+    // GSAP 讓泡泡浮現 & 消失
+    gsap.fromTo(bubble,
+        {
+            opacity: 0,
+            scale: 0.2,
+            x: randomX,
+            y: randomY,
+            z: startZ,
+            rotationZ: rotateZ
+        },
+        {
+            opacity: 1,
+            scale: 1.5,
+            z: 0,
+            duration: Math.random() * 2, // 3~5 秒浮動時間
+            ease: "power1.out",
+            onComplete: () => {
+                gsap.to(bubble, {
+                    opacity: 0,
+                    scale: 2,
+                    duration: 1,
+                    onComplete: () => bubble.remove() // 移除泡泡，避免 DOM 堆積
+                });
+            }
+        }
+    );
+}
+
+// 每 800ms 生成一個泡泡
+setInterval(createBubble, 3000);
+*/
+
+
 
 function switchLanguage(lang) {
     const translations = {
