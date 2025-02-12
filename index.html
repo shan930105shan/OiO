@@ -26,39 +26,44 @@
 
     <!-- 首頁 -->
     <section id="home" class="container">
+        <div class="background-container">
+            <img src="img/background.png" alt="background" class="background">
+        </div>
         <div class="left">
-            <img src="img/image1.png" alt="App Screenshot">
+            <img src="img/OiO.png" alt="OiO" class="OiO-img">
+            <div class="float-text">
+                <!--<p data-key="Paragraph 1">OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design.</p>
+                <div class="download-section">
+                    <a href="#" class="download-btn">Download</a>
+                    <img src="img/image2.png" alt="Download on the App Store" class="download-img">
+                </div>-->  
+            </div>
         </div>
         <div class="center">
             
         </div>
         <div class="right">
-            <div class="float-text">
-                <h1>OiO+ <br>&nbsp;&nbsp;&nbsp;APP</h1>
-                <p data-key="Paragraph 1">OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design.</p>
-                <div class="download-section">
-                    <a href="#" class="download-btn">Download</a>
-                    <img src="img/image2.png" alt="Download on the App Store" class="download-img">
-                    
-                </div>  
+           
+            <div class="bubble-container"></div>
+            <div class="app-container">
+            <video class="video-container " autoplay loop muted>
+                <source src="img/video.mp4" type="video/mp4">
+            </video>
+            <img src="img/手機.png" alt="Phone Mockup" class="phone-mockup">
             </div>
-            <img src="img/app_phone_mockup.png" alt="Phone Mockup">
-            
         </div>
     </section>
 
     <!-- 團隊介紹 -->
     <section id="about us" class="section-about-us">
-        <div class="section-about-us__left">
-            <img src="img/image_1.png" alt="7Hz design Inc." class="section-about-us__image fade-in">
+        <div class="section-about-us">
+            <img src="img/AboutUs.jpg" alt="AboutUs." class="section-about-us__image fade-in">
         </div>
     </section>
 
     <!-- APP介紹 -->
-    <section id="introduce-part1" class="section-introduce">
-        <div class="section-introduce__left">
+    <section id="introduce-part1" class="section-introduce-1">
             <img src="img/image_2.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
-        </div>
     </section>
 
     <!-- APP介紹 -->
@@ -108,6 +113,7 @@
         <p>&copy; 2025 OiO Editor. All Rights Reserved.</p>
     </footer>
     <canvas id="bubbleCanvas"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="javascript/script.js"></script>
     <svg class="floating-blobs"></svg>
 </body>
