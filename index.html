@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>數位大地導覽工具 OiO Editor</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="menu">
@@ -49,27 +49,45 @@
             <video class="video-container " autoplay loop muted>
                 <source src="img/video.mp4" type="video/mp4">
             </video>
-            <img src="img/手機.png" alt="Phone Mockup" class="phone-mockup">
+            <img src="img/手機.gif" alt="Phone Mockup" class="phone-mockup">
             </div>
         </div>
     </section>
 
-    <!-- 團隊介紹 -->
-    <section id="about us" class="section-about-us">
-        <div class="section-about-us">
-            <img src="img/AboutUs.jpg" alt="AboutUs." class="section-about-us__image fade-in">
+
+    <!-- OiO介紹 -->
+    <section id="OiO-introduce" class="OiO-introduce">
+         <!-- OiO travels with you 標題 -->
+        <div class="section-title-1">
+            <h2 class="animate-title">OiO travels with you</h2>
+        </div>
+        <div class="OiO-introduce-img fade-in">
+            <img src="img/OiO-introduce-img.png" alt="main-image" class="main-image" id="mainImage">
+            <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 0; left: 0;">
+                <img src="img/OiO-introduce-img-1.png" alt="introduce-img-1" class="introduce-img-1" id="introduce-img-1">
+            </div>
+            <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 0; left: 33.33%;">
+                <img src="img/OiO-introduce-img-2.png" alt="introduce-img-2" class="introduce-img-2" id="introduce-img-2">
+            </div>
+            <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 0; left: 66.66%;"></div>
+            <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 50%; left: 0;"></div>
+            <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 50%; left: 33.33%;"></div>
+            <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 50%; left: 66.66%;"></div>
         </div>
     </section>
 
+
     <!-- APP介紹 -->
     <section id="introduce-part1" class="section-introduce-1">
-            <img src="img/image_2.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+            <img src="img/image_about_OiO.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
     </section>
-
+    <div class="illustration-1">
+        <img src="img/illustration1.png" alt="more about OiO" class="illustration-1__image fade-in">
+    </div>
     <!-- APP介紹 -->
     <section id="introduce-part2" class="section-introduce">
         <div class="section-introduce__left">
-            <img src="img/image_3.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+            <img src="img/image_2.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
         </div>
     </section>
      <!-- APP介紹 -->
@@ -114,7 +132,7 @@
     </footer>
     <canvas id="bubbleCanvas"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="javascript/script.js"></script>
+    <script src="script.js"></script>
     <svg class="floating-blobs"></svg>
 </body>
 </html>
