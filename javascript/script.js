@@ -173,6 +173,63 @@ function switchLanguage(lang) {
         }
     });
 }
+//title動畫
+document.addEventListener("DOMContentLoaded", function () {
+    let title = document.querySelector(".animate-title");
+
+    let observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    title.classList.add("show"); // 加上 class 讓動畫開始
+                    observer.unobserve(title); // 只觸發一次
+                }
+            });
+        },
+        { threshold: 0.5 } // 當 50% 標題進入畫面時觸發
+    );
+
+    observer.observe(title);
+});
+//OiO-introduce-img
+document.addEventListener("DOMContentLoaded", () => {
+    const mainImage = document.getElementById("mainImage");
+    const hoverBlocks = document.querySelectorAll(".hover-block");
+
+    let defaultImage = "img/OiO-introduce-img.png"; // 記錄原始圖片的路徑
+    let isImageAtTop = false; // 用來追蹤圖片是否已經顯示在最上層
+
+    // 點擊 hover-block，替換主圖片並顯示在最上層
+    hoverBlocks.forEach(block => {
+        block.addEventListener("click", (event) => {
+            let newImage = block.getAttribute("data-image");
+            mainImage.src = newImage;
+
+            // 顯示在最上層
+            if (!isImageAtTop) {
+                mainImage.classList.add("top-position");
+                isImageAtTop = true;
+            }
+
+            event.stopPropagation(); // 防止事件冒泡
+        });
+    });
+
+    // 點擊其他地方恢復原始圖片並將圖片移回原來層級
+    document.addEventListener("click", () => {
+        if (isImageAtTop) {
+            mainImage.src = defaultImage;
+            mainImage.classList.remove("top-position");
+            isImageAtTop = false;
+        }
+    });
+});
+
+
+
+
+
+
 
 // 監聽所有具有 "fade-in" 類別的元素
 const fadeInElements = document.querySelectorAll('.fade-in');
