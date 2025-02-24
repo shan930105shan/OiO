@@ -11,8 +11,8 @@ html, body {
 
  /* 讓每個區塊至少佔滿一個螢幕 */
 section {
-    min-height: 100vh;
-    padding: 100px 20px;
+    min-height: 768px;
+    padding: 50px 20px;
 }
 
 canvas {
@@ -28,8 +28,8 @@ canvas {
     position: fixed;  /* 固定位置 */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: -999;  /* 讓它保持在最底層 */
     pointer-events: none;  /* 避免影響點擊操作 */
 }
@@ -39,8 +39,8 @@ canvas {
     width: 100%; 
     display: flex;
     justify-content: center; 
-    background-color: rgb(255, 255, 255);
-    
+    background-color: rgb(0, 0, 0);
+    z-index: 999;  /* 讓它保持在最底層 */
 }
 
 #menu ul {
@@ -142,8 +142,8 @@ input:checked + .slider:before {
 
 .background {
     position: absolute;
-    width: 50%;
-    top: 10px;
+    width: 60%;
+    top: 0px;
     right: 0;
     z-index: -1;
 }
@@ -156,11 +156,11 @@ input:checked + .slider:before {
 }
 
 .left img {
-    max-width: 150%; /* 讓圖片縮小 */
+    max-width: 160%; /* 讓圖片縮小 */
     width: auto; /* 確保圖片不變形 */
     height: auto;
     display: block;
-    top: 50px; /* 讓圖片往上 */
+    top: 30px; /* 讓圖片往上 */
     margin-left: -250px; 
     
 }
@@ -172,7 +172,7 @@ input:checked + .slider:before {
 
 .OiO-img {
     position: relative;
-    width: 70%; /* 確保圖片不變形 */
+    width: 80%; /* 確保圖片不變形 */
     top: 100px; /* 讓圖片往上 */
     left: 150px; /* 增加 margin 讓它往右移 */
 }
@@ -206,18 +206,18 @@ input:checked + .slider:before {
     position: absolute; /* 讓手機圖片絕對定位 */
     top: 50%; /* 讓圖片置中 */
     left: 50%;
-    height: 175%;
-    margin-top: 60px; 
-    margin-left: 120px;
+    height: 120%;
+    margin-top: 40px; 
+    margin-left: -20px;
     transform: translate(-50%, -50%); /* 確保圖片完全置中 */
     pointer-events: none; /* 確保滑鼠點擊不會影響 */
 }
 
 .video-container {
     position: absolute;
-    height: 100%;
-    margin-top: -30px; 
-    margin-left: 250px;
+    height: 80%;
+    margin-top: 10px; 
+    margin-left: -25px;
     border-radius: 5%;
     overflow: hidden;
 }
@@ -282,20 +282,140 @@ input:checked + .slider:before {
     background-color:rgb(125, 62, 141); /* 滑鼠懸浮時變深色 */
 }
 
-.section-about-us {
-    background-color:rgb(242, 243, 240); 
+.section-title-1 {
+    position: relative;
+    top: 50%; /* 設置標題垂直在父區塊的一半 */
+    left: 50%;
+    text-align: center; /* 讓文字置中 */
+    transform: translate(-50%, -50%); /* 水平和垂直居中並微微往上偏移 */
+    font-size: 4rem;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    z-index: 10; /* 確保標題在兩個段落的上方 */
+    margin-top: 100px;    /* 讓標題向下推 50px */
+    margin-bottom: -180px; 
+}
+
+.animate-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    opacity: 0; /* 初始狀態：隱藏 */
+    display: inline-block;
+    transform: translateY(50px);
+    transition: opacity 0.3s ease-out, transform 0.8s ease-out;
+}
+
+/* 滑動到時添加這個 class 來觸發動畫 */
+.animate-title.show {
+    opacity: 1;
+    animation: bounceIn 1.2s ease-out forwards;
+}
+
+/* 彈跳進場 + 微微彈跳幾次 */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(50px);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+    90% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.OiO-introduce{
+    background-color:rgb(242, 243, 240);
+}
+.OiO-introduce-img {
+    position: relative;
+    width: 900px;
+    height: 500px;
+    margin: 50px auto;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.hover-block {
+    position: absolute;
+    width: 33.33%;
+    height: 50%;
+    cursor: pointer;
+}
+
+/* 滑鼠懸停時要放大的圖片 */
+.hover-block img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 懸停時放大 */
+.hover-block:hover img {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+/* 當點擊後，將主圖片顯示在最上層 */
+.main-image.top-position {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* 設定為最上層 */
+}
+.introduce-img-1{
+    width: 245px;
+    height: 240px;
+    margin-top:5px;
+    margin-left:-15px;
+}
+.introduce-img-2{
+    width: 396px;
+    height: 240px;
+    margin-top:5px;
+    margin-left:-50px;
+}
+
+.illustration-1
+{
+    height: 100px;
+    background-color:rgb(212, 172, 234);
+    display: flex;
+    align-items: center;      /* 垂直居中 */
+    
+}
+
+.illustration-1 img
+{
+    width: 70%;
+    margin-top:5px;
+    margin-left:20%;
+    z-index: 10;
+}
+
+#introduce-part1 {
+    background-color:rgb(212, 172, 234);
     display: flex;
     align-items: center;      /* 垂直居中 */
     justify-content: center;  /* 水平居中 */
     overflow: hidden;         /* 隱藏超出區塊的內容，避免滾動條 */
 }
-.section-about-us__image {
-    width: 80vw;             
-    left: 150px;
-    display: block;           /* 避免圖片底部有間隙 */
-}
-
-#introduce-part1 {
+#introduce-part2 {
     background-color:rgb(212, 172, 234);
     display: flex;
     align-items: center;      /* 垂直居中 */
