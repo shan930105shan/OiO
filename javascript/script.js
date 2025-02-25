@@ -225,6 +225,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+//互動手機監聽事件
+document.addEventListener("DOMContentLoaded", function () {
+    const mainImage = document.querySelector(".section-introduce__image");
+    const hoverImageA = document.getElementById("hoverImageA");
+    const hoverImageB = document.getElementById("hoverImageB");
+
+mainImage.addEventListener("mousemove", function (event) {
+    const rect = mainImage.getBoundingClientRect(); // 取得 Phone.png 的位置
+
+    const offsetX = event.clientX - rect.left; // 滑鼠相對於 Phone.png 的 X 位置
+    const offsetY = event.clientY - rect.top;  // 滑鼠相對於 Phone.png 的 Y 位置
+
+    // 根據滑鼠位置判斷顯示圖片A或B
+    if (offsetX > rect.width / 2) {
+        hoverImageA.style.display = "block";
+        hoverImageB.style.display = "none";
+        hoverImageA.style.left = `${offsetX}px`;
+        hoverImageA.style.top = `${offsetY}px`;
+    } else {
+        hoverImageB.style.display = "block";
+        hoverImageA.style.display = "none";
+        hoverImageB.style.left = `${offsetX}px`;
+        hoverImageB.style.top = `${offsetY}px`;
+    }
+});
+
+mainImage.addEventListener("mouseleave", function () {
+    hoverImageA.style.display = "none";
+    hoverImageB.style.display = "none";
+});
+
+});
 
 
 
