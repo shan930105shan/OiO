@@ -486,6 +486,13 @@ input:checked + .slider:before {
     display: block;   /* 去除圖片的底部空白間隙 */
     margin: 0 auto;   /* 保證圖片水平居中 */
 }
+.about-us img{
+    max-width: 80%;   
+    height: auto;     /* 高度自動調整以保持比例 */
+    width: auto;      /* 寬度自動調整以保持比例 */
+    display: block;   /* 去除圖片的底部空白間隙 */
+    margin: 0 auto;   /* 保證圖片水平居中 */
+}
 
 
 .section-introduce__left {
