@@ -442,7 +442,7 @@ input:checked + .slider:before {
     width: 80%;
     max-width: 100%;
     height: auto;
-    cursor: url('img/cursor.png') 16 16, auto;
+    cursor: url('../img/cursor.png') 16 16, auto;
 }
 
 .hover-image {
