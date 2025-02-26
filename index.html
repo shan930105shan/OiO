@@ -9,9 +9,9 @@
 <body>
     <div id="menu">
         <ul>
-            <li><a href="#about us" data-key="about us">About Us</a></li>
+            <li><a href="#about-us" data-key="about us">About Us</a></li>
             <li><a href="#introduce-part1" data-key="introduce">Introduce</a></li>
-            <li><a href="#application" data-key="application">Application</a></li>
+            <li><a href="#introduce-part3" data-key="application">Application</a></li>
             <li><a href="#recommend" data-key="other">Other</a></li>
         </ul>
         <div class="lang-toggle">
@@ -31,12 +31,19 @@
         </div>
         <div class="left">
             <img src="img/OiO.png" alt="OiO" class="OiO-img">
-            <div class="float-text">
-                <!--<p data-key="Paragraph 1">OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design.</p>
-                <div class="download-section">
-                    <a href="#" class="download-btn">Download</a>
-                    <img src="img/image2.png" alt="Download on the App Store" class="download-img">
-                </div>-->  
+            <div class="description">
+                <p data-key="Paragraph 1">OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。<br>
+                    讓OiO當你的專屬導遊，讓你用更有趣的方式認識城市!
+                </p>
+            </div>
+            <div class="small-icons">
+                <img src="img/icon.png" alt="Icon" class="icon">
+                <a href="https://apps.apple.com/tw/app/oio-client/id6449966269" target="_blank">
+                    <img src="img/Apple_Store.png" alt="Apple Store" class="icon hover-icon">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.SevenHz.MoG&hl=zh_TW&pli=1" target="_blank">
+                    <img src="img/Google_Play.png" alt="Google Play" class="icon hover-icon">
+                </a>
             </div>
         </div>
         <div class="center">
@@ -58,21 +65,33 @@
     <!-- OiO介紹 -->
     <section id="OiO-introduce" class="OiO-introduce">
          <!-- OiO travels with you 標題 -->
-        <div class="section-title-1">
-            <h2 class="animate-title">OiO travels with you</h2>
-        </div>
+         <img src="img/title1.png" alt="OiO travels with you" class="title-1-image fade-in" >
         <div class="OiO-introduce-img fade-in">
-            <img src="img/OiO-introduce-img.png" alt="main-image" class="main-image" id="mainImage">
+            <img src="img/OiO-introduce-img.png" alt="main-image" class="main-image fade-in" id="mainImage">
             <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 0; left: 0;">
                 <img src="img/OiO-introduce-img-1.png" alt="introduce-img-1" class="introduce-img-1" id="introduce-img-1">
+                <!-- <p data-key="OiO-introduce-img-1" class="introduce-img-1-text introduce-img-text">點開OiO選擇導覽書</p>-->
             </div>
             <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 0; left: 33.33%;">
                 <img src="img/OiO-introduce-img-2.png" alt="introduce-img-2" class="introduce-img-2" id="introduce-img-2">
+                <!-- <p data-key="OiO-introduce-img-2" class="introduce-img-2-text introduce-img-text">跟著AR導覽至景點</p>-->
             </div>
-            <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 0; left: 66.66%;"></div>
-            <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 50%; left: 0;"></div>
-            <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 50%; left: 33.33%;"></div>
-            <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 50%; left: 66.66%;"></div>
+            <div class="hover-block" data-image="img/OiO-int-3.png" style="top: 0; left: 66.66%;">
+                <img src="img/OiO-introduce-img-3.png" alt="introduce-img-3" class="introduce-img-3" id="introduce-img-3">
+                <!-- <p data-key="OiO-introduce-img-3" class="introduce-img-3-text introduce-img-text">點擊景點進行介紹</p>-->
+            </div>
+            <div class="hover-block" data-image="img/OiO-int-4.png" style="top: 50%; left: 0;">
+                <img src="img/OiO-introduce-img-4.png" alt="introduce-img-4" class="introduce-img-4" id="introduce-img-4">
+                <!--<p data-key="OiO-introduce-img-4" class="introduce-img-4-text introduce-img-text">手機掃描景點跳出內容</p>-->
+            </div>
+            <div class="hover-block" data-image="img/OiO-int-5.png" style="top: 50%; left: 33.33%;">
+                <img src="img/OiO-introduce-img-5.png" alt="introduce-img-5" class="introduce-img-5" id="introduce-img-5">
+                <!--<p data-key="OiO-introduce-img-5" class="introduce-img-5-text introduce-img-text">靠近店家推播優惠券</p>-->
+            </div>
+            <div class="hover-block" data-image="img/OiO-int-6.png" style="top: 50%; left: 66.66%;">
+                <img src="img/OiO-introduce-img-6.png" alt="introduce-img-6" class="introduce-img-6" id="introduce-img-6">
+                <!--<p data-key="OiO-introduce-img-6" class="introduce-img-6-text ">返家後仍可打開電子書回味</p>-->
+            </div>
         </div>
     </section>
 
@@ -92,10 +111,29 @@
     </section>
      <!-- APP介紹 -->
      <section id="introduce-part3" class="section-introduce">
+        <!-- How It Works 標題 -->
+        <img src="img/title3.png" alt="How It Works" class="title-3-image fade-in" >
         <div class="Interactive-Mobile">
-            <img src="img/Phone.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
-            <img src="img/OiO-introduce-img-1.png" alt="Hover Image A" class="hover-image" id="hoverImageA">
-            <img src="img/OiO-int-2.png" alt="Hover Image B" class="hover-image" id="hoverImageB">
+            <img src="img/Phone.png" alt="OiO APP introduce" class="Phone-image">
+
+            <div class="hover-container">
+                <img src="img/interactive-img1.png" alt="Attractions" class="hover-image fade-in" id="hoverImageA">
+                <img src="img/Attractions-introduceA.png" alt="Attractions introduce" class="hover-image hidden" id="Attractions-introduceA">
+                <p data-key="introduceA-text" class="introduceA-text">點擊景點即可觀看更<br>深入的景點介紹，豐<br>富旅遊體驗!!</p>
+            </div>
+
+            <div class="hover-container">
+                <img src="img/interactive-img2.png" alt="Attractions" class="hover-image fade-in" id="hoverImageB">
+                <img src="img/Attractions-introduceB.png" alt="Attractions introduce" class="hover-image hidden" id="Attractions-introduceB">
+                <p data-key="introduceB-text" class="introduceB-text">為遊客提供個人沉浸式<br>導覽體驗，GPS觸發機制<br>就像是有專屬導遊提供<br>在地化、專人化的導覽 </p>
+            </div>
+
+            <div class="hover-container">
+                <img src="img/interactive-img3.png" alt="Attractions" class="hover-image fade-in" id="hoverImageC">
+                <img src="img/Attractions-introduceC.png" alt="Attractions introduce" class="hover-image hidden" id="Attractions-introduceC">
+                <p data-key="introduceC-text" class="introduceC-text">啟用AI辨識，AI 場景<br>建物識別，跳出該景點的<br>內容，樂趣加倍! </p>
+            </div>
+
         </div>
     </section>
     <div class="illustration-2">
@@ -104,6 +142,8 @@
 
     <!-- OiO編輯平台 -->
     <section id="OiO-editing-platform">
+         <!-- OiO Editing Platform 標題 -->
+        <img src="img/title4.png" alt="OiO Editing Platform" class="title-4-image fade-in" >
         <div class="OiO-editing-platform">
             <img src="img/image_3.png" alt="OiO-editing-platform-1" class="OiO-editing-platform-1 fade-in">
         </div>
@@ -112,22 +152,66 @@
     <!-- OiO編輯平台 -->
     <section id="OiO-editing-platform">
         <div class="OiO-editing-platform">
-            <img src="img/image_4.png" alt="OiO-editing-platform-2" class="OiO-editing-platform-2 fade-in">
+            <button class="prev-button" id="prevButton"><img src="img/prev-icon.png" alt="Previous"></button>
+            <img id="Editing-Platform-image" src="img/Editing-PlatformA.png" alt="Editing Platform A">
+            <button class="next-button" id="nextButton"><img src="img/next-icon.png" alt="Next"></button>
         </div>
+        <div class="dots-container">
+            <span class="dot" id="dot-1"></span>
+            <span class="dot" id="dot-2"></span>
+            <span class="dot" id="dot-3"></span>
+          </div>
+        
     </section>
 
-     <!-- 製作團隊 -->
+    <!-- 製作團隊 -->
     <section id="about-us" class="about-us">
-        <div class="about-us">
+        <img src="img/title5.png" alt="about us" class="title-5-image fade-in" >
+        <div class="about-us-img">
             <img src="img/AboutUs.png" alt="about-us" class="about-us__image fade-in">
         </div>
     </section>
 
-
     <!-- 推薦作品 -->
     <section id="recommend" class="section-recommend">
-        <div class="section-recommend__left">
-            <img src="img/image_5.png" alt="Recommended works" class="section-recommend__image fade-in">
+        <img src="img/title6.png" alt="recommend" class="title-6-image fade-in" >
+        <div class="slider-container">
+          <div class="slider_rec">
+            <img src="img/recommend-img1.jpg" alt="Image 1" class="slide_rec">
+            <img src="img/recommend-img2.png" alt="Image 2" class="slide_rec">
+            <img src="img/recommend-img3.png" alt="Image 3" class="slide_rec">
+            <img src="img/recommend-img4.png" alt="Image 4" class="slide_rec">
+            <img src="img/recommend-img5.png" alt="Image 5" class="slide_rec">
+            <img src="img/recommend-img6.png" alt="Image 6" class="slide_rec">
+            <img src="img/recommend-img7.png" alt="Image 7" class="slide_rec">
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- 常見問題 -->
+    <section id="FAQ-" class="section-FAQ">
+         <!-- FAQ 標題 -->
+         <img src="img/title7.png" alt="FAQ" class="title-7-image fade-in" >
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-button">Q1: 這個網站的主要功能是什麼？</button>
+                <div class="accordion-content">
+                    <p>我們的網站提供旅遊導覽服務，根據您的 GPS 位置推薦附近的景點。</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">Q2: 如何使用導覽功能？</button>
+                <div class="accordion-content">
+                    <p>您只需允許存取您的 GPS 位置，系統將自動推薦最適合的景點資訊。</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">Q3: 這個應用程式是否免費使用？</button>
+                <div class="accordion-content">
+                    <p>是的，我們的基本導覽功能是免費的，部分進階功能可能需要付費訂閱。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -143,9 +227,10 @@
             </div>
             <div class="contact">
                 <h2>聯絡我們</h2>
-                <p>Email: xxxxx@xxxxx.com</p>
-                <p>電話: 123-456-7890</p>
-                <p>地址: 台北市xxx區XX路X號</p>
+                <p>臉書: <a href="https://www.facebook.com/profile.php?id=100086604207278">7Hz.Design</a></p>
+                <p>Email: 7hzdesign@gmail.com</p>
+                <p>電話: 02-21001400</p>
+                <p>地址: 台北市中山區吉林路218巷19號1樓</p>
             </div>
         </div>
         <p>&copy; 2025 OiO Editor. All Rights Reserved.</p>
