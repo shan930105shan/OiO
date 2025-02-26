@@ -146,14 +146,16 @@ function switchLanguage(lang) {
             "introduce": "Introduce",
             "application": "Application",
             "other": "Other",
-            "Paragraph 1" : "OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design."
+            "Paragraph 1" : "OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design.",
+            "introduceA-text" :"Click to watch the<br> introduction and enrich<br> your travel experience!!"
         },
         "zh": {
             "about us": "關於我們",
             "introduce": "介紹",
             "application": "應用",
             "other": "其他",
-            "Paragraph 1" : "OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。"
+            "Paragraph 1" : "OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。",
+            "introduceA-text" :"點擊景點即可觀看更<br>深入的景點介紹，豐<br>富旅遊體驗!!"
         }
     };
 
@@ -170,6 +172,14 @@ function switchLanguage(lang) {
         const key = element.getAttribute("data-key");
         if (translations[lang][key]) {
             element.textContent = translations[lang][key];
+        }
+    });
+
+     // 更新段落文字，解析 HTML 標籤
+     document.querySelectorAll(".introduceA-text").forEach(text => {
+        const key = text.getAttribute("data-key");
+        if (translations[lang][key]) {
+            text.innerHTML = translations[lang][key];
         }
     });
 }
@@ -226,37 +236,90 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //互動手機監聽事件
-document.addEventListener("DOMContentLoaded", function () {
-    const mainImage = document.querySelector(".section-introduce__image");
-    const hoverImageA = document.getElementById("hoverImageA");
-    const hoverImageB = document.getElementById("hoverImageB");
 
-mainImage.addEventListener("mousemove", function (event) {
-    const rect = mainImage.getBoundingClientRect(); // 取得 Phone.png 的位置
+//切換編輯平台教學
+let currentIndex = 0;
+const images = ['img/Editing-PlatformA.png', 'img/Editing-PlatformB.png', 'img/Editing-PlatformC.png'];
+const dots = document.querySelectorAll('.dot');
+const imageElement = document.getElementById('Editing-Platform-image');
 
-    const offsetX = event.clientX - rect.left; // 滑鼠相對於 Phone.png 的 X 位置
-    const offsetY = event.clientY - rect.top;  // 滑鼠相對於 Phone.png 的 Y 位置
+document.getElementById('nextButton').addEventListener('click', function() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateImage();
+  updateDots();
+});
 
-    // 根據滑鼠位置判斷顯示圖片A或B
-    if (offsetX > rect.width / 2) {
-        hoverImageA.style.display = "block";
-        hoverImageB.style.display = "none";
-        hoverImageA.style.left = `${offsetX}px`;
-        hoverImageA.style.top = `${offsetY}px`;
+document.getElementById('prevButton').addEventListener('click', function() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateImage();
+  updateDots();
+});
+
+function updateImage() {
+  imageElement.src = images[currentIndex];
+}
+
+function updateDots() {
+  dots.forEach((dot, index) => {
+    if (index === currentIndex) {
+      dot.classList.add('active');
     } else {
-        hoverImageB.style.display = "block";
-        hoverImageA.style.display = "none";
-        hoverImageB.style.left = `${offsetX}px`;
-        hoverImageB.style.top = `${offsetY}px`;
+      dot.classList.remove('active');
     }
+  });
+}
+
+//常見問題手風琴
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('click', function() {
+            this.classList.toggle('active');
+            let content = this.nextElementSibling;
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+    });
 });
 
-mainImage.addEventListener("mouseleave", function () {
-    hoverImageA.style.display = "none";
-    hoverImageB.style.display = "none";
+//推薦作品
+let currentIndex_rec = 0; // 目前顯示的圖片起始索引
+const images_rec = document.querySelectorAll(".slide_rec");
+const totalImages = images_rec.length;
+
+// 更新圖片顯示
+function updateSlider() {
+  for (let i = 0; i < images_rec.length; i++) {
+    const imgIndex = (currentIndex_rec + i) % totalImages; // 計算每張圖片的索引（循環）
+    images_rec[i].src = `img/recommend-img${imgIndex + 1}.png`; // 更新圖片源
+    // 根據索引顯示或隱藏圖片
+    if (i >= 4) {
+      images_rec[i].style.display = 'none'; // 超過四張的圖片隱藏
+    } else {
+      images_rec[i].style.display = 'block'; // 顯示前四張圖片
+    }
+  }
+}
+
+// 自動輪播，每2秒切換
+let autoSlide = setInterval(() => {
+  currentIndex_rec = (currentIndex_rec + 1) % totalImages; // 每2秒輪播一張
+  updateSlider();
+}, 2000);
+
+// 當鼠標懸停在圖片上時停止輪播
+document.querySelector(".slider_rec").addEventListener("mouseenter", () => {
+  clearInterval(autoSlide); // 停止輪播
 });
 
+// 當鼠標離開圖片時恢復輪播
+document.querySelector(".slider_rec").addEventListener("mouseleave", () => {
+  autoSlide = setInterval(() => {
+    currentIndex_rec = (currentIndex_rec + 1) % totalImages; // 每2秒輪播一張
+    updateSlider();
+  }, 2000);
 });
+
+// 初始顯示
+updateSlider();
 
 
 
