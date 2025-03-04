@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>數位大地導覽工具 OiO Editor</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="menu">
+        <div id="logo">
+            <img src="img/logo.png" alt="Logo" class="logo-img">
+        </div>
         <ul>
-            <li><a href="#about-us" data-key="about us">About Us</a></li>
-            <li><a href="#introduce-part1" data-key="introduce">Introduce</a></li>
-            <li><a href="#introduce-part3" data-key="application">Application</a></li>
-            <li><a href="#recommend" data-key="other">Other</a></li>
+            <li><a href="#about-us" data-key="about us">關於我們</a></li>
+            <li><a href="#introduce-part1" data-key="introduce">OiO介紹</a></li>
+            <li><a href="#introduce-part3" data-key="application">使用手冊</a></li>
+            <li><a href="#recommend" data-key="other">其他</a></li>
         </ul>
         <div class="lang-toggle">
-            <label class="switch">
-                <input type="checkbox" id="langSwitch">
-                <span class="slider"></span>
-            </label>
-            <span id="langLabel">EN</span>
-        </div>
+        <span id="langText">中</span> <!-- 語言顯示 -->
+        <label class="switch">
+            <input type="checkbox" id="langSwitch">
+            <span class="slider"></span>
+        </label>
+        <span>/ EN</span>
+    </div>
     </div>
     
 
@@ -68,28 +72,28 @@
          <img src="img/title1.png" alt="OiO travels with you" class="title-1-image fade-in" >
         <div class="OiO-introduce-img fade-in">
             <img src="img/OiO-introduce-img.png" alt="main-image" class="main-image fade-in" id="mainImage">
-            <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 0; left: 0;">
-                <img src="img/OiO-introduce-img-1.png" alt="introduce-img-1" class="introduce-img-1" id="introduce-img-1">
+            <div class="hover-block"  data-image="img/OiO-int-1.png" style="top: 0; left: 0;">
+                <img src="img/OiO-introduce-img-1.png"  alt="introduce-img-1" class="introduce-img-1" id="introduce-img-1" data-key="OiO-int-1">
                 <!-- <p data-key="OiO-introduce-img-1" class="introduce-img-1-text introduce-img-text">點開OiO選擇導覽書</p>-->
             </div>
             <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 0; left: 33.33%;">
-                <img src="img/OiO-introduce-img-2.png" alt="introduce-img-2" class="introduce-img-2" id="introduce-img-2">
+                <img src="img/OiO-introduce-img-2.png" alt="introduce-img-2" class="introduce-img-2" id="introduce-img-2" data-key="OiO-int-2">
                 <!-- <p data-key="OiO-introduce-img-2" class="introduce-img-2-text introduce-img-text">跟著AR導覽至景點</p>-->
             </div>
             <div class="hover-block" data-image="img/OiO-int-3.png" style="top: 0; left: 66.66%;">
-                <img src="img/OiO-introduce-img-3.png" alt="introduce-img-3" class="introduce-img-3" id="introduce-img-3">
+                <img src="img/OiO-introduce-img-3.png" alt="introduce-img-3" class="introduce-img-3" id="introduce-img-3" data-key="OiO-int-3">
                 <!-- <p data-key="OiO-introduce-img-3" class="introduce-img-3-text introduce-img-text">點擊景點進行介紹</p>-->
             </div>
             <div class="hover-block" data-image="img/OiO-int-4.png" style="top: 50%; left: 0;">
-                <img src="img/OiO-introduce-img-4.png" alt="introduce-img-4" class="introduce-img-4" id="introduce-img-4">
+                <img src="img/OiO-introduce-img-4.png" alt="introduce-img-4" class="introduce-img-4" id="introduce-img-4" data-key="OiO-int-4">
                 <!--<p data-key="OiO-introduce-img-4" class="introduce-img-4-text introduce-img-text">手機掃描景點跳出內容</p>-->
             </div>
             <div class="hover-block" data-image="img/OiO-int-5.png" style="top: 50%; left: 33.33%;">
-                <img src="img/OiO-introduce-img-5.png" alt="introduce-img-5" class="introduce-img-5" id="introduce-img-5">
+                <img src="img/OiO-introduce-img-5.png" alt="introduce-img-5" class="introduce-img-5" id="introduce-img-5" data-key="OiO-int-5">
                 <!--<p data-key="OiO-introduce-img-5" class="introduce-img-5-text introduce-img-text">靠近店家推播優惠券</p>-->
             </div>
             <div class="hover-block" data-image="img/OiO-int-6.png" style="top: 50%; left: 66.66%;">
-                <img src="img/OiO-introduce-img-6.png" alt="introduce-img-6" class="introduce-img-6" id="introduce-img-6">
+                <img src="img/OiO-introduce-img-6.png" alt="introduce-img-6" class="introduce-img-6" id="introduce-img-6" data-key="OiO-int-6">
                 <!--<p data-key="OiO-introduce-img-6" class="introduce-img-6-text ">返家後仍可打開電子書回味</p>-->
             </div>
         </div>
@@ -98,15 +102,17 @@
 
     <!-- APP介紹 -->
     <section id="introduce-part1" class="section-introduce-1">
-            <img src="img/image_about_OiO.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+        <!-- OiO APP 標題 -->
+        <img src="img/title2.png" alt="OiO APP" class="title-2-image fade-in" >
+        <img src="img/image_about_OiO.png" alt="OiO APP introduce" class="section-introduce__image fade-in" data-key="OiO-APP-introduce-1">
     </section>
     <div class="illustration-1">
         <img src="img/illustration1.png" alt="more about OiO" class="illustration-1__image fade-in">
     </div>
     <!-- APP介紹 -->
-    <section id="introduce-part2" class="section-introduce">
+    <section id="introduce-part2" class="section-introduce-2">
         <div class="section-introduce__left">
-            <img src="img/image_2.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+            <img src="img/image_about_OiO-2.png" alt="OiO APP introduce" class="section-introduce__image fade-in" data-key="OiO-APP-introduce-2">
         </div>
     </section>
      <!-- APP介紹 -->
@@ -145,7 +151,7 @@
          <!-- OiO Editing Platform 標題 -->
         <img src="img/title4.png" alt="OiO Editing Platform" class="title-4-image fade-in" >
         <div class="OiO-editing-platform">
-            <img src="img/image_3.png" alt="OiO-editing-platform-1" class="OiO-editing-platform-1 fade-in">
+            <img src="img/OiO-Editing-Platform.png" alt="OiO-editing-platform-1" class="OiO-editing-platform-1 fade-in" data-key="OiO-Editing-Platform">
         </div>
     </section>
 
@@ -168,7 +174,7 @@
     <section id="about-us" class="about-us">
         <img src="img/title5.png" alt="about us" class="title-5-image fade-in" >
         <div class="about-us-img">
-            <img src="img/AboutUs.png" alt="about-us" class="about-us__image fade-in">
+            <img src="img/AboutUs.png" alt="about-us" class="about-us__image fade-in" data-key="about-us">
         </div>
     </section>
 
@@ -195,20 +201,20 @@
          <img src="img/title7.png" alt="FAQ" class="title-7-image fade-in" >
         <div class="accordion">
             <div class="accordion-item">
-                <button class="accordion-button">Q1: 這個網站的主要功能是什麼？</button>
-                <div class="accordion-content">
+                <button class="accordion-button" data-key="question-1">Q1: 這個網站的主要功能是什麼？</button>
+                <div class="accordion-content" data-key="answer-1">
                     <p>我們的網站提供旅遊導覽服務，根據您的 GPS 位置推薦附近的景點。</p>
                 </div>
             </div>
             <div class="accordion-item">
-                <button class="accordion-button">Q2: 如何使用導覽功能？</button>
-                <div class="accordion-content">
+                <button class="accordion-button" data-key="question-2">Q2: 如何使用導覽功能？</button>
+                <div class="accordion-content" data-key="answer-2">
                     <p>您只需允許存取您的 GPS 位置，系統將自動推薦最適合的景點資訊。</p>
                 </div>
             </div>
             <div class="accordion-item">
-                <button class="accordion-button">Q3: 這個應用程式是否免費使用？</button>
-                <div class="accordion-content">
+                <button class="accordion-button" data-key="question-3">Q3: 這個應用程式是否免費使用？</button>
+                <div class="accordion-content" data-key="answer-3">
                     <p>是的，我們的基本導覽功能是免費的，部分進階功能可能需要付費訂閱。</p>
                 </div>
             </div>
@@ -237,7 +243,7 @@
     </footer>
     <canvas id="bubbleCanvas"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="javascript/script.js"></script>
+    <script src="script.js"></script>
     <svg class="floating-blobs"></svg>
 </body>
 </html>
