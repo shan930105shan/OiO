@@ -138,7 +138,17 @@ setInterval(createBubble, 3000);
 */
 
 
+// 切換語言
+// 切換語言開關的事件監聽器
+document.getElementById("langSwitch").addEventListener("change", function() {
+    let langText = document.getElementById("langText");
+    let selectedLang = this.checked ? "en" : "zh";  // 根據開關狀態選擇語言
 
+    langText.textContent = selectedLang === "en" ? "EN" : "中"; // 更新切換開關旁邊的文字
+    switchLanguage(selectedLang); // 確保語言切換函式被執行
+});
+
+// 語言切換函式
 function switchLanguage(lang) {
     const translations = {
         "en": {
@@ -146,43 +156,98 @@ function switchLanguage(lang) {
             "introduce": "Introduce",
             "application": "Application",
             "other": "Other",
-            "Paragraph 1" : "OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence and e-commerce to achieve smarter and interactive urban design.",
-            "introduceA-text" :"Click to watch the<br> introduction and enrich<br> your travel experience!!"
+            "Paragraph 1": "OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence, and e-commerce to achieve smarter and interactive urban design.",
+            "OiO-int-1": "img/OiO-int-1-EN.png",
+            "OiO-int-2": "img/OiO-int-2-EN.png",
+            "OiO-int-3": "img/OiO-int-3-EN.png",
+            "OiO-int-4": "img/OiO-int-4-EN.png",
+            "OiO-int-5": "img/OiO-int-5-EN.png",
+            "OiO-int-6": "img/OiO-int-6-EN.png",
+            "OiO-APP-introduce-1": "img/image_about_OiO-EN.png",
+            "OiO-APP-introduce-2": "img/image_about_OiO-2-EN.png",
+            "introduceA-text": "Click to watch the<br> introduction and enrich<br> your travel experience!!",
+            "introduceB-text": "The GPS triggering<br> mechanism is like <br>providing tourists with <br>a guided tour with their<br> own guide",
+            "introduceC-text": "Enable AI to recognize <br>buildings and jump out <br>of the attraction's<br> content, doubling the fun!",
+            "OiO-Editing-Platform":"img/OiO-Editing-Platform-EN.png",
+            "question-1": "What is the main function of this website?",
+            "answer-1": "Our website offers a tour guide service that recommends nearby attractions based on your GPS location.",
+            "question-2": "How can I use the OiO Editor?",
+            "answer-2": "YAll you need to do is allow access to your GPS location and the system will automatically recommend the most suitable attraction information.",
+            "question-3": "Is this app free to use?",
+            "answer-3": "Yes, our basic tour features are free, but some advanced features may require a paid subscription.",
+            "about-us": "img/AboutUs-EN.png",
         },
         "zh": {
             "about us": "關於我們",
-            "introduce": "介紹",
-            "application": "應用",
+            "introduce": "OiO介紹",
+            "application": "使用手冊",
             "other": "其他",
-            "Paragraph 1" : "OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。",
-            "introduceA-text" :"點擊景點即可觀看更<br>深入的景點介紹，豐<br>富旅遊體驗!!"
+            "Paragraph 1": "OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。",
+            "OiO-int-1": "img/OiO-int-1.png",
+            "OiO-int-2": "img/OiO-int-2.png",
+            "OiO-int-3": "img/OiO-int-3.png",
+            "OiO-int-4": "img/OiO-int-4.png",
+            "OiO-int-5": "img/OiO-int-5.png",
+            "OiO-int-6": "img/OiO-int-6.png",
+            "OiO-APP-introduce-1": "img/image_about_OiO.png",
+            "OiO-APP-introduce-2": "img/image_about_OiO-2.png",
+            "introduceA-text": "點擊景點即可觀看更<br>深入的景點介紹，豐<br>富旅遊體驗!!",
+            "introduceB-text": "為遊客提供個人沉浸式<br>導覽體驗，GPS觸發機制<br>就像是有專屬導遊提供<br>在地化、專人化的導覽",
+            "introduceC-text": "啟用AI辨識，AI 場景<br>建物識別，跳出該景點的<br>內容，樂趣加倍!",
+            "OiO-Editing-Platform":"img/OiO-Editing-Platform.png",
+            "question-1": "如何使用導覽功能？",
+            "answer-1": "我們的網站提供一項導覽服務，根據您的GPS位置推薦附近的景點。",
+            "question-2": "如何使用OiO編輯器？",
+            "answer-2": "您只需允許存取您的 GPS 位置，系統將自動推薦最適合的景點資訊。",
+            "question-3": "這個應用程式是否免費使用？",
+            "answer-3": "是的，我們的基本導覽功能是免費的，部分進階功能可能需要付費訂閱。",
+            "about-us": "img/AboutUs.png",
+
         }
     };
 
-    // 切換菜單的文字
-    document.querySelectorAll("#menu ul li a").forEach(link => {
-        const key = link.getAttribute("data-key");
-        if (translations[lang][key]) {
-            link.textContent = translations[lang][key];
-        }
-    });
-
-    // 切換頁面中內容的文字
+    // 切換文本和圖片，更新 hover-block 的 data-image 屬性但不改變 OiO-introduce-img
     document.querySelectorAll("[data-key]").forEach(element => {
         const key = element.getAttribute("data-key");
         if (translations[lang][key]) {
-            element.textContent = translations[lang][key];
+            if (element.tagName === "IMG" && !element.id.startsWith("introduce-img-")) {
+                element.src = translations[lang][key];
+            } else {
+                element.innerHTML = translations[lang][key];
+            }
         }
     });
 
-     // 更新段落文字，解析 HTML 標籤
-     document.querySelectorAll(".introduceA-text").forEach(text => {
-        const key = text.getAttribute("data-key");
+    // 更新 hover-block 中的 data-image 屬性，但不改變 OiO-introduce-img-1、2、3、4、5、6 的 src
+    document.querySelectorAll(".hover-block").forEach(block => {
+        const key = block.querySelector("img").getAttribute("data-key");
         if (translations[lang][key]) {
-            text.innerHTML = translations[lang][key];
+            block.setAttribute("data-image", translations[lang][key]);
         }
     });
 }
+
+// 添加点击事件，切换 mainImage 的路径
+document.querySelectorAll(".introduce-img").forEach(img => {
+    img.addEventListener("click", function() {
+        const lang = getCurrentLanguage(); // 假設這裡是您當前語言的變量或函數
+        const key = this.getAttribute("data-key");
+        const newSrc = translations[lang][key];
+
+        if (newSrc) {
+            document.getElementById("mainImage").src = newSrc;
+        }
+    });
+});
+
+// 確保 hover-block 的圖片保持不變
+document.querySelectorAll(".hover-block img").forEach(img => {
+    img.classList.add("hover-block-img");
+});
+
+
+
+
 //title動畫
 document.addEventListener("DOMContentLoaded", function () {
     let title = document.querySelector(".animate-title");
