@@ -35,32 +35,51 @@ canvas {
     pointer-events: none;  /* 避免影響點擊操作 */
 }
 
+/* 設定 #menu 樣式 */
 #menu {
     position: fixed;
-    width: 100%; 
+    top: 0;
+    width: 100%;
+    height: 50px; /* 固定高度 */
     display: flex;
-    justify-content: center; 
+    align-items: center; /* 垂直置中 */
+    justify-content: space-between; /* 讓 LOGO 和選單分開對齊 */
     background-color: rgb(0, 0, 0);
-    z-index: 999;  /* 讓它保持在最底層 */
+    z-index: 999; /* 讓它保持在最上層 */
+    padding: 0 20px; /* 增加左右間距 */
+    font-family: "Microsoft JhengHei", sans-serif; /* 設定微軟正黑體 */
 }
 
+/* 公司 LOGO */
+#logo {
+    height: 40px; /* 控制 LOGO 高度 */
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    height: 100%;
+    max-height: 40px; /* 限制 LOGO 高度 */
+}
+
+/* 選單樣式 */
 #menu ul {
     list-style: none;
     display: flex; /* 讓選單橫向排列 */
     gap: 20px; /* 設定選單間距 */
     padding: 0;
     margin: 0;
+    flex: 1; /* 讓 ul 佔據剩餘空間 */
+    justify-content: center; /* 使選單置中 */
 }
 
 #menu li {
     display: inline-block;
-    
 }
 
 #menu a {
     text-decoration: none;
     color: rgb(205, 98, 231);
-    top: 3vh;
     font-size: 20px;
     font-weight: bold;
     padding: 10px 15px;
@@ -70,13 +89,18 @@ canvas {
 .lang-toggle {
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: auto; /* 將語言切換按鈕推到右側 */
 }
 
+#langText {
+    font-size: 16px;
+    color: rgb(205, 98, 231);
+}
 
 #langLabel {
     margin-left: 10px;
     font-size: 16px;
+    color: rgb(205, 98, 231);
 }
 
 /* 自訂開關樣式 */
@@ -85,6 +109,7 @@ canvas {
     display: inline-block;
     width: 40px;
     height: 20px;
+    margin: 0 10px; /* 添加左右間距 */
 }
 
 .switch input {
@@ -509,25 +534,45 @@ input:checked + .slider:before {
     background-color:rgb(212, 172, 234);
     display: flex;
     align-items: center;      /* 垂直居中 */
-    
+    justify-content: center; /* 水平居中 */
 }
 
 .illustration-1 img
 {
     width: 700px;
-    margin-top:10px;
-    margin-left:400px;
     justify-content: center;  /* 水平居中 */
     z-index: 10;
 }
 
+.title-2-image {
+    display: block;  /* 改為 block 讓圖片以區塊顯示 */
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+    margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px; 
+    height: auto;
+    max-width: 100%;
+}
+
 #introduce-part1 {
-    background-color:rgb(212, 172, 234);
-    display: flex;
+    background-color: rgb(212, 172, 234);
+    display: block;
     align-items: center;      /* 垂直居中 */
     justify-content: center;  /* 水平居中 */
     overflow: hidden;         /* 隱藏超出區塊的內容，避免滾動條 */
+    max-width: 100%;
 }
+
+
+.section-introduce-1 img {
+    display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
+    margin: 0 auto; /* 使圖片水平居中 */
+    max-width: 100%; /* 設置最大寬度為 100%，防止超過父容器 */
+    height: auto; /* 保持圖片比例 */
+    margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
+}
+
+
+
 #introduce-part2 {
     background-color:rgb(212, 172, 234);
     display: flex;
@@ -561,7 +606,7 @@ input:checked + .slider:before {
     position: relative; /* 設置為相對定位 */
     height: 1265px;
     max-width: 100%;
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
 }
 
 .hover-image {
@@ -579,7 +624,7 @@ input:checked + .slider:before {
     left: 49.8%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:566px;  /* 設定適當大小 */
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
 }
 /* 預設隱藏 Attractions-introduceA */
 #Attractions-introduceA{
@@ -624,7 +669,7 @@ input:checked + .slider:before {
     left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:374px;  /* 設定適當大小 */
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
 }
 /* 預設隱藏 Attractions-introduceB */
 #Attractions-introduceB{
@@ -670,7 +715,7 @@ input:checked + .slider:before {
     left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:159px;  /* 設定適當大小 */
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
   }
   
 
@@ -719,24 +764,22 @@ input:checked + .slider:before {
     animation-fill-mode: forwards;
 }
 
-.illustration-2
-{
+.illustration-2 {
     height: 300px;
-    background-color:rgb(212, 172, 234);
+    background-color: rgb(212, 172, 234);
     display: flex;
-    align-items: center;      /* 垂直居中 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
     margin-top: 100px;
-    
 }
 
-.illustration-2 img
-{
-    width: 60%;
-    margin-top:5px;
-    margin-left:20%;
+.illustration-2 img {
+    width: 900px;
+    max-width: 100%; /* 確保圖片不會超過父容器 */
+    height: auto; /* 維持圖片比例 */
     z-index: 10;
-    margin-top: 100px;
 }
+
 
 .title-4-image {
     display: block;  
@@ -820,9 +863,9 @@ button img {
 }
 
 .about-us-img img{
-    max-width: 80%;   
+    max-width: 100%;   
     height: auto;     /* 高度自動調整以保持比例 */
-    width: auto;      /* 寬度自動調整以保持比例 */
+    width: 900px;      /* 寬度自動調整以保持比例 */
     display: block;   /* 去除圖片的底部空白間隙 */
     margin: 0 auto;   /* 保證圖片水平居中 */
     margin-top: 100px;
@@ -836,11 +879,11 @@ button img {
     height: 100%;             /* 確保容器有足夠的高度 */
 }
 .section-introduce__image {
-    max-width: 60%;   
+    max-width: 100%;   
     height: auto;     /* 高度自動調整以保持比例 */
-    width: auto;      /* 寬度自動調整以保持比例 */
+    width: 900px;      /* 寬度自動調整以保持比例 */
     justify-content: center;  /* 水平居中 */
-    display: block;   /* 去除圖片的底部空白間隙 */
+    display: flex;   
 }
 
 .section-application__left {
