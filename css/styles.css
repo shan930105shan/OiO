@@ -45,7 +45,7 @@ canvas {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 50px; /* 固定高度 */
+    height: 80px; /* 固定高度 */
     display: flex;
     align-items: center; /* 垂直置中 */
     justify-content: space-between; /* 讓 LOGO 和選單分開對齊 */
@@ -57,14 +57,14 @@ canvas {
 
 /* 公司 LOGO */
 #logo {
-    height: 60px; /* 控制 LOGO 高度 */
+    height: 80px; /* 控制 LOGO 高度 */
     display: flex;
     align-items: center;
 }
 
 #logo img {
     height: 100%;
-    max-height: 60px; /* 限制 LOGO 高度 */
+    max-height: 80px; /* 限制 LOGO 高度 */
 }
 
 /* 選單樣式 */
@@ -85,7 +85,7 @@ canvas {
 #menu a {
     text-decoration: none;
     color: rgb(205, 98, 231);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     padding: 10px 15px;
 }
@@ -98,7 +98,7 @@ canvas {
 }
 
 #langText {
-    font-size: 16px;
+    font-size: 20px;
     color: rgb(205, 98, 231);
 }
 
@@ -1114,14 +1114,14 @@ button img {
     }
     /* 調整選單高度與內部間距 */
     #menu {
-        height: 30px; /* 縮小高度 */
+        height: 50px; /* 縮小高度 */
         padding: 0 10px; /* 減少內邊距 */
     }
 
     /* 調整 LOGO */
     #logo img {
-        height: 25px; /* 縮小 LOGO */
-        max-height: 30px;
+        height: 40px; /* 縮小 LOGO */
+        max-height: 50px;
     }
 
     /* 調整選單樣式 */
@@ -1130,8 +1130,8 @@ button img {
     }
 
     #menu a {
-        font-size: 10px; /* 縮小字體 */
-        padding: 2px 5px; /* 減少內距 */
+        font-size: 12px; /* 縮小字體 */
+        padding: 1px 5px; /* 減少內距 */
     }
 
     /* 語言切換按鈕 */
@@ -1276,12 +1276,15 @@ button img {
     }
     .title-1-image {
         width: 80%; /* 縮小圖片大小適應手機 */
-        margin-bottom: 40px; /* 減少與其他元素的間距 */
+        margin-bottom: 80px; /* 減少與其他元素的間距 */
+        margin-top: -150px;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */   
     }
     
     .main-image {
         width: 400px; /* 縮小主圖片尺寸 */
-        height: 220px; /* 保持比例 */
+        height: auto; /* 保持比例 */
         margin-left: -200px; 
         margin-top: 50px; /* 減少往下距離 */
     }
@@ -1293,7 +1296,7 @@ button img {
 
 
     .OiO-introduce-img{
-        max-width: 480px; /* 限制最大寬度，適配手機 */
+        max-width: 360px; /* 限制最大寬度，適配手機 */
         margin: 0 auto;                                           
         display: flex;
         flex-direction: column;
@@ -1302,6 +1305,7 @@ button img {
         padding: 10px;
         position: relative;
         height: auto; 
+        margin-left: 0px;
     }
    
     .introduce-img-1
@@ -1316,14 +1320,14 @@ button img {
         width: 186px; /* 讓圖片適應手機屏幕寬度 */
         height: 125px;    
         margin-top: 30px; /* 調整間距避免重疊 */
-        margin-left: -100px; /* 讓它們居中 */
+        margin-left: -80px; /* 讓它們居中 */
     }
     .introduce-img-3
     {
         width: 165px; /* 讓圖片適應手機屏幕寬度 */
         height: 115px;    
         margin-top: 160px; /* 調整間距避免重疊 */
-        margin-left: -250px; /* 讓它們居中 */
+        margin-left: -190px; /* 讓它們居中 */
     }
 
     .introduce-img-4
@@ -1339,14 +1343,14 @@ button img {
         width: 180px; /* 讓圖片適應手機屏幕寬度 */
         height: 125px;    
         margin-top: 150px; /* 調整間距避免重疊 */
-        margin-left: -230px; /* 讓它們居中 */
+        margin-left: -210px; /* 讓它們居中 */
     }
     .introduce-img-6
     {
         width: 173px; /* 讓圖片適應手機屏幕寬度 */
         height: 125px;    
         margin-top: 150px; /* 調整間距避免重疊 */
-        margin-left: -240px; /* 讓它們居中 */
+        margin-left: -190px; /* 讓它們居中 */
     }
 
     .title-2-image {
