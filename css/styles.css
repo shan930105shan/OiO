@@ -1501,7 +1501,9 @@ button img {
         margin-top: 20px;
         margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
     }
-
+    .text-introduce-part2{
+        display:none;
+    }
     #introduce-part1, #introduce-part2,#introduce-part3 {
         min-height: 10px; /* 減少高度 */
         padding: 10px 0;  /* 控制內邊距，避免內容太擠 */
