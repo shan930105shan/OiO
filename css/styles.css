@@ -627,7 +627,7 @@ input:checked + .slider:before {
     position: relative; /* 設置為相對定位 */
     height: 1265px;
     max-width: 100%;
-    cursor: url('img/cursor.png') 16 16, auto;
+    cursor: url('../img/cursor.png') 16 16, auto;
 }
 
 .hover-image {
@@ -645,7 +645,7 @@ input:checked + .slider:before {
     left: 49.8%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:566px;  /* 設定適當大小 */
-    cursor: url('img/cursor.png') 16 16, auto;
+    cursor: url('../img/cursor.png') 16 16, auto;
 }
 /* 預設隱藏 Attractions-introduceA */
 #Attractions-introduceA{
@@ -690,7 +690,7 @@ input:checked + .slider:before {
     left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:374px;  /* 設定適當大小 */
-    cursor: url('img/cursor.png') 16 16, auto;
+    cursor: url('../img/cursor.png') 16 16, auto;
 }
 /* 預設隱藏 Attractions-introduceB */
 #Attractions-introduceB{
@@ -736,7 +736,7 @@ input:checked + .slider:before {
     left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:159px;  /* 設定適當大小 */
-    cursor: url('img/cursor.png') 16 16, auto;
+    cursor: url('../img/cursor.png') 16 16, auto;
   }
   
 
