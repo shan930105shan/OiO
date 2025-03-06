@@ -269,7 +269,35 @@ function switchLanguage(lang) {
 
 }
 
+function getCurrentLang() {
+    return document.querySelector("#langSwitch").checked ? "en" : "zh";
+}
 
+function updateDataImage() {
+    const lang = getCurrentLang(); 
+    
+    document.querySelectorAll(".hover-block").forEach(block => {
+        const img = block.querySelector("img");
+        const key = img.getAttribute("data-key");
+
+        let imagePath = "";
+
+        if (window.innerWidth <= 768) {
+            imagePath = `img/mobile-${key}${lang === "en" ? "-EN" : ""}.png`;
+        } else {
+            imagePath = `img/${key}${lang === "en" ? "-EN" : ""}.png`;
+        }
+
+        block.setAttribute("data-image", imagePath);
+    });
+}
+// **初始化時執行一次**
+updateDataImage();
+
+// **監聽視窗大小變化**
+window.addEventListener("resize", updateDataImage);
+// **監聽語言切換（如果你的網站有語言切換功能）**
+document.addEventListener("languageChange", updateDataImage);
 
 // 添加点击事件，切换 mainImage 的路径
 document.querySelectorAll(".introduce-img").forEach(img => {
@@ -408,6 +436,11 @@ document.querySelector(".slider_rec").addEventListener("mouseleave", () => {
 
 // 初始顯示
 updateSlider();
+
+
+
+
+
 
 // 監聽所有具有 "fade-in" 類別的元素
 const fadeInElements = document.querySelectorAll('.fade-in');
