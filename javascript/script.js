@@ -76,68 +76,6 @@ document.getElementById("langSwitch").addEventListener("change", function() {
 
 const container = document.querySelector(".bubble-container");
 
-/*你的圖片清單
-const images = [
-    "img/001.png", // 測試圖片
-    "img/002.png",
-    "img/003.png"
-];
-
-// 生成泡泡的函式
-function createBubble() {
-    const bubble = document.createElement("div");
-    bubble.classList.add("bubble");
-
-    // 隨機選擇圖片
-    const randomImg = images[Math.floor(Math.random() * images.length)];
-    bubble.style.backgroundImage = `url(${randomImg})`;
-
-    // 設定泡泡隨機大小
-    let size = Math.random() * 60 + 50; // 40px ~ 100px
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
-
-    container.appendChild(bubble);
-
-    // 設定泡泡的初始 3D 位置
-    let startZ = Math.random() * -600 - 300; // 從更遠的地方開始 (-300 ~ -900px)
-    let randomX = (Math.random(1,2) - 0.5) * 300; // 左右隨機偏移
-    let randomY = (Math.random() - 0.5) * 300; // 上下隨機偏移
-    let rotateZ = (Math.random() - 0.5) * 30; // 隨機旋轉角度
-
-    // GSAP 讓泡泡浮現 & 消失
-    gsap.fromTo(bubble,
-        {
-            opacity: 0,
-            scale: 0.2,
-            x: randomX,
-            y: randomY,
-            z: startZ,
-            rotationZ: rotateZ
-        },
-        {
-            opacity: 1,
-            scale: 1.5,
-            z: 0,
-            duration: Math.random() * 2, // 3~5 秒浮動時間
-            ease: "power1.out",
-            onComplete: () => {
-                gsap.to(bubble, {
-                    opacity: 0,
-                    scale: 2,
-                    duration: 1,
-                    onComplete: () => bubble.remove() // 移除泡泡，避免 DOM 堆積
-                });
-            }
-        }
-    );
-}
-
-// 每 800ms 生成一個泡泡
-setInterval(createBubble, 3000);
-*/
-
-
 // 切換語言
 // 切換語言開關的事件監聽器
 document.getElementById("langSwitch").addEventListener("change", function() {
@@ -169,12 +107,18 @@ function switchLanguage(lang) {
             "introduceB-text": "The GPS triggering<br> mechanism is like <br>providing tourists with <br>a guided tour with their<br> own guide",
             "introduceC-text": "Enable AI to recognize <br>buildings and jump out <br>of the attraction's<br> content, doubling the fun!",
             "OiO-Editing-Platform":"img/OiO-Editing-Platform-EN.png",
-            "question-1": "What is the main function of this website?",
-            "answer-1": "Our website offers a tour guide service that recommends nearby attractions based on your GPS location.",
-            "question-2": "How can I use the OiO Editor?",
-            "answer-2": "YAll you need to do is allow access to your GPS location and the system will automatically recommend the most suitable attraction information.",
-            "question-3": "Is this app free to use?",
-            "answer-3": "Yes, our basic tour features are free, but some advanced features may require a paid subscription.",
+            "question-1": "Is this app free? The APP is free to download, and some of the electronic content it contains requires payment.", 
+            "answer-1": "The APP is free to download, and some of the electronic content it contains requires payment.", 
+            "question-2": "Do I have to turn on GPS authorization?", 
+            "answer-2": "Yes, most electronic content will be triggered by GPS, giving you an exclusive tour guide-like experience.", 
+            "question-3": "Do electronic contents have to be downloaded? ", 
+            "answer-3": "In order to ensure that your user experience is not affected by network connection problems, our electronic contents need to be downloaded before use. ", 
+            "question-4": "Can I still experience electronic content without the Internet?", 
+            "answer-4": "After opening the electronic content, as long as the APP is not closed, you can still perform non-connected application operations, including but not limited to GPS-triggered, recognition-triggered images, audio files, AR orientation guidance and other electronic content.", 
+            "question-5": "Can the downloaded electronic content be removed?", 
+            "answer-5": "It can be removed and re-downloaded in the purchased e-book list, but the built-in The trigger record will be deleted when removed, and the GPS trigger will be reset. Please confirm whether to delete it. ",
+            "question-6": "Why can't I find the OiO app download on Google Play and App store?", 
+            "answer-6": "Please first confirm whether the mobile operating system has been upgraded to Android13 / iOS 11 or above. If the system has met the minimum operating environment requirements and still cannot find the OiO App, please contact us by email and we will help you troubleshoot the problem.",
             "about-us": "img/AboutUs-EN.png",
         },
         "zh": {
@@ -195,13 +139,20 @@ function switchLanguage(lang) {
             "introduceB-text": "為遊客提供個人沉浸式<br>導覽體驗，GPS觸發機制<br>就像是有專屬導遊提供<br>在地化、專人化的導覽",
             "introduceC-text": "啟用AI辨識，AI 場景<br>建物識別，跳出該景點的<br>內容，樂趣加倍!",
             "OiO-Editing-Platform":"img/OiO-Editing-Platform.png",
-            "question-1": "如何使用導覽功能？",
-            "answer-1": "我們的網站提供一項導覽服務，根據您的GPS位置推薦附近的景點。",
-            "question-2": "如何使用OiO編輯器？",
-            "answer-2": "您只需允許存取您的 GPS 位置，系統將自動推薦最適合的景點資訊。",
-            "question-3": "這個應用程式是否免費使用？",
-            "answer-3": "是的，我們的基本導覽功能是免費的，部分進階功能可能需要付費訂閱。",
+            "question-1": "這個應用程式是免費的嗎？	APP是免費下載的，內含的電子內容有部分需付費體驗",
+            "answer-1": "APP是免費下載的，內含的電子內容有部分需付費體驗。",
+            "question-2": "一定要開啟GPS授權嗎？",
+            "answer-2": "是的，多數電子內容會使用GPS觸發，讓您有專屬導覽員般的體驗。",
+            "question-3": "電子內容一定要下載嗎？",
+            "answer-3": "為使您的使用體驗盡可能不被網路連線問題所影響，我們的電子內容都需要下載後才能使用。",
+            "question-4": "在沒有網路的狀態下還能體驗電子內容嗎？",
+            "answer-4": "在開啟電子內容後，只要不關閉APP，仍可進行非連網的應用操作，包含但不限於GPS觸發、辨識觸發之圖像、音檔、AR方位指引等電子內容。",
+            "question-5": "已經下載的電子內容能不能移除？",
+            "answer-5": "可以移除，並可在已購入電子書清單中重新下載，但內建的觸發紀錄會於移除時一併刪除，GPS觸發將會重置，請務必確認是否刪除。",
+            "question-6": "為什麼在Google Play 及 App store 找不到 OiO 應用程式下載？",
+            "answer-6": "請先確認手機作業系統是否已升級至 Android13 / iOS 11 以上，若系統已達最低作業環境需求仍未找到OiO App，請來信與我們聯繫，我們會協助您排除問題。",
             "about-us": "img/AboutUs.png",
+
 
         }
     };
@@ -409,4 +360,6 @@ const observer = new IntersectionObserver((entries, observer) => {
 fadeInElements.forEach(element => {
     observer.observe(element);
 });
+
+
 
