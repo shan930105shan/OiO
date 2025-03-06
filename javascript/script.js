@@ -11,6 +11,8 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
+
+
 // 定義泡泡類別
 class Bubble {
     constructor() {
@@ -64,26 +66,80 @@ function animate() {
 }
 animate();
 
-document.getElementById("langSwitch").addEventListener("change", function() {
-    if (this.checked) {
-        document.getElementById("langLabel").textContent = "中";
-        switchLanguage("zh");
-    } else {
-        document.getElementById("langLabel").textContent = "EN";
-        switchLanguage("en");
-    }
-});
 
 const container = document.querySelector(".bubble-container");
+
+/*你的圖片清單
+const images = [
+    "img/001.png", // 測試圖片
+    "img/002.png",
+    "img/003.png"
+];
+
+// 生成泡泡的函式
+function createBubble() {
+    const bubble = document.createElement("div");
+    bubble.classList.add("bubble");
+
+    // 隨機選擇圖片
+    const randomImg = images[Math.floor(Math.random() * images.length)];
+    bubble.style.backgroundImage = `url(${randomImg})`;
+
+    // 設定泡泡隨機大小
+    let size = Math.random() * 60 + 50; // 40px ~ 100px
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+
+    container.appendChild(bubble);
+
+    // 設定泡泡的初始 3D 位置
+    let startZ = Math.random() * -600 - 300; // 從更遠的地方開始 (-300 ~ -900px)
+    let randomX = (Math.random(1,2) - 0.5) * 300; // 左右隨機偏移
+    let randomY = (Math.random() - 0.5) * 300; // 上下隨機偏移
+    let rotateZ = (Math.random() - 0.5) * 30; // 隨機旋轉角度
+
+    // GSAP 讓泡泡浮現 & 消失
+    gsap.fromTo(bubble,
+        {
+            opacity: 0,
+            scale: 0.2,
+            x: randomX,
+            y: randomY,
+            z: startZ,
+            rotationZ: rotateZ
+        },
+        {
+            opacity: 1,
+            scale: 1.5,
+            z: 0,
+            duration: Math.random() * 2, // 3~5 秒浮動時間
+            ease: "power1.out",
+            onComplete: () => {
+                gsap.to(bubble, {
+                    opacity: 0,
+                    scale: 2,
+                    duration: 1,
+                    onComplete: () => bubble.remove() // 移除泡泡，避免 DOM 堆積
+                });
+            }
+        }
+    );
+}
+
+// 每 800ms 生成一個泡泡
+setInterval(createBubble, 3000);
+*/
+
 
 // 切換語言
 // 切換語言開關的事件監聽器
 document.getElementById("langSwitch").addEventListener("change", function() {
     let langText = document.getElementById("langText");
-    let selectedLang = this.checked ? "en" : "zh";  // 根據開關狀態選擇語言
+    let selectedLang = this.checked ? "en" : "zh";  // 根据开关状态选择语言
 
-    langText.textContent = selectedLang === "en" ? "EN" : "中"; // 更新切換開關旁邊的文字
-    switchLanguage(selectedLang); // 確保語言切換函式被執行
+    langText.textContent = selectedLang === "en" ? "EN" : "中"; // 更新切换开关旁边的文字
+    switchLanguage(selectedLang); // 確保傳遞的是選擇的語言
+
 });
 
 // 語言切換函式
@@ -120,6 +176,17 @@ function switchLanguage(lang) {
             "question-6": "Why can't I find the OiO app download on Google Play and App store?", 
             "answer-6": "Please first confirm whether the mobile operating system has been upgraded to Android13 / iOS 11 or above. If the system has met the minimum operating environment requirements and still cannot find the OiO App, please contact us by email and we will help you troubleshoot the problem.",
             "about-us": "img/AboutUs-EN.png",
+            "OiO-APP-introduce-mobile":"img/mobile_image_about_OiO-EN.png",
+            "OiO-APP-introduce-mobile-2":"img/mobile_image_about_OiO-2-EN.png",
+            "mobile-OiO-Editing-Platform":"img/mobile-OiO-Editing-Platform-EN.png",
+            "mobile-AboutUs":"img/mobile-AboutUs-EN.png",
+            "FAQ":"FAQ",
+            "Detailed-user-manual":"Detailed user manual?", 
+            "Privacy-statement":"Privacy statement?", 
+            "Download":"How to download OiO APP?", 
+            "Contact-us":"Contact us", 
+            "Phone":"Tel: 02-21001400", 
+            "Address":"Address: 1st Floor, No. 19, Lane 218, Jilin Road, Zhongshan District, Taipei City"
         },
         "zh": {
             "about us": "關於我們",
@@ -152,12 +219,35 @@ function switchLanguage(lang) {
             "question-6": "為什麼在Google Play 及 App store 找不到 OiO 應用程式下載？",
             "answer-6": "請先確認手機作業系統是否已升級至 Android13 / iOS 11 以上，若系統已達最低作業環境需求仍未找到OiO App，請來信與我們聯繫，我們會協助您排除問題。",
             "about-us": "img/AboutUs.png",
-
-
+            "OiO-APP-introduce-mobile":"img/mobile_image_about_OiO.png",
+            "OiO-APP-introduce-mobile-2":"img/mobile_image_about_OiO-2.png",
+            "mobile-OiO-Editing-Platform":"img/mobile-OiO-Editing-Platform.png",
+            "mobile-AboutUs":"img/mobile-AboutUs.png",
+            "FAQ":"常見問題",
+            "Detailed-user-manual":"詳細使用手冊？",
+            "Privacy-statement":"隱私權說明?",
+            "Download":"如何下載 OiO APP？",
+            "Contact-us":"聯絡我們",
+            "Phone":"電話: 02-21001400",
+            "Address":"地址: 台北市中山區吉林路218巷19號1樓"
         }
     };
 
-    // 切換文本和圖片，更新 hover-block 的 data-image 屬性但不改變 OiO-introduce-img
+     // 获取所有包含 data-key 属性的 <source> 元素
+     const sources = document.querySelectorAll('source[data-key]');
+
+     sources.forEach(source => {
+         const key = source.getAttribute('data-key'); // 获取 data-key 的值
+         if (translations[lang] && translations[lang][key]) {
+             source.srcset = translations[lang][key]; // 更新 srcset
+         }
+     });
+    // 讓 <picture> 重新載入，確保 <source> 更新
+    //imgElement.parentElement.load();
+     // 触发图片的重新加载，确保图片路径和替代文本正确
+    
+
+    // 切换文本和图片，更新 hover-block 的 data-image 属性但不改变 OiO-introduce-img
     document.querySelectorAll("[data-key]").forEach(element => {
         const key = element.getAttribute("data-key");
         if (translations[lang][key]) {
@@ -169,14 +259,17 @@ function switchLanguage(lang) {
         }
     });
 
-    // 更新 hover-block 中的 data-image 屬性，但不改變 OiO-introduce-img-1、2、3、4、5、6 的 src
+    // 更新 hover-block 中的 data-image 属性，但不改变 OiO-introduce-img-1、2、3、4、5、6 的 src
     document.querySelectorAll(".hover-block").forEach(block => {
         const key = block.querySelector("img").getAttribute("data-key");
         if (translations[lang][key]) {
             block.setAttribute("data-image", translations[lang][key]);
         }
     });
+
 }
+
+
 
 // 添加点击事件，切换 mainImage 的路径
 document.querySelectorAll(".introduce-img").forEach(img => {
@@ -196,27 +289,6 @@ document.querySelectorAll(".hover-block img").forEach(img => {
     img.classList.add("hover-block-img");
 });
 
-
-
-
-//title動畫
-document.addEventListener("DOMContentLoaded", function () {
-    let title = document.querySelector(".animate-title");
-
-    let observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    title.classList.add("show"); // 加上 class 讓動畫開始
-                    observer.unobserve(title); // 只觸發一次
-                }
-            });
-        },
-        { threshold: 0.5 } // 當 50% 標題進入畫面時觸發
-    );
-
-    observer.observe(title);
-});
 //OiO-introduce-img
 document.addEventListener("DOMContentLoaded", () => {
     const mainImage = document.getElementById("mainImage");
@@ -336,11 +408,6 @@ document.querySelector(".slider_rec").addEventListener("mouseleave", () => {
 
 // 初始顯示
 updateSlider();
-
-
-
-
-
 
 // 監聽所有具有 "fade-in" 類別的元素
 const fadeInElements = document.querySelectorAll('.fade-in');
