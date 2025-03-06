@@ -548,31 +548,116 @@ input:checked + .slider:before {
 }
 
 #introduce-part1 {
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: column; /* 使圖片和文字區塊上下排列 */
+    justify-content: center; /* 垂直居中對齊 */
+    align-items: center; /* 水平居中對齊 */
     background-color: rgb(212, 172, 234);
-    display: block;
-    align-items: center;      /* 垂直居中 */
-    justify-content: center;  /* 水平居中 */
-    overflow: hidden;         /* 隱藏超出區塊的內容，避免滾動條 */
+    padding: 20px; /* 可選，為父容器增加一些內邊距 */
     max-width: 100%;
 }
 
-
 .section-introduce-1 img {
-    display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
-    margin: 0 auto; /* 使圖片水平居中 */
-    max-width: 100%; /* 設置最大寬度為 100%，防止超過父容器 */
-    height: auto; /* 保持圖片比例 */
-    margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
+    display: block;
+    margin: 0; /* 清除默認的外邊距 */
+    max-width: 100%; /* 控制圖片寬度，這樣圖片不會超過父容器 */
+    height: auto;
+    margin-bottom: 10px; /* 圖片和文字之間的間距 */
 }
 
+.text-container-1 {
+    display: flex;
+    flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+    padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+}
+
+.text-introduce-part1 {
+    text-align: left;
+    line-height: 1.5;
+    font-weight: bold;
+    margin-top: -420px;
+    margin-left: 200px;
+    z-index: 10;
+}
+
+.text-introduce-part1 p {
+    margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+    font-family: "Microsoft JhengHei", sans-serif; 
+    text-align: center; color: rgb(0, 0, 0); 
+    font-size: 1.0rem; 
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+    z-index: 1;
+}
 
 #introduce-part2 {
-    background-color:rgb(212, 172, 234);
-    display: flex;
-    align-items: center;      /* 垂直居中 */
-    justify-content: center;  /* 水平居中 */
-    overflow: hidden;         /* 隱藏超出區塊的內容，避免滾動條 */
+    display: flex; /* 使用 Flexbox */
+    flex-direction: column; /* 設置為垂直排列，圖片和文字會上下顯示 */
+    align-items: center; /* 水平居中對齊 */
+    justify-content: center; /* 垂直居中對齊 */
+    background-color: rgb(212, 172, 234);
+    padding: 20px; /* 增加父容器內邊距 */
+    max-width: 100%;
 }
+
+.section-introduce-2 img {
+    display: block;
+    margin: 0; /* 清除默認的外邊距 */
+    max-width: 100%; /* 控制圖片寬度，這樣圖片不會超過父容器 */
+    height: auto;
+    margin-bottom: 10px; /* 圖片和文字之間的間距 */
+}
+
+.text-container-2 {
+    display: flex;
+    flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+    padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+}
+
+.text-introduce-part2 {
+    font-family: "Microsoft JhengHei", sans-serif;
+    text-align: right;
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    line-height: 1.5;
+    font-weight: bold;
+    margin-top: -480px;
+    margin-left: -400px;
+    z-index: 10;
+}
+
+.text-introduce-part2 p {
+    margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+    z-index: 1;
+}
+
+.text-introduce-part3 {
+    text-align: right;
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    line-height: 1.5;
+    font-weight: bold;
+    margin-top: 200px;
+    margin-left: -400px;
+    z-index: 10;
+}
+
+.text-introduce-part3 p {
+    font-family: "Microsoft JhengHei", sans-serif;
+    margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+    z-index: 1;
+}
+
+
 #introduce-part3 {
     min-height: 1536px;
     display: block;
@@ -1379,6 +1464,10 @@ button img {
         height: auto; /* 保持圖片比例 */
         margin-top: 20px;
         margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
+    }
+
+    .text-introduce-part1{
+        display:none;
     }
 
     #about-OiO {
