@@ -278,17 +278,6 @@ input:checked + .slider:before {
 }
 */
 
-.bubble {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
 
 .download-section img {
     max-width: 50%; 
@@ -528,19 +517,19 @@ input:checked + .slider:before {
     font-weight: bold;
 }
 
-.illustration-1
-{
-    height: 100px;
-    background-color:rgb(212, 172, 234);
+.illustration-1 {
+    height: 350px;
+    width: auto;
+    background-color: rgb(212, 172, 234);
     display: flex;
-    align-items: center;      /* 垂直居中 */
+    align-items: center; /* 垂直居中 */
     justify-content: center; /* 水平居中 */
 }
 
-.illustration-1 img
-{
+.illustration-1 img {
     width: 700px;
-    justify-content: center;  /* 水平居中 */
+    max-width: 100%; /* 確保圖片不會超過父容器 */
+    height: auto; /* 維持圖片比例 */
     z-index: 10;
 }
 
@@ -590,9 +579,41 @@ input:checked + .slider:before {
 .title-3-image {
     display: block;  
     margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
-    margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    margin-bottom: 50px; /* 讓 .title-1-image 與 .main-image 更靠近 */
     width: 600px;
 }
+
+.manual-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px; /* 調整 icon 與連結之間的距離 */
+    margin-bottom: 20px; /* 與 Interactive-Mobile 間距 */
+}
+
+
+.manual-icon {
+    width: 200px; /* 調整這個值以適當縮小 */
+    height: auto;
+}
+
+.manual-icon img {
+    width: 100%; /* 確保圖片適應容器 */
+    height: auto;
+}
+
+.manual-link {
+    font-size: 16px;
+    color: rgb(212, 172, 234);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.manual-link:hover {
+    text-decoration: underline;
+}
+
 
 .Interactive-Mobile {
     display: flex;
@@ -606,7 +627,7 @@ input:checked + .slider:before {
     position: relative; /* 設置為相對定位 */
     height: 1265px;
     max-width: 100%;
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
 }
 
 .hover-image {
@@ -624,7 +645,7 @@ input:checked + .slider:before {
     left: 49.8%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:566px;  /* 設定適當大小 */
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
 }
 /* 預設隱藏 Attractions-introduceA */
 #Attractions-introduceA{
@@ -669,7 +690,7 @@ input:checked + .slider:before {
     left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:374px;  /* 設定適當大小 */
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
 }
 /* 預設隱藏 Attractions-introduceB */
 #Attractions-introduceB{
@@ -715,7 +736,7 @@ input:checked + .slider:before {
     left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
     transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
     width:159px;  /* 設定適當大小 */
-    cursor: url('../img/cursor.png') 16 16, auto;
+    cursor: url('img/cursor.png') 16 16, auto;
   }
   
 
@@ -1060,18 +1081,410 @@ button img {
 }
 
 /* 在小螢幕 (手機) 上調整排版 */
-@media (max-width: 768px) {
+/* 響應式設計: 手機視圖 */
+
+@media screen and (max-width: 768px) {
+
+    /* 防止橫向滾動 */
+    html, body {
+        width: 100vw;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+/* 確保主要容器適應手機螢幕 */
     .container {
-        flex-direction: column; /* 讓內容改為直向排列 */
+        width: 100%;
+        max-width: 480px; /* 限制最大寬度，適配手機 */
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        padding: 20px;
+    }
+    /* 調整選單高度與內部間距 */
+    #menu {
+        height: 30px; /* 縮小高度 */
+        padding: 0 10px; /* 減少內邊距 */
     }
 
-    .left, .right {
-        flex: none;
-        width: 100%; /* 讓圖片區塊寬度佔滿 */
+    /* 調整 LOGO */
+    #logo img {
+        height: 25px; /* 縮小 LOGO */
+        max-height: 30px;
     }
 
-    .right img {
-        max-width: 80%; /* 小螢幕上放大圖片 */
+    /* 調整選單樣式 */
+    #menu ul {
+        gap: 5px; /* 減少間距 */
     }
+
+    #menu a {
+        font-size: 10px; /* 縮小字體 */
+        padding: 2px 5px; /* 減少內距 */
+    }
+
+    /* 語言切換按鈕 */
+    .lang-toggle {
+        margin-left: auto; /* 保持靠右 */
+    }
+
+    #langText, #langLabel {
+        font-size: 10px; /* 縮小字體 */
+    }
+
+    .switch {
+        width: 40px; /* 縮小開關 */
+        height: 20px;
+    }
+
+    .slider:before {
+        height: 15px;
+        width: 15px;
+        left: 2px;
+        bottom: 2px;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(20px);
+    }
+
+    /* 隱藏背景 */
+    .background {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        height: 900px;
+    }
+
+    .left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: -10px; /* 減少與 .right 之間的距離 */
+    }
+    
+    .right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+    .right{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .OiO-img {
+        width: 250px;
+        max-width: 100%;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .description {
+        font-size: 12px;
+        text-align: center;
+        padding: 0 15px;
+        max-width: 300px; /* 設定最大寬度，讓文字區塊不會太寬 */
+        margin: 0 auto; /* 讓區塊保持置中 */
+    }
+    
+    .small-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .icon {
+        height: 35px;
+    }
+
+    .app-container {
+        position: relative;
+        width: 500px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .video-container {
+        position: relative;
+        width: 300px;;
+        max-width: 350px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: -5px;
+        margin-top: -155px;
+    }
+
+    .phone-mockup {
+        position: absolute;
+        width: 420px;
+        height: 450px;
+        max-width: 500px;
+        transform: translate(-50%, -50%);
+        margin-left: -5px;
+        margin-top: -50px;
+    }
+
+    .OiO-introduce{
+        width: 100%;
+        max-width: 480px; /* 限制最大寬度，適配手機 */
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+
+    }
+
+    .OiO-introduce{
+        background-color:rgb(242, 243, 240);
+        height: 250px;
+    }
+    .title-1-image {
+        width: 80%; /* 縮小圖片大小適應手機 */
+        margin-bottom: 40px; /* 減少與其他元素的間距 */
+    }
+    
+    .main-image {
+        width: 400px; /* 縮小主圖片尺寸 */
+        height: 220px; /* 保持比例 */
+        margin-left: -200px; 
+        margin-top: 50px; /* 減少往下距離 */
+    }
+    
+    .hover-block {
+        width: 100%; /* 讓區塊更適應手機寬度 */
+        height: auto;
+    }
+
+
+    .OiO-introduce-img{
+        max-width: 450px; /* 限制最大寬度，適配手機 */
+        margin: 0 auto;                                           
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+    }
+   
+    .introduce-img-1
+    {
+        width: 130px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: 30px; /* 調整間距避免重疊 */
+        margin-left: -90px; /* 讓它們居中 */
+    }
+    .introduce-img-2
+    {
+        width: 186px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: 30px; /* 調整間距避免重疊 */
+        margin-left: -100px; /* 讓它們居中 */
+    }
+    .introduce-img-3
+    {
+        width: 165px; /* 讓圖片適應手機屏幕寬度 */
+        height: 115px;    
+        margin-top: 180px; /* 調整間距避免重疊 */
+        margin-left: -250px; /* 讓它們居中 */
+    }
+
+    .introduce-img-4
+    {
+        width: 165px; /* 讓圖片適應手機屏幕寬度 */
+        height: 115px;    
+        margin-top: -120px; /* 調整間距避免重疊 */
+        margin-left: -70px; /* 讓它們居中 */
+    }
+
+    .introduce-img-5
+    {
+        width: 180px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: 10px; /* 調整間距避免重疊 */
+        margin-left: -230px; /* 讓它們居中 */
+    }
+    .introduce-img-6
+    {
+        width: 173px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: 10px; /* 調整間距避免重疊 */
+        margin-left: -240px; /* 讓它們居中 */
+    }
+
+    .title-2-image {
+        display: block;  /* 改為 block 讓圖片以區塊顯示 */
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+        margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+
+    #introduce-part1 {
+        background-color: rgb(212, 172, 234);
+        display: block;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+        overflow: hidden;         /* 隱藏超出區塊的內容，避免滾動條 */
+        max-width: 100%;
+        height: 400px;
+    }
+
+
+    .section-introduce-1 img {
+        display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
+        margin: 0 auto; /* 使圖片水平居中 */
+        max-width: 100%; /* 設置最大寬度為 100%，防止超過父容器 */
+        height: auto; /* 保持圖片比例 */
+        margin-bottom: -20px; /* 設定圖片之間的垂直間距 */
+    }
+
+    #introduce-part2 {
+        background-color:rgb(212, 172, 234);
+        display: flex;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+        overflow: hidden;         /* 隱藏超出區塊的內容，避免滾動條 */
+        height: 400px;
+    }
+
+    #introduce-part1, #introduce-part2,#introduce-part3 {
+        min-height: 50px; /* 減少高度 */
+        padding: 10px 0;  /* 控制內邊距，避免內容太擠 */
+    }
+    
+    /*操作大手機*/
+    #introduce-part3 {
+        height: 600px;
+        display: block;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+    }
+    
+    .title-3-image {
+        display: block;  
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+        margin-bottom: 100px; 
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+    
+    
+    .Interactive-Mobile {
+        display: flex;
+        justify-content: center;  /* 水平居中 */
+        align-items: center;      /* 垂直居中 */
+        width: 50%;  /* 確保可以水平置中 */
+        height: auto;
+        position: relative; /* 讓 hover 出現的圖片可以相對於這個區塊定位 */
+    }
+    
+    .Phone-image {
+        position: relative; /* 設置為相對定位 */
+        height: 502px;
+        max-width: 100%;
+        cursor: url('img/cursor.png') 16 16, auto;
+        margin-top: -80px;
+        margin-left: 250px;
+    }
+    
+    .hover-image {
+        display: none;
+    }
+    
+    #hoverImageA{
+        display: none;
+    }
+    /* 預設隱藏 Attractions-introduceA */
+    #Attractions-introduceA{
+        display: none;
+    }
+    .introduceA-text{
+        display: none;
+    }
+    /* 當 hoverImageA 被 hover 時，顯示 Attractions-introduceA */
+    #hoverImageA:hover + #Attractions-introduceA,
+    #hoverImageA:hover + #Attractions-introduceA + .introduceA-text {
+        opacity: 1;
+    }
+    
+    #hoverImageA:hover {
+        display: none;
+    }
+    /*懸停GPS*/
+    #hoverImageB{
+        display: none;
+    }
+    /* 預設隱藏 Attractions-introduceB */
+    #Attractions-introduceB{
+        display: none;
+    }
+    .introduceB-text{
+        display: none;
+    }
+    /* 當 hoverImageB 被 hover 時，顯示 Attractions-introduceB */
+    #hoverImageB:hover + #Attractions-introduceB,
+    #hoverImageB:hover + #Attractions-introduceB + .introduceB-text {
+        opacity: 1;
+    }
+    
+    #hoverImageB:hover {
+        display: none;
+    }
+    
+    /*懸停AI辨識*/
+    #hoverImageC {
+        display: none;
+      }
+      
+    
+    /* 預設隱藏 Attractions-introduceC */
+    #Attractions-introduceC{
+        display: none;
+    }
+    .introduceC-text{
+        display: none;
+    }
+    /* 當 hoverImageC 被 hover 時，顯示 Attractions-introduceC */
+    #hoverImageC:hover + #Attractions-introduceC,
+    #hoverImageC:hover + #Attractions-introduceC + .introduceC-text {
+        opacity: 1;
+    }
+    
+    #hoverImageC:hover {
+        display: none;
+    }
+    
+    
+    .section-introduce .Phone-image,
+    .section-introduce .hover-image {
+        animation-delay: 0s;  /* 確保沒有時間差 */
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
 }
