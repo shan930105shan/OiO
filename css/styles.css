@@ -1504,6 +1504,10 @@ button img {
     .text-introduce-part2{
         display:none;
     }
+
+    .text-introduce-part3{
+        display:none;
+    }
     #introduce-part1, #introduce-part2,#introduce-part3 {
         min-height: 10px; /* 減少高度 */
         padding: 10px 0;  /* 控制內邊距，避免內容太擠 */
