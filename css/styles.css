@@ -1700,7 +1700,7 @@ button img {
 
     .mobile-images img {
         width: 100%; /* 讓圖片自適應寬度 */
-        max-width: 400px; /* 限制最大寬度 */
+        max-width: 600px; /* 限制最大寬度 */
     }
 
     .title-5-image {
