@@ -289,16 +289,34 @@ function updateDataImage() {
         }
 
         block.setAttribute("data-image", imagePath);
-    });
+        // **如果這個 block 是主要顯示的，則同步更新 main-image**
+        if (block.classList.contains("active")) { // 假設有個 class 標記當前的主圖片
+            newMainImagePath = imagePath;
+        }
+        });
+
+        // **更新 main-image 的 src**
+        const mainImage = document.querySelector("#mainImage");
+        if (mainImage && newMainImagePath) {
+            mainImage.src = newMainImagePath;
+        }
+        if (mainImage) {
+            // 找到目前 hover-block 的 data-image，並設置給 main-image
+            const firstBlock = document.querySelector(".hover-block");
+            if (firstBlock) {
+                mainImage.src = firstBlock.getAttribute("data-image");
+            }
+        }
 }
-// **初始化時執行一次**
-updateDataImage();
 
 // **監聽視窗大小變化**
 window.addEventListener("resize", updateDataImage);
-// **監聽語言切換（如果你的網站有語言切換功能）**
-document.addEventListener("languageChange", updateDataImage);
 
+// **監聽語言切換**
+document.addEventListener("languageChange", updateDataImage);
+document.querySelector("#langSwitch").addEventListener("change", () => {
+    updateDataImage();
+});
 // 添加点击事件，切换 mainImage 的路径
 document.querySelectorAll(".introduce-img").forEach(img => {
     img.addEventListener("click", function() {
