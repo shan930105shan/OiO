@@ -65,7 +65,7 @@
             <video class="video-container " autoplay loop muted>
                 <source src="img/video.mp4" type="video/mp4">
             </video>
-            <img src="img/手機.gif" alt="Phone Mockup" class="phone-mockup">
+            <img src="img/首頁圖.gif"  daya-key="Home-page" alt="Phone Mockup" class="phone-mockup">
             </div>
         </div>
     </section>
@@ -171,7 +171,11 @@
         </div>
 
         <div class="Interactive-Mobile">
-            <img src="img/Phone.png" alt="OiO APP introduce" class="Phone-image">
+            <picture>
+                <source srcset="img/mobile-Phone.png" media="(max-width: 768px)" data-key="Phone-image-mobile">
+                <source srcset="img/Phone.png" media="(min-width: 769px)" data-key="Phone-image">
+                <img src="img/Phone.png" alt="OiO APP introduce" class="Phone-image">
+            </picture>
 
             <div class="hover-container">
                 <img src="img/interactive-img1.png" alt="Attractions" class="hover-image fade-in" id="hoverImageA">
@@ -308,8 +312,8 @@
             <div class="faq">
                 <h2 data-key="FAQ">常見問題</h2>
                 <ul>
-                    <li><a href="doc/user-manual.pdf" data-key="Detailed-user-manual">詳細使用手冊？</a></li>
-                    <li><a href="https://www.privacypolicies.com/live/a3530802-3673-4d38-bf72-fcbbbdf2d2ff" data-key="Privacy-statement">隱私權說明？</a></li>
+                    <li><a href="doc/user-manual.pdf" data-key="Detailed-user-manual">詳細使用手冊</a></li>
+                    <li><a href="https://www.privacypolicies.com/live/a3530802-3673-4d38-bf72-fcbbbdf2d2ff" data-key="Privacy-statement">隱私權說明</a></li>
                     <li><a href="#home" data-key="Download">如何下載 OiO APP？</a></li>
                 </ul>
             </div>
