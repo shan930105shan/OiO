@@ -150,6 +150,7 @@ function switchLanguage(lang) {
             "introduce": "Introduce",
             "application": "Application",
             "other": "Other",
+            "Home-page":"img/首頁圖-EN.gif",
             "Paragraph 1": "OiO Editor is a powerful editing platform that combines GPS technology, online content, interactive mechanisms, IoT devices, cloud computing, artificial intelligence, and e-commerce to achieve smarter and interactive urban design.",
             "OiO-int-1": "img/OiO-int-1-EN.png",
             "OiO-int-2": "img/OiO-int-2-EN.png",
@@ -163,6 +164,7 @@ function switchLanguage(lang) {
             "OiO-APP-introduce-2": "img/image_about_OiO-2-EN.png",
             "Paragraph-introduce-part2":"OiO is a platform that combines GPS, AR, and AI to provide <br>interactive tours and personalized content, allowing you to <br>explore the city through your mobile phone.",
             "Paragraph-introduce-part3":"OiO promotes business marketing and digital education, and <br>also allows users to enjoy endless fun while exploring the city. <br>From GPS positioning to AR interaction, every exploration is <br>full of surprises!",
+            "Phone-image-mobile":"img/mobile-Phone-EN.png",
             "introduceA-text": "Click to watch the<br> introduction and enrich<br> your travel experience!!",
             "introduceB-text": "The GPS triggering<br> mechanism is like <br>providing tourists with <br>a guided tour with their<br> own guide",
             "introduceC-text": "Enable AI to recognize <br>buildings and jump out <br>of the attraction's<br> content, doubling the fun!",
@@ -185,8 +187,8 @@ function switchLanguage(lang) {
             "mobile-OiO-Editing-Platform":"img/mobile-OiO-Editing-Platform-EN.png",
             "mobile-AboutUs":"img/mobile-AboutUs-EN.png",
             "FAQ":"FAQ",
-            "Detailed-user-manual":"Detailed user manual?", 
-            "Privacy-statement":"Privacy statement?", 
+            "Detailed-user-manual":"Detailed user manual", 
+            "Privacy-statement":"Privacy statement", 
             "Download":"How to download OiO APP?", 
             "Contact-us":"Contact us", 
             "Phone":"Tel: 02-21001400", 
@@ -197,6 +199,7 @@ function switchLanguage(lang) {
             "introduce": "OiO介紹",
             "application": "使用手冊",
             "other": "其他",
+            "Home-page":"img/首頁圖.gif",
             "Paragraph 1": "OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。",
             "OiO-int-1": "img/OiO-int-1.png",
             "OiO-int-2": "img/OiO-int-2.png",
@@ -210,6 +213,7 @@ function switchLanguage(lang) {
             "OiO-APP-introduce-2": "img/image_about_OiO-2.png",
             "Paragraph-introduce-part2":"OiO是一個結合GPS、AR、AI等技術的智慧城市平台，提供互動<br>式導覽和個性化內容，讓使用者透過手機探索城市、享受沉浸式<br>體驗。<br>",
             "Paragraph-introduce-part3":"OiO不僅促進了商業行銷和數位教育，也透過互動式導覽和沉浸<br>式體驗，讓使用者在探索城市的同時，享受無窮的樂趣。從GPS<br>定位到AR互動，每一次探索充滿了驚喜！",
+            "Phone-image-mobile":"img/mobile-Phone.png",
             "introduceA-text": "點擊景點即可觀看更<br>深入的景點介紹，豐<br>富旅遊體驗!!",
             "introduceB-text": "為遊客提供個人沉浸式<br>導覽體驗，GPS觸發機制<br>就像是有專屬導遊提供<br>在地化、專人化的導覽",
             "introduceC-text": "啟用AI辨識，AI 場景<br>建物識別，跳出該景點的<br>內容，樂趣加倍!",
@@ -232,8 +236,8 @@ function switchLanguage(lang) {
             "mobile-OiO-Editing-Platform":"img/mobile-OiO-Editing-Platform.png",
             "mobile-AboutUs":"img/mobile-AboutUs.png",
             "FAQ":"常見問題",
-            "Detailed-user-manual":"詳細使用手冊？",
-            "Privacy-statement":"隱私權說明?",
+            "Detailed-user-manual":"詳細使用手冊",
+            "Privacy-statement":"隱私權說明",
             "Download":"如何下載 OiO APP？",
             "Contact-us":"聯絡我們",
             "Phone":"電話: 02-21001400",
@@ -462,10 +466,6 @@ document.querySelector(".slider_rec").addEventListener("mouseleave", () => {
 
 // 初始顯示
 updateSlider();
-
-
-
-
 
 
 // 監聽所有具有 "fade-in" 類別的元素
