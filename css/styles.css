@@ -1515,7 +1515,7 @@ button img {
     /*操作大手機*/
     #introduce-part3 {
         height: auto;             /* 根據內容自動調整高度 */
-        max-height: 700px;       
+        max-height: 900px;       
         display: block;
         align-items: center;      /* 垂直居中 */
         justify-content: center;  /* 水平居中 */
