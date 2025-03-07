@@ -694,7 +694,7 @@ input:checked + .slider:before {
 
 .manual-link {
     font-size: 16px;
-    color: rgb(212, 172, 234);
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-weight: bold;
 }
@@ -718,6 +718,7 @@ input:checked + .slider:before {
     max-width: 100%;
     cursor: url('../img/cursor.png') 16 16, auto;
 }
+
 
 .hover-image {
     position: absolute;
@@ -1501,13 +1502,11 @@ button img {
         margin-top: 20px;
         margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
     }
-    .text-introduce-part2{
-        display:none;
+    .text-introduce-part3, .text-introduce-part2 {
+        display: none !important;
     }
-
-    .text-introduce-part3{
-        display:none;
-    }
+    
+   
     #introduce-part1, #introduce-part2,#introduce-part3 {
         min-height: 10px; /* 減少高度 */
         padding: 10px 0;  /* 控制內邊距，避免內容太擠 */
@@ -1553,7 +1552,7 @@ button img {
     
     .manual-link {
         font-size: 10px;
-        color: rgb(212, 172, 234);
+        color: rgb(0, 0, 0);
         text-decoration: none;
         font-weight: bold;
     }
@@ -1574,7 +1573,7 @@ button img {
     
     .Phone-image {
         position: relative;
-        width: 50%;        /* 設置圖片寬度為 50% */
+        width: 80%;        /* 設置圖片寬度為 50% */
         max-width: 100%;   /* 確保圖片不會超過容器寬度 */
         height: auto;      /* 高度自動縮放 */
         margin: 0 auto;    /* 圖片水平居中 */
