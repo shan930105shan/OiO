@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>數位大地導覽工具 OiO Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav id="menu">
+      <div id="logo">
+        <a href="#home">
+          <img src="img/logo.png" alt="Logo" class="logo-img">
+        </a>
+      </div>
+      <ul>
+        <li><a href="#about-us" data-key="about-us">關於我們</a></li>
+        <li><a href="#introduce-part1" data-key="introduce">OiO介紹</a></li>
+        <li><a href="#introduce-part3" data-key="application">使用手冊</a></li>
+        <li><a href="#recommend" data-key="other">其他</a></li>
+      </ul>
+      <!-- 語言選單 -->
+      <div class="lang-toggle">
+        <select id="languageSelect">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+          <option value="jp">日本語</option>
+        </select>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 首頁 -->
+    <section id="home" class="container">
+      <div class="background-container">
+        <img src="img/background.png" alt="background" class="background">
+      </div>
+      <div class="left">
+        <img src="img/OiO.png" alt="OiO" class="OiO-img" data-key="OiO-image">
+        <div class="description">
+          <p data-key="Paragraph-1">
+            OiO編輯器是一個強大的編輯平台，結合了GPS技術、線上內容、互動機制、物聯網設備、雲端運算、人工智慧和電子商務，實現更智慧和互動的城市設計。<br>
+            讓OiO當你的專屬導遊，讓你用更有趣的方式認識城市!
+          </p>
+        </div>
+        <div class="small-icons">
+          <img src="img/icon.png" alt="Icon" class="icon">
+          <a href="https://apps.apple.com/tw/app/oio-client/id6449966269" target="_blank">
+            <img src="img/Apple_Store.png" alt="Apple Store" class="icon hover-icon">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.SevenHz.MoG&hl=zh_TW&pli=1" target="_blank">
+            <img src="img/Google_Play.png" alt="Google Play" class="icon hover-icon">
+          </a>
+        </div>
+      </div>
+      <div class="center">
+      </div>
+      <div class="right">
+        <div class="bubble-container"></div>
+        <div class="app-container">
+          <video class="video-container" autoplay loop muted>
+            <source src="img/video.mp4" type="video/mp4">
+          </video>
+          <img src="img/首頁圖.png" data-key="Home-page" alt="Phone Mockup" class="phone-mockup">
+        </div>
+      </div>
+    </section>
+
+    <!-- OiO介紹 -->
+    <section id="OiO-introduce" class="OiO-introduce">
+      <!-- OiO travels with you 標題 -->
+      <div class="title fade-in">
+        <img src="img/title1.png" alt="OiO travels with you" class="title1-image " >
+        <p class="title-text" data-key="title1">
+          OiO 陪你一起旅遊
+        </p>
+      </div>
+      <div class="OiO-introduce-img fade-in">
+        <img src="img/OiO-introduce-img.png" alt="main-image" class="main-image fade-in" id="mainImage">
+        <div class="hover-block" data-image="img/OiO-int-1.png" style="top: 0; left: 0;">
+          <img src="img/OiO-introduce-img-1.png" alt="introduce-img-1" class="introduce-img-1" id="introduce-img-1" data-key="OiO-int-1">
+          <p class="introduce-img-1-text introduce-img-text" data-key="OiO-int-text-1">點開OiO選擇導覽書</p>
+        </div>
+        <div class="hover-block" data-image="img/OiO-int-2.png" style="top: 0; left: 33.33%;">
+          <img src="img/OiO-introduce-img-2.png" alt="introduce-img-2" class="introduce-img-2" id="introduce-img-2" data-key="OiO-int-2">
+          <p class="introduce-img-2-text introduce-img-text" data-key="OiO-int-text-2">跟著AR導覽至景點</p>
+        </div>
+        <div class="hover-block" data-image="img/OiO-int-3.png" style="top: 0; left: 66.66%;">
+          <img src="img/OiO-introduce-img-3.png" alt="introduce-img-3" class="introduce-img-3" id="introduce-img-3" data-key="OiO-int-3">
+          <p class="introduce-img-3-text introduce-img-text" data-key="OiO-int-text-3">點擊景點進行介紹</p>
+        </div>
+        <div class="hover-block" data-image="img/OiO-int-4.png" style="top: 50%; left: 0;">
+          <img src="img/OiO-introduce-img-4.png" alt="introduce-img-4" class="introduce-img-4" id="introduce-img-4" data-key="OiO-int-4">
+          <p class="introduce-img-4-text introduce-img-text" data-key="OiO-int-text-4">手機掃描景點跳出內容</p>
+        </div>
+        <div class="hover-block" data-image="img/OiO-int-5.png" style="top: 50%; left: 33.33%;">
+          <img src="img/OiO-introduce-img-5.png" alt="introduce-img-5" class="introduce-img-5" id="introduce-img-5" data-key="OiO-int-5">
+          <p class="introduce-img-5-text introduce-img-text" data-key="OiO-int-text-5">靠近店家推播優惠券</p>
+        </div>
+        <div class="hover-block" data-image="img/OiO-int-6.png" style="top: 50%; left: 66.66%;">
+          <img src="img/OiO-introduce-img-6.png" alt="introduce-img-6" class="introduce-img-6" id="introduce-img-6" data-key="OiO-int-6">
+          <p class="introduce-img-6-text introduce-img-text" data-key="OiO-int-text-6">返家後仍可打開電子書回味</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP介紹 -->
+    <section id="introduce-part1" class="section-introduce-1">
+      <!-- OiO APP 標題 -->
+      <div class="title fade-in">
+        <img src="img/title2.png" alt="OiO APP" class="title2-image " >
+        <p class="title-text" data-key="title2">
+          關於OiO大地編輯器
+        </p>
+      </div>
+      <picture>
+        <source srcset="img/mobile_image_about_OiO.png" media="(max-width: 768px)" data-key="OiO-APP-introduce-mobile">
+        <source srcset="img/image_about_OiO.png" media="(min-width: 769px)" data-key="OiO-APP-introduce-1">
+        <img id="about-OiO" src="img/image_about_OiO.png" alt="About OiO" class="section-introduce__image fade-in" data-key="OiO-APP-introduce-1">
+      </picture>
+      <div class="text-container-1">
+        <div class="text-introduce-part1 fade-in">
+          <p data-key="Paragraph-introduce-part1-1">
+            OiO編輯器是一個超強的城市設計平台，將GPS、互動內容、物聯網、雲端、<br>
+            AI和電子商務融合在一起，讓城市生活更智慧、更有趣！透過GPS技術，所有<br>
+            資訊和內容都能精準地帶到你身邊，讓你隨時隨地探索城市新驚喜。<br>
+          </p>
+          <p data-key="Paragraph-introduce-part1-2">
+            OiO還能讓城市設備智慧協同運作，提高效率，隨時同步和儲存資料，讓你隨<br>
+            手查看。AI根據你的需求提供個性化內容，並分析數據來優化城市管理。商家<br>
+            也能輕鬆開設網店，帶動城市經濟發展。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="illustration-1 ">
+      <img src="img/illustration1.png" alt="more about OiO" class="illustration-1__image" data-key="illustration-1">
+      <p data-key="illustration-1-1">我想了解更多OiO可以做甚麼</p>
+      <p data-key="illustration-1-2">OiO包含多方位的功能!</p>
+    </div>
+
+    <!-- APP介紹 -->
+    <section id="introduce-part2" class="section-introduce-2">
+      <picture>
+        <source srcset="img/mobile_image_about_OiO-2.png" media="(max-width: 768px)" data-key="OiO-APP-introduce-mobile-2">
+        <source srcset="img/image_about_OiO-2.png" media="(min-width: 769px)" data-key="OiO-APP-introduce-2">
+        <img src="img/image_about_OiO-2.png" alt="OiO APP introduce" class="section-introduce__image fade-in">
+      </picture>
+      <div class="text-container-2">
+        <div class="text-introduce-part2 fade-in">
+          <p data-key="Paragraph-introduce-part2">
+            OiO是一個結合GPS、AR、AI等技術的智慧城市平台，提供互動<br>
+            式導覽和個性化內容，讓使用者透過手機探索城市、享受沉浸式<br>
+            體驗。<br>
+          </p>
+        </div>
+        <div class="feature-container">
+          <div class="feature-item fade-in" data-key="feature-item-1">
+            <p>離線GPS地圖</p>
+          </div>
+          <div class="feature-item fade-in" data-key="feature-item-2">
+            <p>AR實景方位</p>
+          </div>
+          <div class="feature-item fade-in" data-key="feature-item-3">
+            <p>多語言互動內容</p>
+          </div>
+        </div>
+        <div class="text-introduce-part3 fade-in">
+          <p data-key="Paragraph-introduce-part3">
+            OiO不僅促進了商業行銷和數位教育，也透過互動式導覽和沉浸<br>
+            式體驗，讓使用者在探索城市的同時，享受無窮的樂趣。從GPS<br>
+            定位到AR互動，每一次探索充滿了驚喜！
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP介紹 -->
+    <section id="introduce-part3" class="section-introduce">
+      <!-- How It Works 標題 -->
+      <div class="title fade-in">
+        <img src="img/title3.png" alt="How It Works" class="title3-image " >
+        <p class="title-text" data-key="title3">
+          OiO APP操作介紹
+        </p>
+      </div>
+      <div class="manual-container">
+        <img src="img/manual-icon.png" alt="User Manual Icon" class="manual-icon">
+        <a href="doc/user-manual.pdf" target="_blank" class="manual-link" data-key="text-User-Manual">使用說明手冊 (User-Manual.PDF)</a>
+      </div>
+      <div class="Interactive-Mobile">
+        <picture>
+          <source srcset="img/mobile-Phone.png" media="(max-width: 768px)" data-key="Phone-image-mobile">
+          <source srcset="img/Phone.png" media="(min-width: 769px)" data-key="Phone-image">
+          <img src="img/Phone.png" alt="OiO APP introduce" class="Phone-image">
+        </picture>
+        <div class="hover-container">
+          <img src="img/interactive-img1.png" alt="Attractions" class="hover-image fade-in" id="hoverImageA">
+          <img src="img/Attractions-introduceA.png" alt="Attractions introduce" class="hover-image hidden" id="Attractions-introduceA">
+          <p data-key="introduceA-text" class="introduceA-text">
+            點擊景點即可觀看更<br>深入的景點介紹，豐<br>富旅遊體驗!!
+          </p>
+        </div>
+        <div class="hover-container">
+          <img src="img/interactive-img2.png" alt="Attractions" class="hover-image fade-in" id="hoverImageB">
+          <img src="img/Attractions-introduceB.png" alt="Attractions introduce" class="hover-image hidden" id="Attractions-introduceB">
+          <p data-key="introduceB-text" class="introduceB-text">
+            為遊客提供個人沉浸式<br>導覽體驗，GPS觸發機制<br>就像是有專屬導遊提供<br>在地化、專人化的導覽
+          </p>
+        </div>
+        <div class="hover-container">
+          <img src="img/interactive-img3.png" alt="Attractions" class="hover-image fade-in" id="hoverImageC">
+          <img src="img/Attractions-introduceC.png" alt="Attractions introduce" class="hover-image hidden" id="Attractions-introduceC">
+          <p data-key="introduceC-text" class="introduceC-text">
+            啟用AI辨識，AI 場景<br>建物識別，跳出該景點的<br>內容，樂趣加倍!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="illustration-2 fade-in">
+      <img src="img/illustration2.png" alt="OiO editing platform" class="illustration-2__image" >
+      <p data-key="illustration-2-1">我也想自己做一本電子導覽書，我能夠自己製作嗎？</p>
+      <p data-key="illustration-2-2">你當然可以呀!OiO大地編輯器也提供了編輯平台讓你編輯</p>
+    </div>
+
+    <!-- OiO編輯平台 -->
+    <section id="OiO-editing-platform-1" class="section-introduce">
+      <!-- OiO Editing Platform 標題 -->
+      <div class="title fade-in">
+        <img src="img/title4.png" alt="OiO Editing Platform" class="title4-image" >
+        <p class="title-text" data-key="title4">
+          OiO編輯器自定義
+        </p>
+      </div>
+      <div id="OiO-editing-platform">
+        <picture>
+          <source srcset="img/mobile-OiO-Editing-Platform.png" media="(max-width: 768px)" data-key="mobile-OiO-Editing-Platform">
+          <source srcset="img/OiO-Editing-Platform.png" media="(min-width: 769px)" data-key="OiO-Editing-Platform">
+          <img src="img/OiO-Editing-Platform.png" alt="OiO-editing-platform-1" class="OiO-editing-platform-1 fade-in" data-key="OiO-Editing-Platform">
+        </picture>
+      </div>
+      <div class="text-container-3">
+        <div class="text-OiO-editing-platform fade-in">
+          <p data-key="Paragraph-OiO-editing-platform-1">
+            店家不僅可以輕鬆更新電子書中的商品資訊，還能設置優惠券，讓顧客隨時享有超值折扣！更棒的是，他們可以隨時在商品介紹中新增或移除多媒體互動檔案，像是影片、圖片或動畫，讓顧客沉浸在視覺與感官的雙重享受中。這不僅讓商店內容保持新鮮有趣，還能更好地吸引顧客目光，提升購物體驗！
+          </p>
+          <p data-key="Paragraph-OiO-editing-platform-2">
+            當鄰近的OiO 用戶進行周圍探索的時候被推播吸引，便可促進消費，當遊客返家之後，仍可開啟商家電子書進行線上消費，或是透過更新書籍獲取新的店家優惠資訊。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OiO編輯平台 輪播  -->
+    <section id="OiO-editing-platform" class="section-introduce">
+      <div class="OiO-editing-platform">
+        <button onclick="prevSlide()" class="prev-button" id="prevButton">
+          <img src="img/prev-icon.png" alt="Previous">
+        </button>
+        <div class="slide active">
+            <img src="img/Editing-PlatformA.png" alt="ImageA" width="300">
+            <p data-key="Editing-PlatformA">右邊區塊可編輯電子書互動內容，無須程式語言即可完成互動內容</p>
+        </div>
+    
+        <div class="slide">
+            <img src="img/Editing-PlatformB.png" alt="ImageB" width="300">
+            <p data-key="Editing-PlatformB">你可以拖曳圖片加入電子書，打造如同APP一般的互動書</p>
+        </div>
+    
+        <div class="slide">
+            <img src="img/Editing-PlatformC.png" alt="ImageC" width="300">
+            <p data-key="Editing-PlatformC">AI 辨識輔助 GPS 精準觸發，避免重疊並提供準確資訊!透過 GPS 自動觸發多媒體和 URL，提供無需操作的互動體驗。<br>
+            </p>
+        </div>
+        <!--<img id="Editing-Platform-image" src="img/Editing-PlatformA-ZH.png" alt="Editing Platform A" data-key="Editing-PlatformA">-->
+        <button onclick="nextSlide()" class="next-button" id="nextButton">
+          <img src="img/next-icon.png" alt="Next">
+        </button>
+      </div>
+      <!-- 手機版專用圖片 -->
+      <div class="mobile-images">
+        <img src="img/mobile-OiO-Editing-Platform-1.png" alt="Mobile Editing Platform 1">
+      </div>
+      <div class="dots-container">
+        <span class="dot" id="dot-1"></span>
+        <span class="dot" id="dot-2"></span>
+        <span class="dot" id="dot-3"></span>
+      </div>
+    </section>
+
+    <div class="illustration-3 ">
+      <img src="img/illustration3.png" alt="OiO editing platform" class="illustration-3__image " >
+      <p data-key="illustration-3">如果你想嘗試製作電子書請聯絡我們!</p>
+    </div>
+
+    <!-- 製作團隊 -->
+    <section id="about-us" class="about-us">
+      <div class="title fade-in">
+        <img src="img/title5.png" alt="About us" class="title5-image" >
+        <p class="title-text" data-key="title5">
+          關於我們
+        </p>
+      </div>
+      <div class="about-us-img">
+        <picture>
+          <source srcset="img/mobile-AboutUs.png" media="(max-width: 768px)" data-key="mobile-AboutUs">
+          <source srcset="img/AboutUs.png" media="(min-width: 769px)" data-key="About-us">
+          <img src="img/AboutUs.png" alt="about-us" class="about-us__image fade-in" data-key="About-us">
+        </picture>
+      </div>
+      <div class="text-container-4">
+        <div class="text-about-us fade-in">
+          <p data-key="Paragraph-about-us-1">
+            7Hz載動科技媒體股份有限公司是一間自主開發智慧城市萬業應用工具與系統的軟體暨服務整合公司。
+          </p>
+          <p data-key="Paragraph-about-us-2">
+            大地編輯器於2023年法國巴黎博覽會上獲得發明獎金牌，並積極與提供觀光、文史、博物館、商圈單位和內容創作者合作，建立虛實整合的服務體驗。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 推薦作品 -->
+    <section id="recommend" class="section-recommend">
+      <div class="title fade-in">
+        <img src="img/title6.png" alt="OiO recommend" class="title6-image" >
+        <p class="title-text" data-key="title6">
+          OiO 現有作品推薦
+        </p>
+      </div>
+      <div class="slider-container">
+        <div class="slider_rec">
+          <img src="img/recommend-img1.jpg" alt="Image 1" class="slide_rec">
+          <img src="img/recommend-img2.png" alt="Image 2" class="slide_rec">
+          <img src="img/recommend-img3.png" alt="Image 3" class="slide_rec">
+          <img src="img/recommend-img4.png" alt="Image 4" class="slide_rec">
+          <img src="img/recommend-img5.png" alt="Image 5" class="slide_rec">
+          <img src="img/recommend-img6.png" alt="Image 6" class="slide_rec">
+          <img src="img/recommend-img7.png" alt="Image 7" class="slide_rec">
+        </div>
+      </div>
+    </section>
+
+    <!-- 常見問題 -->
+    <section id="FAQ-" class="section-FAQ">
+      <div class="title fade-in">
+        <img src="img/title7.png" alt="FAQ" class="title7-image" >
+        <p class="title-text" data-key="title7">
+          你好奇的問題
+        </p>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-button" data-key="question-1">這個應用程式是免費的嗎？</button>
+          <div class="accordion-content" data-key="answer-1">
+            <p>APP是免費下載的，內含的電子內容有部分需付費體驗。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" data-key="question-2">一定要開啟GPS授權嗎？</button>
+          <div class="accordion-content" data-key="answer-2">
+            <p>是的，多數電子內容會使用GPS觸發，讓您有專屬導覽員般的體驗。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" data-key="question-3">電子內容一定要下載嗎？</button>
+          <div class="accordion-content" data-key="answer-3">
+            <p>為使您的使用體驗盡可能不被網路連線問題所影響，我們的電子內容都需要下載後才能使用。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" data-key="question-4">在沒有網路的狀態下還能體驗電子內容嗎？</button>
+          <div class="accordion-content" data-key="answer-4">
+            <p>在開啟電子內容後，只要不關閉APP，仍可進行非連網的應用操作，包含但不限於GPS觸發、辨識觸發之圖像、音檔、AR方位指引等電子內容。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" data-key="question-5">已經下載的電子內容能不能移除？</button>
+          <div class="accordion-content" data-key="answer-5">
+            <p>可以移除，並可在已購入電子書清單中重新下載，但內建的觸發紀錄會於移除時一併刪除，GPS觸發將會重置，請務必確認是否刪除。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" data-key="question-6">為什麼在Google Play 及 App store 找不到 OiO 應用程式下載？</button>
+          <div class="accordion-content" data-key="answer-6">
+            <p>請先確認手機作業系統是否已升級至 Android13 / iOS 11 以上，若系統已達最低作業環境需求仍未找到OiO App，請來信與我們聯繫，我們會協助您排除問題。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="faq">
+        <h2 data-key="FAQ">常見問題</h2>
+        <ul>
+          <li><a href="doc/user-manual.pdf" data-key="Detailed-user-manual">詳細使用手冊</a></li>
+          <li><a href="https://www.privacypolicies.com/live/a3530802-3673-4d38-bf72-fcbbbdf2d2ff" data-key="Privacy-statement">隱私權說明</a></li>
+          <li><a href="#home" data-key="Download">如何下載 OiO APP？</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h2 data-key="Contact-us">聯絡我們</h2>
+        <p>FaceBook <a href="https://www.facebook.com/profile.php?id=100086604207278">7Hz.Design</a></p>
+        <p>Email: 7hzdesign@gmail.com</p>
+        <p data-key="Phone">電話: 02-21001400</p>
+        <p data-key="Address">地址: 台北市中山區吉林路218巷19號1樓</p>
+      </div>
+    </div>
+    <p>&copy; 2025 OiO Editor. All Rights Reserved.</p>
+  </footer>
+
+  <canvas id="bubbleCanvas"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
+  <svg class="floating-blobs"></svg>
+</body>
+</html>

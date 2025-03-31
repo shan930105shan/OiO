@@ -1,0 +1,2008 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    cursor: auto; /* 其他地方恢復預設游標 */
+    background-color: transparent;
+}
+
+.main-content {
+    flex: 1;
+}
+
+ /* 讓每個區塊至少佔滿一個螢幕 */
+section {
+    min-height: 768px;
+    padding: 50px 20px;
+}
+
+source[data-key] {
+    display: none; /* 隐藏 source 标签中的文本 */
+}
+
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/* 讓 canvas 充滿整個畫面並固定在背景 */
+#bubbleCanvas {
+    position: fixed;  /* 固定位置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -999;  /* 讓它保持在最底層 */
+    pointer-events: none;  /* 避免影響點擊操作 */
+}
+
+/* 設定 #menu 樣式 */
+#menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px; /* 固定高度 */
+    display: flex;
+    align-items: center; /* 垂直置中 */
+    justify-content: space-between; /* 讓 LOGO 和選單分開對齊 */
+    background-color: rgb(0, 0, 0);
+    z-index: 999; /* 讓它保持在最上層 */
+    padding: 0 20px; /* 增加左右間距 */
+    font-family: "Microsoft JhengHei", sans-serif; /* 設定微軟正黑體 */
+}
+
+/* 公司 LOGO */
+#logo {
+    height: 80px; /* 控制 LOGO 高度 */
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    height: 100%;
+    max-height: 80px; /* 限制 LOGO 高度 */
+}
+
+/* 選單樣式 */
+#menu ul {
+    list-style: none;
+    display: flex; /* 讓選單橫向排列 */
+    gap: 20px; /* 設定選單間距 */
+    padding: 0;
+    margin: 0;
+    flex: 1; /* 讓 ul 佔據剩餘空間 */
+    justify-content: center; /* 使選單置中 */
+}
+
+#menu li {
+    display: inline-block;
+}
+
+#menu a {
+    text-decoration: none;
+    color: rgb(205, 98, 231);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+/* 語言切換按鈕 */
+.lang-toggle select {
+    margin: 30px;
+    border-radius: 10px; /* 這會給 select 元素添加圓角 */
+    padding: 8px 12px;    /* 調整內邊距，讓選單看起來更好 */
+    border: 1px solid #ccc; /* 邊框顏色 */
+    background-color: #f9f9f9; /* 背景顏色 */
+    font-size: 16px; /* 調整字體大小 */
+    cursor: pointer; /* 使鼠標指標變成手型 */
+}
+
+/* 讓內容顯示在最上層 */
+.content {
+    position: relative;  /* 確保內容在 canvas 之上 */
+    z-index: 1; 
+    text-align: center;
+    color: transparent; /* 依照你的設計調整顏色 */
+}
+.container {
+    display: flex; /* 使用 flexbox 排列 */
+    justify-content: space-between; /* 讓左右兩側元素分開 */
+    align-items: center; /* 讓內容垂直置中 */
+    width: 100%;
+    max-width: 1200px; /* 限制最大寬度，避免畫面過寬 */
+    margin: 0 auto; /* 讓 .container 置中 */
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.background {
+    position: absolute;
+    width: 60%;
+    top: 0px;
+    right: 0;
+    z-index: -1;
+}
+/* 讓 .left 和 .right 兩側圖片區塊各佔一定空間 */
+.left {
+    width: 400px;
+    display: flex;
+    flex-direction: column; /* 改成縱向排列 */
+    justify-content: center; 
+    align-items: center;
+}
+
+.OiO-img {
+    width: 500px; /* 確保圖片不變形 */
+    max-width: 100%; /* 確保圖片在容器中不超過最大寬度 */
+    margin-left: -10px;
+    justify-content:left;
+}
+
+.description {
+    margin-top: 20px; /* 增加一些間距，讓文字不會直接緊貼圖片 */
+    font-size: 16px;
+    font-family: "Microsoft JhengHei", sans-serif;
+    text-align: left; /* 讓段落內文置中 */
+}
+
+.description p {
+    font-weight: bold; /* 文字加粗 */
+    font-family: "Microsoft JhengHei", sans-serif; /* 設定微軟正黑體 */
+    line-height: 1.5; /* 行距 1.5 倍 */
+}
+
+
+.small-icons {
+    display: flex;
+    justify-content: center; /* 讓小圖示水平排列並置中 */
+    gap: 0px; /* 設定圖示之間的間距 */
+    margin-top: 10px; /* 讓小圖與文字間有些間距 */
+}
+
+.icon {
+    width: auto; /* 設定小圖示大小 */
+    height: 50px;
+    transition: filter 0.3s ease; /* 增加平滑過渡效果 */
+}
+
+.hover-icon:hover {
+    filter: brightness(80%); /* 讓圖片變暗，80% 代表降低亮度 */
+}
+
+.center {
+    width: 100px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.right {
+    width: 400px;
+    display: flex;
+    justify-content:center; 
+    align-items: center;
+    
+}
+
+.app-container {
+    position: relative;
+    width: 100%; /* 設定寬度 */
+    height: 500px; /* 設定適當高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.phone-mockup {
+    position: absolute; /* 讓手機圖片絕對定位 */
+    top: 50%; /* 讓圖片置中 */
+    left: 50%;
+    height: 120%;
+    margin-top: 40px; 
+    margin-left: -120px;
+    transform: translate(-50%, -50%); /* 確保圖片完全置中 */
+    pointer-events: none; /* 確保滑鼠點擊不會影響 */
+}
+
+.video-container {
+    position: absolute;
+    height: 80%;
+    margin-top: 10px; 
+    margin-left: -220px;
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+/*.bubble-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; 
+    margin-right: -40vh; 
+    z-index: 10; 
+}
+*/
+
+
+.download-section img {
+    max-width: 50%; 
+    width: auto; 
+    height: auto;
+    display: block;
+    margin-left: 0; /* 往左移動 */
+}
+
+.download-section {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; /* 確保圖片靠左，按鈕在右 */
+    gap: 20px; /* 設定圖片與按鈕的間距 */
+}
+
+.download-btn {
+    display: flex;
+    align-items: center; /* 讓按鈕內文字垂直居中 */
+    justify-content: center; /* 讓文字水平居中 */
+    height: 3.5rem; /* 使用 rem 讓按鈕大小跟隨根字體大小變化 */
+    padding: 0 2rem; /* 左右內邊距，確保按鈕寬度 */
+    background-color: rgb(205, 98, 231); 
+    color: white;
+    font-size: 1rem; 
+    text-decoration: none;
+    border-radius: 50px; /* 設定圓角 */
+    transition: background-color 0.3s ease; /* 滑鼠懸浮時的動畫 */
+    white-space: nowrap; /* 防止文字換行 */
+    margin-right: 0vh; /* 往左移動 */
+}
+
+.download-btn:hover {
+    background-color:rgb(125, 62, 141); /* 滑鼠懸浮時變深色 */
+}
+
+/* 彈跳進場 + 微微彈跳幾次 */
+
+.OiO-introduce{
+    background-color:rgb(242, 243, 240);
+    height: 1100px;
+}
+.OiO-introduce-img {
+    position: relative;
+    width: 900px;
+    height: 900px;
+    margin: 50px auto;
+    margin-top: 0; /* 確保沒有額外的 margin */
+    padding-top: 0; /* 確保沒有額外的 padding */
+}
+
+.title-1-image {
+    display: block;  
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+    margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px;
+}
+
+.main-image {
+    width: 999px;
+    height: 555px;
+    margin-left: -500px;
+    position: relative;
+    top: 50px; /* 減少往下的距離 */
+}
+
+.hover-block {
+    position: absolute;
+    width: 33.33%;
+    height: 50%;
+    cursor: pointer;
+}
+
+/* 滑鼠懸停時要放大的圖片 */
+.hover-block img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 懸停時圖片放大 */
+.hover-block:hover img {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* 懸停時文字也放大 */
+.hover-block:hover .introduce-img-text {
+    transform: translate(-50%, -50%) scale(1.1);
+    transition: transform 0.3s ease-in-out; /* 添加動畫效果 */
+}
+
+/* 當點擊後，將主圖片顯示在最上層 */
+.main-image.top-position {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* 設定為最上層 */
+}
+.introduce-img-1{
+    width: 250px;
+    height: 245px;
+    margin-top:-100px;
+    margin-left:-15px;
+}
+
+.introduce-img-1-text
+{
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 250px;  
+    margin-left: 130px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 16px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: center; /* 讓文字靠左對齊 */
+    font-weight: bold;
+}
+
+.introduce-img-2{
+    width: 366px;
+    height: 245px;
+    margin-top:-100px;
+    margin-left:-30px;
+}
+
+.introduce-img-2-text
+{
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 220px;  
+    margin-left: 115px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 16px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: center; /* 讓文字靠左對齊 */
+    font-weight: bold;
+}
+
+.introduce-img-3{
+    width: 333px;
+    height: 240px;
+    margin-top:-100px;
+    margin-left:-10px;
+}
+
+.introduce-img-3-text
+{
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 220px;  
+    margin-left: 140px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 16px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: center; /* 讓文字靠左對齊 */
+    font-weight: bold;
+}
+
+.introduce-img-4{
+    width: 344px;
+    height: 240px;
+    margin-top:-280px;
+    margin-left:30px;
+}
+
+.introduce-img-4-text
+{
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 230px;  
+    margin-left: 130px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 16px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: center; /* 讓文字靠左對齊 */
+    font-weight: bold;
+}
+
+.introduce-img-5{
+    width: 318px;
+    height: 240px;
+    margin-top:-280px;
+    margin-left:30px;
+}
+
+.introduce-img-5-text
+{
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 230px;  
+    margin-left: 130px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 16px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: center; /* 讓文字靠左對齊 */
+    font-weight: bold;
+}
+
+.introduce-img-6{
+    width: 302px;
+    height: 240px;
+    margin-top:-280px;
+    margin-left:30px;
+}
+
+.introduce-img-6-text
+{
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 230px;  
+    margin-left: 130px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 16px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: center; /* 讓文字靠左對齊 */
+    font-weight: bold;
+}
+
+.illustration-1 {
+    height: 350px;
+    width: auto;
+    background-color: rgb(212, 172, 234);
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+}
+
+.illustration-1 img {
+    width: 700px;
+    max-width: 100%; /* 確保圖片不會超過父容器 */
+    height: auto; /* 維持圖片比例 */
+    z-index: 10;
+}
+
+.title-2-image {
+    display: block;  /* 改為 block 讓圖片以區塊顯示 */
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+    margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px; 
+    height: auto;
+    max-width: 100%;
+}
+
+#introduce-part1 {
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: column; /* 使圖片和文字區塊上下排列 */
+    justify-content: center; /* 垂直居中對齊 */
+    align-items: center; /* 水平居中對齊 */
+    background-color: rgb(212, 172, 234);
+    padding: 20px; /* 可選，為父容器增加一些內邊距 */
+    max-width: 100%;
+}
+
+.section-introduce-1 img {
+    display: block;
+    margin: 0; /* 清除默認的外邊距 */
+    max-width: 100%; /* 控制圖片寬度，這樣圖片不會超過父容器 */
+    height: auto;
+    margin-bottom: 10px; /* 圖片和文字之間的間距 */
+}
+
+.text-container-1 {
+    display: flex;
+    flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+    padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+}
+
+.text-introduce-part1 {
+    text-align: left;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 500px;
+    margin-top: -420px;
+    margin-left: 200px;
+    z-index: 10;
+    
+}
+
+.text-introduce-part1 p {
+    margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+    font-family: "Microsoft JhengHei", sans-serif; 
+    text-align: center; color: rgb(0, 0, 0); 
+    font-size: 1.0rem; 
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+    z-index: 1;
+    margin-bottom: 50px; 
+}
+
+#introduce-part2 {
+    display: flex; /* 使用 Flexbox */
+    flex-direction: column; /* 設置為垂直排列，圖片和文字會上下顯示 */
+    align-items: center; /* 水平居中對齊 */
+    justify-content: center; /* 垂直居中對齊 */
+    background-color: rgb(212, 172, 234);
+    padding: 20px; /* 增加父容器內邊距 */
+    max-width: 100%;
+}
+
+.section-introduce-2 img {
+    display: block;
+    margin: 0; /* 清除默認的外邊距 */
+    max-width: 100%; /* 控制圖片寬度，這樣圖片不會超過父容器 */
+    height: auto;
+    margin-bottom: 10px; /* 圖片和文字之間的間距 */
+}
+
+.text-container-2 {
+    display: flex;
+    flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+    padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+    position: relative;
+}
+
+.text-introduce-part2 {
+    font-family: "Microsoft JhengHei", sans-serif;
+    text-align: right;
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 500px;
+    margin-top: -480px;
+    margin-left: -400px;
+    z-index: 10;
+}
+
+.text-introduce-part2 p {
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+    z-index: 1;
+}
+
+.feature-container {
+    display: flex;
+    position: absolute;
+    gap: 80px; /* 設定圖片之間的間距 */
+    margin: 0px 0; /* 設定與上下內容的間距 */
+    top: -210px;
+    margin-left: -380px;
+    z-index: 10;
+}
+
+.feature-item {
+    text-align: center; /* 讓文字置中 */
+    font-family: "Microsoft JhengHei", sans-serif;
+    text-align: right;
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.feature-item p {
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+    
+}
+
+
+.text-introduce-part3 {
+    text-align: right;
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 500px;
+    margin-top: 230px;
+    margin-left: -400px;
+    z-index: 10;
+}
+
+.text-introduce-part3 p {
+    font-family: "Microsoft JhengHei", sans-serif;
+    margin-bottom: 0rem; /* 讓每個段落有一定的間距 */
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+    z-index: 1;
+}
+
+
+#introduce-part3 {
+    min-height: 1536px;
+    display: block;
+    align-items: center;      /* 垂直居中 */
+    justify-content: center;  /* 水平居中 */
+}
+
+.title-3-image {
+    display: block;  
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+    margin-bottom: 50px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px;
+}
+
+.manual-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px; /* 調整 icon 與連結之間的距離 */
+    margin-bottom: 20px; /* 與 Interactive-Mobile 間距 */
+}
+
+
+.manual-icon {
+    width: 200px; /* 調整這個值以適當縮小 */
+    height: auto;
+}
+
+.manual-icon img {
+    width: 100%; /* 確保圖片適應容器 */
+    height: auto;
+}
+
+.manual-link {
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.manual-link:hover {
+    text-decoration: underline;
+}
+
+
+.Interactive-Mobile {
+    display: flex;
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+    width: 100%;  /* 確保可以水平置中 */
+    position: relative; /* 讓 hover 出現的圖片可以相對於這個區塊定位 */
+}
+
+.Phone-image {
+    position: relative; /* 設置為相對定位 */
+    height: 1265px;
+    max-width: 100%;
+    cursor: url('img/cursor.png') 16 16, auto;
+}
+
+
+.hover-image {
+    position: absolute;
+    top: 50%;  /* 讓圖片顯示在 Phone.png 的中央 */
+    left: 50%; /* 讓圖片顯示在 Phone.png 的中央 */
+    transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
+    width: 80px;  /* 設定適當大小 */
+    /*display: none;  /* 預設隱藏 */
+}
+
+#hoverImageA{
+    position: absolute;
+    top: 70.6%;  /* 讓圖片顯示在 Phone.png 的中央 */
+    left: 49.8%; /* 讓圖片顯示在 Phone.png 的中央 */
+    transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
+    width:566px;  /* 設定適當大小 */
+    cursor: url('img/cursor.png') 16 16, auto;
+}
+/* 預設隱藏 Attractions-introduceA */
+#Attractions-introduceA{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    width: 400px;
+    margin-top: 250px;  
+    margin-left: -450px;  
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.introduceA-text{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 250px;  
+    margin-left: -700px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 20px;
+    text-align: center;
+    width: 220px;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: left; /* 讓文字靠左對齊 */
+}
+/* 當 hoverImageA 被 hover 時，顯示 Attractions-introduceA */
+#hoverImageA:hover + #Attractions-introduceA,
+#hoverImageA:hover + #Attractions-introduceA + .introduceA-text {
+    opacity: 1;
+}
+
+#hoverImageA:hover {
+    filter: brightness(0.8); /* 讓圖片變暗 20% */
+    transition: filter 0.3s ease-in-out; /* 添加過渡效果 */
+}
+/*懸停GPS*/
+#hoverImageB{
+    position: absolute;
+    top: 23.2%;  /* 讓圖片顯示在 Phone.png 的中央 */
+    left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
+    transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
+    width:374px;  /* 設定適當大小 */
+    cursor: url('img/cursor.png') 16 16, auto;
+}
+/* 預設隱藏 Attractions-introduceB */
+#Attractions-introduceB{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    width: 400px;
+    margin-top: -300px;  
+    margin-left: 380px;  
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.introduceB-text{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: -300px;  
+    margin-left: 120px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 20px;
+    text-align: center;
+    width: 220px;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: left; /* 讓文字靠左對齊 */
+}
+/* 當 hoverImageB 被 hover 時，顯示 Attractions-introduceB */
+#hoverImageB:hover + #Attractions-introduceB,
+#hoverImageB:hover + #Attractions-introduceB + .introduceB-text {
+    opacity: 1;
+}
+
+#hoverImageB:hover {
+    filter: brightness(0.8); /* 讓圖片變暗 20% */
+    transition: filter 0.3s ease-in-out; /* 添加過渡效果 */
+}
+
+/*懸停AI辨識*/
+#hoverImageC {
+    position: absolute;
+    top: 89%;  /* 讓圖片顯示在 Phone.png 的中央 */
+    left: 49.9%; /* 讓圖片顯示在 Phone.png 的中央 */
+    transform: translate(-50%, -50%); /* 讓圖片精確對齊中心 */
+    width:159px;  /* 設定適當大小 */
+    cursor: url('img/cursor.png') 16 16, auto;
+  }
+  
+
+/* 預設隱藏 Attractions-introduceC */
+#Attractions-introduceC{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    width: 400px;
+    margin-top: 300px;  
+    margin-left: 380px;  
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.introduceC-text{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-family: 'Microsoft JhengHei', sans-serif; /* 微軟正黑體 */
+    position: absolute;
+    margin-top: 300px;  
+    margin-left: 120px; 
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0); /* 讓文字顏色更清楚 */
+    font-size: 20px;
+    text-align: center;
+    width: 220px;
+    z-index: 10;
+    line-height: 1.5; /* 增加行距，提高可讀性 */
+    text-align: left; /* 讓文字靠左對齊 */
+}
+/* 當 hoverImageC 被 hover 時，顯示 Attractions-introduceC */
+#hoverImageC:hover + #Attractions-introduceC,
+#hoverImageC:hover + #Attractions-introduceC + .introduceC-text {
+    opacity: 1;
+}
+
+#hoverImageC:hover {
+    filter: brightness(0.8); /* 讓圖片變暗 20% */
+    transition: filter 0.3s ease-in-out; /* 添加過渡效果 */
+}
+
+
+.section-introduce .Phone-image,
+.section-introduce .hover-image {
+    animation-delay: 0s;  /* 確保沒有時間差 */
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.illustration-2 {
+    height: 300px;
+    background-color: rgb(212, 172, 234);
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    margin-top: 100px;
+}
+
+.illustration-2 img {
+    width: 900px;
+    max-width: 100%; /* 確保圖片不會超過父容器 */
+    height: auto; /* 維持圖片比例 */
+    z-index: 10;
+}
+
+
+.title-4-image {
+    display: block;  
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+    margin-top: 200px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px;
+}
+
+#OiO-editing-platform {
+    display: flex; /* 使用 Flexbox */
+    flex-direction: column; /* 設置為垂直排列，圖片和文字會上下顯示 */
+    background-color: rgb(242, 243, 240);
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+    position: relative;
+    padding-top: 50px;  /* 讓內容與頂部有間隔 */
+}
+
+.OiO-editing-platform img {
+    max-width: 900px;  
+    height: auto;     /* 高度自動調整以保持比例 */
+    width: 100%;      /* 寬度自動調整以保持比例 */
+    display: block;   /* 去除圖片的底部空白間隙 */
+    margin: 0 auto;   /* 保證圖片水平居中 */
+    margin-top: 100px;
+}
+
+.text-container-3 {
+    display: flex;
+    flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+    align-items: center; /* 保證文字區塊水平居中 */
+    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+    padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+}
+
+.text-OiO-editing-platform {
+    text-align: center; /* 讓文字在文字區塊內居中 */
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 350px;
+    margin-left: 200px;
+    margin-top: -360px;
+    z-index: 10;
+}
+
+.text-OiO-editing-platform p {
+    font-family: "Microsoft JhengHei", sans-serif;
+    margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+    line-height: 1.5; 
+    font-weight: bold; 
+    text-align: left; 
+}
+
+.mobile-images {
+    display: none;
+}
+  
+button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+button img {
+    width: 20px;
+    height: auto;
+  }
+  
+.prev-button {
+    left: 300px;
+    margin-top: -100px;
+    cursor: pointer;
+  }
+  
+.next-button {
+    right: 300px;
+    margin-top: -100px;
+    cursor: pointer;
+  }
+  
+  .dots-container {
+    text-align: center;
+    margin-top: 10px; /* 距離圖片稍微有點空間 */
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    transition: background-color 0.3s;
+  }
+  
+  .dot.active {
+    background-color: rgb(212, 172, 234);
+  }
+/* 關於我們 */
+.about-us {
+    display: flex;             /* 使用 Flexbox 來布局 */
+    flex-direction: column;    /* 設置為垂直排列，圖片和文字上下排列 */
+    justify-content: center;   /* 垂直居中 */
+    align-items: center;       /* 水平居中 */
+    height: 100%;              /* 確保容器有足夠的高度 */
+    background-color: rgb(242, 243, 240);  /* 可選：設置背景顏色 */
+    padding: 50px 20px;        /* 頂部和底部留出一些空間 */
+}
+
+.about-us img {
+    max-width: 100%;           /* 保證圖片寬度不超過容器 */
+    height: auto;              /* 高度自動調整保持比例 */
+    display: block;            /* 去除圖片的底部空白間隙 */
+    margin-bottom: 30px;       /* 圖片與文字之間的間隔 */
+}
+
+.text-container-4 {
+    display: flex;
+    flex-direction: column;    /* 文字區塊內的文字垂直排列 */
+    align-items: center;       /* 保證文字區塊居中 */
+    max-width: 100%;           /* 文字區塊寬度為父容器的 100% */
+    padding-left: 20px;        /* 可選：為文字區塊添加左邊距 */
+}
+
+.text-about-us {
+    text-align: center;        /* 使文字區塊內的文字居中 */
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 500px;
+    margin-left: 400px;
+    margin-top: -250px;
+    z-index: 10;
+}
+
+.text-about-us p {
+    font-family: "Microsoft JhengHei", sans-serif;
+    margin-bottom: 1rem;       /* 每段文字之間的間隔 */
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+.title-5-image {
+    display: block;  
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+    margin-top: 10px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px;
+}
+
+.about-us-img img{
+    max-width: 100%;   
+    height: auto;     /* 高度自動調整以保持比例 */
+    width: 900px;      /* 寬度自動調整以保持比例 */
+    display: block;   /* 去除圖片的底部空白間隙 */
+    margin: 0 auto;   /* 保證圖片水平居中 */
+    margin-top: 100px;
+}
+
+
+.section-introduce__left {
+    display: flex;
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+    height: 100%;             /* 確保容器有足夠的高度 */
+}
+.section-introduce__image {
+    max-width: 100%;   
+    height: auto;     /* 高度自動調整以保持比例 */
+    width: 900px;      /* 寬度自動調整以保持比例 */
+    justify-content: center;  /* 水平居中 */
+    display: flex;   
+}
+
+.section-application__left {
+    display: flex;
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+    height: 100%;             /* 確保容器有足夠的高度 */
+}
+.section-application__image {
+    max-width: 70%;   /* 最大寬度為容器的 70% */
+    height: auto;     /* 高度自動調整以保持比例 */
+    width: auto;      /* 寬度自動調整以保持比例 */
+    display: block;   /* 去除圖片的底部空白間隙 */
+}
+
+/*推薦作品*/
+.title-6-image {
+    display: block;  
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+    margin-top: 10px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px;
+}
+
+.section-recommend {
+    display: block;
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+    height: 100%;             /* 確保容器有足夠的高度 */
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slider_rec {
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    overflow: hidden; /* 隱藏超出容器的部分 */
+}
+
+.slide_rec {
+    width: 220px; /* 每張圖片的寬度 */
+    height: 100%; /* 保持圖片比例 */
+    object-fit: contain; /* 避免圖片被切割，保持完整顯示 */
+    margin-right: 10px; /* 控制圖片之間的間距 */
+    transition: transform 0.3s ease-in-out; /* 增加平滑過渡效果 */
+}
+
+.slider_rec:hover {
+    animation-play-state: paused; /* 停止動畫 */
+}
+/* 懸停時放大圖片 */
+.slide_rec:hover {
+    transform: scale(1.1); /* 放大1.1倍 */
+}
+
+/*常見問題*/
+.title-7-image {
+    display: block;  
+    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+    margin-top: 10px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+    width: 600px;
+}
+
+.section-FAQ{
+    max-width: 100%;   /* 最大寬度為容器的 70% */
+    height: auto;     /* 高度自動調整以保持比例 */
+    width: auto;      /* 寬度自動調整以保持比例 */
+    display: block;   /* 去除圖片的底部空白間隙 */
+    background-color:rgb(242, 243, 240);
+}
+.accordion {
+    max-width: 880px;
+    margin: auto;
+}
+.accordion-item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.accordion-button {
+    all: unset; /* 清除所有預設樣式 */
+    display: block;
+    width: 100%;
+    padding: 15px 20PX;
+    border: 10px solid;
+    cursor: pointer;
+    font-size: 20px;
+    background: white;
+    border-radius: 30px;
+    font-family: "Microsoft JhengHei", sans-serif; /* 設定微軟正黑體 */
+    font-weight: bold; /* 讓問題的文字加粗 */
+    text-align: left; /* 讓文字在框內靠左對齊 */
+
+}
+
+.accordion-item:nth-child(odd) .accordion-button {
+    border-color: #D4ACEA;
+}
+.accordion-item:nth-child(even) .accordion-button {
+    border-color: #F6FCCE;
+}
+.accordion-content {
+    display: none;
+    overflow: hidden;
+}
+.accordion-content p {
+    font-family: "Microsoft JhengHei", sans-serif; /* 設定回答的文字為微軟正黑體 */
+    font-weight: normal; /* 保持回答文字為一般字重 */
+}
+
+.accordion-button.active {
+    background: #ddd;
+}
+
+/* 用於浮現效果的 CSS */
+.fade-in {
+    opacity: 0;  /* 初始隱藏 */
+    transform: translateY(50px);  /* 初始位置略下移 */
+    transition: opacity 1s ease, transform 1s ease;  /* 平滑的浮現動畫 */
+}
+
+.fade-in.visible {
+    opacity: 1;  /* 讓元素變為完全可見 */
+    transform: translateY(0);  /* 返回到原始位置 */
+}
+.footer {
+    background-color: rgb(205, 98, 231);
+    color: white;
+    text-align: flex-start;
+    padding: 40px 20px;
+    margin-bottom: -100vh;
+    
+}
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq, .contact {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    color: white;
+}
+
+.faq h2, .contact h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.faq ul {
+    list-style: none;
+    padding: 0;
+}
+
+.faq ul li {
+    margin: 5px 0;
+}
+
+.faq ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.faq ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 在小螢幕 (手機) 上調整排版 */
+/* 響應式設計: 手機視圖 */
+
+@media screen and (max-width: 768px) {
+
+    /* 防止橫向滾動 */
+    html, body {
+        width: 100vw;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+/* 確保主要容器適應手機螢幕 */
+    .container {
+        width: 100%;
+        max-width: 480px; /* 限制最大寬度，適配手機 */
+        background-color: rgb(212, 172, 234);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    /* 調整選單高度與內部間距 */
+    #menu {
+        height: 50px; /* 縮小高度 */
+        padding: 0 5px; /* 減少內邊距 */
+    }
+
+    /* 調整 LOGO */
+    #logo img {
+        height: 40px; /* 縮小 LOGO */
+        max-height: 50px;
+    }
+
+    /* 調整選單樣式 */
+    #menu ul {
+        gap: 1px; /* 減少間距 */
+    }
+
+    #menu a {
+        font-size: 10px; /* 縮小字體 */
+        padding: 1px 2px; /* 減少內距 */
+    }
+
+    /* 語言切換按鈕 */
+    .lang-toggle select {
+        margin: 10px;
+        border-radius: 10px; /* 這會給 select 元素添加圓角 */
+        padding: 4px 6px;    /* 調整內邊距，讓選單看起來更好 */
+        border: 1px solid #ccc; /* 邊框顏色 */
+        background-color: #f9f9f9; /* 背景顏色 */
+        font-size: 10px; /* 調整字體大小 */
+        cursor: pointer; /* 使鼠標指標變成手型 */
+        width: 60px;
+    }
+
+    /* 隱藏背景 */
+    .background {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        max-width: 100%;
+        height: auto;             /* 根據內容自動調整高度 */
+        min-height: 900px;       /* 設定最小高度以防止過小 */
+    }
+
+    .left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: -10px; /* 減少與 .right 之間的距離 */
+    }
+    
+    .right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+    .right{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .OiO-img {
+        width: 250px;
+        max-width: 100%;
+        margin-top: -200px;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 12px;
+        text-align: center;
+        padding: 0 15px;
+        max-width: 300px; /* 設定最大寬度，讓文字區塊不會太寬 */
+        margin: 0 auto; /* 讓區塊保持置中 */
+    }
+    
+    .small-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .icon {
+        height: 35px;
+    }
+
+    .app-container {
+        position: relative;
+        width: 500px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -300px;
+    }
+
+    .video-container {
+        position: relative;
+        width: 165px;;
+        max-width: 350px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: -5px;
+        margin-top: -250px;
+    }
+
+    .phone-mockup {
+        position: absolute;
+        width: 420px;
+        height: 450px;
+        max-width: 500px;
+        transform: translate(-50%, -50%);
+        margin-left: -5px;
+        margin-top: -100px;
+    }
+
+    .OiO-introduce {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        background-color: rgb(242, 243, 240);
+        height: 600px;  /* 高度自適應內容 */
+        justify-content: center; /* 水平和垂直居中 */
+    }
+    
+
+    .title-1-image {
+        position: absolute;
+        width: 60%; /* 縮小圖片大小適應手機 */
+        margin-top: -350px;
+        justify-content: center;  /* 水平居中 */   
+    }
+    
+    .main-image {
+        position: absolute;
+        width: 80%; /* 調整為百分比寬度，適應不同設備 */
+        max-width: 400px; /* 設定最大寬度 */
+        height: auto; /* 保持比例 */
+        margin-top: -200px; /* 減少上下間距 */
+        margin-left: -160px;
+    }
+    
+    .hover-block {
+        width: 100%; /* 讓區塊更適應手機寬度 */
+        height: auto;
+    }
+
+
+    .OiO-introduce-img{
+        max-width: 360px; /* 限制最大寬度，適配手機 */
+        margin: 0 auto;                                           
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        height: auto; 
+        margin-left: 0px;
+    }
+   
+    .introduce-img-1
+    {
+        position: absolute;
+        width: 130px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: -100px; /* 調整間距避免重疊 */
+        margin-left: -90px; /* 讓它們居中 */
+    }
+    .introduce-img-2
+    {
+        position: absolute;
+        width: 186px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: -100px; /* 調整間距避免重疊 */
+        margin-left: -80px; /* 讓它們居中 */
+    }
+    .introduce-img-3
+    {
+        width: 165px; /* 讓圖片適應手機屏幕寬度 */
+        height: 115px;    
+        margin-top: 25px; /* 調整間距避免重疊 */
+        margin-left: -190px; /* 讓它們居中 */
+    }
+
+    .introduce-img-4
+    {
+        width: 165px; /* 讓圖片適應手機屏幕寬度 */
+        height: 115px;    
+        margin-top: 15px; /* 調整間距避免重疊 */
+        margin-left: -70px; /* 讓它們居中 */
+    }
+
+    .introduce-img-5
+    {
+        width: 180px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: 150px; /* 調整間距避免重疊 */
+        margin-left: -210px; /* 讓它們居中 */
+    }
+    .introduce-img-6
+    {
+        width: 173px; /* 讓圖片適應手機屏幕寬度 */
+        height: 125px;    
+        margin-top: 150px; /* 調整間距避免重疊 */
+        margin-left: -190px; /* 讓它們居中 */
+    }
+
+    .title-2-image {
+        display: block;  /* 改為 block 讓圖片以區塊顯示 */
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+        margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+
+    #introduce-part1 {
+        background-color: rgb(212, 172, 234);
+        display: block;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+        max-width: 100%;
+        height: auto;             /* 根據內容自動調整高度 */
+        min-height: 1200px;       /* 設定最小高度以防止過小 */
+    }
+
+    .section-introduce-1 img {
+        display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
+        margin: 0 auto; /* 使圖片水平居中 */
+        max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
+        height: auto; /* 保持圖片比例 */
+        margin-top: 20px;
+        margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
+    }
+
+    .text-container-1 {
+        display: flex;
+        flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+        max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+        padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+    }
+    
+    .text-introduce-part1 {
+        text-align: left;
+        line-height: 1.5;
+        font-weight: bold;
+        width: 200px;
+        margin-top: -70px;
+        margin-left: 85px;
+        z-index: 10;
+        
+    }
+    
+    .text-introduce-part1 p {
+        margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+        font-family: "Microsoft JhengHei", sans-serif; 
+        text-align: center; color: rgb(0, 0, 0); 
+        font-size: 1.0rem; 
+        line-height: 1.5; 
+        font-weight: bold; 
+        text-align: left; 
+        z-index: 1;
+        margin-bottom: 70px; 
+    }
+
+    #about-OiO {
+        width: 100%;
+        height: auto;
+      }
+
+    #introduce-part2 {
+        background-color: rgb(212, 172, 234);
+        display: flex;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+        height: auto;             /* 根據內容自動調整高度 */
+        min-height: 2000px;       /* 設定最小高度以防止過小 */
+    }
+    .section-introduce-2 img {
+        display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
+        margin: 0 auto; /* 使圖片水平居中 */
+        max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
+        height: auto; /* 保持圖片比例 */
+        margin-top: 20px;
+        margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
+    }
+
+    .text-container-2 {
+        display: flex;
+        flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+        max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+        padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+        position: relative;
+    }
+    
+    .text-introduce-part2 {
+        font-family: "Microsoft JhengHei", sans-serif;
+        text-align: right;
+        color: rgb(0, 0, 0);
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: bold;
+        width: 200px;
+        margin-top: -800px;
+        margin-left: 0px;
+        z-index: 10;
+    }
+    
+    .text-introduce-part2 p {
+        line-height: 1.5; 
+        font-weight: bold; 
+        text-align: left; 
+        z-index: 1;
+    }
+    
+    .feature-container {
+        display: flex;
+        flex-direction: column; /* 改為垂直排列 */
+        gap: 10px; /* 設定每個項目之間的間距為100px */
+        margin: 0px 0; /* 設定與上下內容的間距 */
+        top: -210px;
+        margin-left: -380px;
+        z-index: 10;
+    }
+    
+    .feature-item {
+        text-align: center; /* 讓文字置中 */
+        font-family: "Microsoft JhengHei", sans-serif;
+        color: rgb(0, 0, 0);
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: bold;
+    }
+    
+    .feature-item p {
+        line-height: 1.5; 
+        font-weight: bold; 
+        text-align: left; 
+    }
+
+    .text-introduce-part3 {
+        font-family: "Microsoft JhengHei", sans-serif;
+        text-align: right;
+        color: rgb(0, 0, 0);
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: bold;
+        width: 200px;
+        margin-top: -200px;
+        margin-left: 0px;
+        z-index: 10;
+    }
+    
+    .text-introduce-part3 p {
+        line-height: 1.5; 
+        font-weight: bold; 
+        text-align: left; 
+        z-index: 1;
+    }
+    .text-introduce-part2,.text-introduce-part3{
+        display: none !important;
+    }
+    
+   
+    #introduce-part1, #introduce-part2,#introduce-part3 {
+        min-height: 10px; /* 減少高度 */
+        padding: 10px 0;  /* 控制內邊距，避免內容太擠 */
+    }
+    
+    /*操作大手機*/
+    #introduce-part3 {
+        height: auto;             /* 根據內容自動調整高度 */
+        max-height: 1000px;       
+        display: block;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+    }
+    
+    .title-3-image {
+        display: block;  
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */ 
+        margin-bottom: 20px; 
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+    
+    .manual-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1px; /* 調整 icon 與連結之間的距離 */
+        margin-bottom: 30px; /* 與 Interactive-Mobile 間距 */
+    }
+    
+    
+    .manual-icon {
+        width: 10%; /* 調整這個值以適當縮小 */
+        height: auto;
+    }
+    
+    .manual-icon img {
+        width: 10%; /* 確保圖片適應容器 */
+        height: auto;
+    }
+    
+    .manual-link {
+        font-size: 10px;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .manual-link:hover {
+        text-decoration: underline;
+    }
+
+    
+    .Interactive-Mobile {
+        display: flex;
+        justify-content: center;  /* 水平居中 */
+        align-items: center;      /* 垂直居中 */
+        width: 100%;  /* 父容器寬度為 100% */
+        height: auto;
+        position: relative; /* 讓 hover 出現的圖片可以相對於這個區塊定位 */
+    }
+    
+    .Phone-image {
+        position: relative;
+        width: 80%;        /* 設置圖片寬度為 50% */
+        max-width: 100%;   /* 確保圖片不會超過容器寬度 */
+        height: auto;      /* 高度自動縮放 */
+        margin: 0 auto;    /* 圖片水平居中 */
+        display: block;    /* 確保圖片作為區塊元素處理 */
+        cursor: url('img/cursor.png') 16 16, auto;
+    }
+    
+    
+    
+    .hover-image {
+        display: none;
+    }
+    
+    #hoverImageA{
+        display: none;
+    }
+    /* 預設隱藏 Attractions-introduceA */
+    #Attractions-introduceA{
+        display: none;
+    }
+    .introduceA-text{
+        display: none;
+    }
+    /* 當 hoverImageA 被 hover 時，顯示 Attractions-introduceA */
+    #hoverImageA:hover + #Attractions-introduceA,
+    #hoverImageA:hover + #Attractions-introduceA + .introduceA-text {
+        opacity: 1;
+    }
+    
+    #hoverImageA:hover {
+        display: none;
+    }
+    /*懸停GPS*/
+    #hoverImageB{
+        display: none;
+    }
+    /* 預設隱藏 Attractions-introduceB */
+    #Attractions-introduceB{
+        display: none;
+    }
+    .introduceB-text{
+        display: none;
+    }
+    /* 當 hoverImageB 被 hover 時，顯示 Attractions-introduceB */
+    #hoverImageB:hover + #Attractions-introduceB,
+    #hoverImageB:hover + #Attractions-introduceB + .introduceB-text {
+        opacity: 1;
+    }
+    
+    #hoverImageB:hover {
+        display: none;
+    }
+    
+    /*懸停AI辨識*/
+    #hoverImageC {
+        display: none;
+      }
+      
+    
+    /* 預設隱藏 Attractions-introduceC */
+    #Attractions-introduceC{
+        display: none;
+    }
+    .introduceC-text{
+        display: none;
+    }
+    /* 當 hoverImageC 被 hover 時，顯示 Attractions-introduceC */
+    #hoverImageC:hover + #Attractions-introduceC,
+    #hoverImageC:hover + #Attractions-introduceC + .introduceC-text {
+        opacity: 1;
+    }
+    
+    #hoverImageC:hover {
+        display: none;
+    }
+    
+    
+    .section-introduce .Phone-image,
+    .section-introduce .hover-image {
+        animation-delay: 0s;  /* 確保沒有時間差 */
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .title-4-image {
+        display: block;  /* 改為 block 讓圖片以區塊顯示 */
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+        margin-bottom: 10px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+    .OiO-editing-platform{
+        display: block;  /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
+        justify-content: center;  /* 水平居中 */
+        align-items: center;      /* 垂直居中 */
+        position: relative;
+        height: auto;             /* 根據內容自動調整高度 */
+        min-height: 300px;       /* 設定最小高度以防止過小 */
+        margin-top: -150px; /* 調整上下距離，可以是負值 */
+    }
+
+    .text-container-3 {
+        display: flex;
+        flex-direction: column; /* 使文字區塊內的文字垂直排列 */
+        align-items: center; /* 保證文字區塊水平居中 */
+        max-width: 100%; /* 文字區塊寬度為父容器的 100% */
+        padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+    }
+    
+    .text-OiO-editing-platform {
+        text-align: center; /* 讓文字在文字區塊內居中 */
+        color: rgb(0, 0, 0);
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: bold;
+        width: 200px;
+        z-index: 10;
+        margin-top: -650px;
+        margin-left: -40px;
+    }
+    
+    .text-OiO-editing-platform p {
+        font-family: "Microsoft JhengHei", sans-serif;
+        margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+        line-height: 1.5; 
+        font-weight: bold; 
+        text-align: left; 
+    }
+
+    /* 調整圖片寬度，確保在手機上不會過大 */
+    .OiO-editing-platform-1 {
+        width: 80%; /* 圖片寬度調整為 90% */
+        max-width: 100%;
+    }
+
+    /* 隱藏按鈕與點點指示器 */
+    .prev-button, .next-button, .dots-container {
+        display: none;
+    }
+
+    /* 更換圖片並垂直排列 */
+    #Editing-Platform-image {
+        display: none; /* 原來的圖片隱藏 */
+    }
+
+    /* 新增 3 張手機版專用圖片 */
+    .mobile-images {
+        display: flex;
+        flex-direction: column;
+        width: 100%; /* 圖片寬度調整為 90% */
+        max-width: 100%;
+        margin: 10px auto; /* 確保圖片居中並縮小間距 */
+    }
+
+    .mobile-images img {
+        width: 100%; /* 讓圖片自適應寬度 */
+        max-width: 600px; /* 限制最大寬度 */
+    }
+
+    .title-5-image {
+        display: block;  /* 改為 block 讓圖片以區塊顯示 */
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+        margin-bottom: 10px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+
+    .about-us{
+        display: block;
+        justify-content: center;  /* 水平居中 */
+        align-items: center;      /* 垂直居中 */
+        height: auto;             /* 根據內容自動調整高度 */
+        min-height: 500px;       /* 設定最小高度以防止過小 */
+    }
+
+    .text-container-4 {
+        display: flex;
+        flex-direction: column;    /* 文字區塊內的文字垂直排列 */
+        align-items: center;       /* 保證文字區塊居中 */
+        max-width: 100%;           /* 文字區塊寬度為父容器的 100% */
+        padding-left: 20px;        /* 可選：為文字區塊添加左邊距 */
+    }
+    
+    .text-about-us {
+        text-align: center;        /* 使文字區塊內的文字居中 */
+        color: rgb(0, 0, 0);
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: bold;
+        width: 300px;
+        margin-left: 0px;
+        margin-top: -350px;
+        z-index: 10;
+    }
+    
+    .text-about-us p {
+        font-family: "Microsoft JhengHei", sans-serif;
+        margin-bottom: 1rem;       /* 每段文字之間的間隔 */
+        line-height: 1.5;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .about-us-img img{
+        max-width: 100%;   
+        height: auto;     /* 高度自動調整以保持比例 */
+        width: 80%;      /* 寬度自動調整以保持比例 */
+        display: block;   /* 去除圖片的底部空白間隙 */
+        margin: 0 auto;   /* 保證圖片水平居中 */
+        margin-top: 10px;
+    }
+    #about-us .title-5-image {
+        margin-bottom: 10px; /* 減少圖片下方的間距 */
+    }
+
+    .title-6-image {
+        display: block;  /* 改為 block 讓圖片以區塊顯示 */
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+        margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+    .section-recommend{
+        display: block;
+        justify-content: center;  /* 水平居中 */
+        align-items: center;      /* 垂直居中 */
+        height: auto;             /* 根據內容自動調整高度 */
+        min-height: 500px;       /* 設定最小高度以防止過小 */
+    }
+
+    #recommend .title-6-image {
+        margin-bottom: 10px; /* 減少圖片下方的間距 */
+    }
+    
+    .slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .slider_rec {
+        display: flex;
+        height: 300px;
+        justify-content: center;
+        overflow: hidden; /* 隱藏超出容器的部分 */
+    }
+    
+    .slide_rec {
+        width: 150px; /* 每張圖片的寬度 */
+        height: 100%; /* 保持圖片比例 */
+        object-fit: contain; /* 避免圖片被切割，保持完整顯示 */
+        margin-right: 10px; /* 控制圖片之間的間距 */
+        transition: transform 0.3s ease-in-out; /* 增加平滑過渡效果 */
+    }
+    
+
+    .title-7-image {
+        display: block;  /* 改為 block 讓圖片以區塊顯示 */
+        margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
+        margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
+        width: 80%; /* 縮小圖片大小適應手機 */; 
+        height: auto;
+        max-width: 100%;
+    }
+
+    .section-FAQ{
+        max-width: 100%;   /* 最大寬度為容器的 70% */
+        height: auto;     /* 高度自動調整以保持比例 */
+        width: auto;      /* 寬度自動調整以保持比例 */
+        display: block;   /* 去除圖片的底部空白間隙 */
+        background-color:rgb(242, 243, 240);
+    }
+    .accordion {
+        max-width: 880px;
+        margin: auto;
+    }
+    .accordion-item {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    .accordion-button {
+        all: unset; /* 清除所有預設樣式 */
+        display: block;
+        width: 80%;
+        padding: 15px 20PX;
+        border: 10px solid;
+        cursor: pointer;
+        font-size: 16px;
+        background: white;
+        border-radius: 30px;
+        font-family: "Microsoft JhengHei", sans-serif; /* 設定微軟正黑體 */
+        font-weight: bold; /* 讓問題的文字加粗 */
+        text-align: left; /* 讓文字在框內靠左對齊 */
+    
+    }
+    
+    
+
+}
