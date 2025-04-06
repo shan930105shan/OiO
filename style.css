@@ -526,7 +526,7 @@ canvas, #bubbleCanvas {
   justify-content: center;
 }
 .illustration-1 img {
-  width: 700px;
+  width: 800px;
   max-width: 100%;
   height: auto;
 }
@@ -545,16 +545,16 @@ canvas, #bubbleCanvas {
   z-index: 10;
 }
 .illustration-1 p:first-of-type {
-  width: 400px;
-  top: 80px;
+  width: 320px;
+  top: 60px;
   left: 50%;
-  transform: translateX(-50%) translateX(40px);
+  transform: translateX(-50%) translateX(-30px);
 }
 .illustration-1 p:last-of-type {
   width: 400px;
   top: 230px;
   left: 50%;
-  transform: translateX(-50%) translateX(120px);
+  transform: translateX(-50%) translateX(50px);
 }
 
 #introduce-part1, #introduce-part2 {
@@ -1256,7 +1256,6 @@ button img {
   /* 確保主要容器適應手機螢幕 */
   .container {
     width: 100%;
-    max-width: 480px; /* 限制最大寬度，適配手機 */
     background-color: rgb(212, 172, 234);
     margin: 0 auto;
     display: flex;
@@ -1294,117 +1293,191 @@ button img {
     cursor: pointer; /* 使鼠標指標變成手型 */
     width: 60px;
   }
-  /* 隱藏背景 */
   .background {
     display: none;
   }
   .container {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
     padding: 10px;
-    max-width: 100%;
-    height: auto; /* 根據內容自動調整高度 */
-    min-height: 900px; /* 設定最小高度以防止過小 */
+    max-width: none;
+    height: auto;
+    min-height: none;
   }
-  .left {
-    width: 100%;
+  .container .left, .container .right {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: -10px; /* 減少與 .right 之間的距離 */
-  }
-  .right {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
-  .right {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .container .left {
+    margin-bottom: -10px;
   }
-  .OiO-img {
-    width: 250px;
-    max-width: 100%;
-    margin-top: -200px;
-    margin-bottom: 10px;
+  .container .OiO-img {
+    width: 300px;
+    max-width: none;
   }
-  .description {
+  .container .description {
     font-size: 12px;
     text-align: center;
     padding: 0 15px;
-    max-width: 300px; /* 設定最大寬度，讓文字區塊不會太寬 */
-    margin: 0 auto; /* 讓區塊保持置中 */
+    width: 300px;
   }
-  .small-icons {
+  .container .small-icons {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .icon {
-    height: 35px;
-  }
-  .app-container {
-    position: relative;
-    width: 500px;
-    height: auto;
-    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: -300px;
+    gap: 2px;
+    margin-top: 10px;
   }
-  .video-container {
+  .container .small-icons .icon {
+    height: 30px;
+  }
+  .app-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    width: 165px;
+    width: 350px;
+    height: auto;
+    margin-top: 20px;
+  }
+  .app-container .video-container {
+    position: relative;
+    width: 150px;
     max-width: 350px;
     border-radius: 10px;
     overflow: hidden;
     margin-left: -5px;
     margin-top: -250px;
   }
-  .phone-mockup {
+  .app-container .phone-mockup {
     position: absolute;
-    width: 420px;
-    height: 450px;
-    max-width: 500px;
+    width: 400px;
+    height: 400px;
+    max-width: 350px;
     transform: translate(-50%, -50%);
     margin-left: -5px;
     margin-top: -100px;
   }
   .OiO-introduce {
-    width: 100%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    margin: 0 auto;
     padding: 20px;
     position: relative;
     background-color: rgb(242, 243, 240);
-    height: 600px; /* 高度自適應內容 */
-    justify-content: center; /* 水平和垂直居中 */
+    height: 800px;
+    width: auto;
   }
-  .title-1-image {
+  .OiO-introduce .OiO-introduce-img {
+    position: relative;
+    width: 900px;
+    height: 900px;
+    margin: 50px auto 0;
+    padding-top: 0;
+  }
+  .title {
+    position: relative;
+  }
+  .title-text {
     position: absolute;
-    width: 60%; /* 縮小圖片大小適應手機 */
-    margin-top: -350px;
-    justify-content: center; /* 水平居中 */
+    font-family: "Microsoft JhengHei", sans-serif;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-align: center;
+  }
+  .title1-image {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+    height: auto;
+    display: block;
+  }
+  .title2-image {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+    height: auto;
+    display: block;
+  }
+  .title3-image {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+    height: auto;
+    display: block;
+  }
+  .title4-image {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+    height: auto;
+    display: block;
+  }
+  .title5-image {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+    height: auto;
+    display: block;
+  }
+  .title6-image {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+    height: auto;
+    display: block;
+  }
+  .title7-image {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto 100px;
+    height: auto;
+    display: block;
   }
   .main-image {
     position: absolute;
     width: 80%; /* 調整為百分比寬度，適應不同設備 */
     max-width: 400px; /* 設定最大寬度 */
     height: auto; /* 保持比例 */
-    margin-top: -200px; /* 減少上下間距 */
+    margin-top: -100px; /* 減少上下間距 */
     margin-left: -160px;
   }
   .hover-block {
+    position: relative;
     width: 100%; /* 讓區塊更適應手機寬度 */
     height: auto;
+  }
+  .OiO-introduce {
+    background-color: rgb(242, 243, 240);
+    height: 600px;
   }
   .OiO-introduce-img {
     max-width: 360px; /* 限制最大寬度，適配手機 */
@@ -1414,55 +1487,140 @@ button img {
     align-items: center;
     text-align: center;
     padding: 10px;
-    position: relative;
     height: auto;
     margin-left: 0px;
   }
   .introduce-img-1 {
-    position: absolute;
-    width: 130px; /* 讓圖片適應手機屏幕寬度 */
+    width: 130px;
     height: 125px;
-    margin-top: -100px; /* 調整間距避免重疊 */
-    margin-left: -90px; /* 讓它們居中 */
+    margin-top: -30px;
+    margin-left: -100px;
+  }
+  .introduce-img-1-text {
+    font-family: "Microsoft JhengHei", sans-serif;
+    position: absolute;
+    top: -125px;
+    left: -50px;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 10px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 100px;
+    white-space: normal;
+    word-break: break-word;
   }
   .introduce-img-2 {
-    position: absolute;
-    width: 186px; /* 讓圖片適應手機屏幕寬度 */
+    width: 186px;
     height: 125px;
-    margin-top: -100px; /* 調整間距避免重疊 */
-    margin-left: -80px; /* 讓它們居中 */
+    margin-top: -30px;
+    margin-left: -80px;
+  }
+  .introduce-img-2-text {
+    font-family: "Microsoft JhengHei", sans-serif;
+    position: absolute;
+    top: -125px;
+    left: -15px;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 10px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 100px;
+    white-space: normal;
+    word-break: break-word;
   }
   .introduce-img-3 {
-    width: 165px; /* 讓圖片適應手機屏幕寬度 */
+    width: 165px;
     height: 115px;
-    margin-top: 25px; /* 調整間距避免重疊 */
-    margin-left: -190px; /* 讓它們居中 */
+    margin-top: 100px;
+    margin-left: -180px;
+  }
+  .introduce-img-3-text {
+    font-family: "Microsoft JhengHei", sans-serif;
+    position: absolute;
+    top: 10px;
+    left: -140px;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 10px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 100px;
+    white-space: normal;
+    word-break: break-word;
   }
   .introduce-img-4 {
-    width: 165px; /* 讓圖片適應手機屏幕寬度 */
+    width: 165px;
     height: 115px;
-    margin-top: 15px; /* 調整間距避免重疊 */
-    margin-left: -70px; /* 讓它們居中 */
+    margin-top: -180px;
+    margin-left: -80px;
+  }
+  .introduce-img-4-text {
+    font-family: "Microsoft JhengHei", sans-serif;
+    position: absolute;
+    top: -100px;
+    left: -70px;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 10px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 100px;
+    white-space: normal;
+    word-break: break-word;
   }
   .introduce-img-5 {
-    width: 180px; /* 讓圖片適應手機屏幕寬度 */
+    width: 180px;
     height: 125px;
-    margin-top: 150px; /* 調整間距避免重疊 */
-    margin-left: -210px; /* 讓它們居中 */
+    margin-top: -50px;
+    margin-left: -210px;
+  }
+  .introduce-img-5-text {
+    font-family: "Microsoft JhengHei", sans-serif;
+    position: absolute;
+    top: 30px;
+    left: -210px;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 10px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 100px;
+    white-space: normal;
+    word-break: break-word;
   }
   .introduce-img-6 {
-    width: 173px; /* 讓圖片適應手機屏幕寬度 */
+    width: 173px;
     height: 125px;
-    margin-top: 150px; /* 調整間距避免重疊 */
-    margin-left: -190px; /* 讓它們居中 */
+    margin-top: -50px;
+    margin-left: -170px;
   }
-  .title-2-image {
-    display: block; /* 改為 block 讓圖片以區塊顯示 */
-    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
-    margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
-    width: 80%; /* 縮小圖片大小適應手機 */
-    height: auto;
-    max-width: 100%;
+  .introduce-img-6-text {
+    font-family: "Microsoft JhengHei", sans-serif;
+    position: absolute;
+    top: 30px;
+    left: -170px;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 10px;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 100px;
+    white-space: normal;
+    word-break: break-word;
   }
   #introduce-part1 {
     background-color: rgb(212, 172, 234);
@@ -1483,30 +1641,86 @@ button img {
   }
   .text-container-1 {
     display: flex;
-    flex-direction: column; /* 使文字區塊內的文字垂直排列 */
-    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
-    padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+    flex-direction: column;
+    max-width: 100%;
+    padding-left: 20px;
   }
-  .text-introduce-part1 {
+  .text-container-1 .text-introduce-part1 {
     text-align: left;
     line-height: 1.5;
     font-weight: bold;
-    width: 200px;
-    margin-top: -70px;
+    width: 180px;
+    margin-top: -720px;
     margin-left: 85px;
     z-index: 10;
   }
-  .text-introduce-part1 p {
-    margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
+  .text-container-1 .text-introduce-part1 p {
     font-family: "Microsoft JhengHei", sans-serif;
-    text-align: center;
-    color: rgb(0, 0, 0);
     font-size: 1rem;
     line-height: 1.5;
     font-weight: bold;
+    color: rgb(0, 0, 0);
     text-align: left;
-    z-index: 1;
     margin-bottom: 70px;
+    z-index: 1;
+  }
+  .text-container-1 .text-introduce-part1 p:first-of-type {
+    width: 180px;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%) translateX(85px);
+  }
+  .text-container-1 .text-introduce-part1 p:last-of-type {
+    width: 180px;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%) translateX(85px);
+  }
+  .illustration-1 {
+    position: relative;
+    height: 400px;
+    background-color: rgb(212, 172, 234);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 0px;
+    position: relative; /* 讓內部元素可以絕對定位 */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .illustration-1 img {
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+  }
+  .illustration-1 p {
+    font-family: "Microsoft JhengHei", sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: left;
+    position: absolute;
+    transform: translateX(-50%);
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 10;
+  }
+  .illustration-1 p:first-of-type {
+    width: 150px;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%) translateX(-20px);
+  }
+  .illustration-1 p:last-of-type {
+    width: 150px;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%) translateX(30px);
   }
   #about-OiO {
     width: 100%;
@@ -1607,14 +1821,6 @@ button img {
     display: block;
     align-items: center; /* 垂直居中 */
     justify-content: center; /* 水平居中 */
-  }
-  .title-3-image {
-    display: block;
-    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
-    margin-bottom: 20px;
-    width: 80%; /* 縮小圖片大小適應手機 */
-    height: auto;
-    max-width: 100%;
   }
   .manual-container {
     display: flex;
@@ -1723,13 +1929,51 @@ button img {
     animation-duration: 1s;
     animation-fill-mode: forwards;
   }
-  .title-4-image {
-    display: block; /* 改為 block 讓圖片以區塊顯示 */
-    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
-    margin-bottom: 10px; /* 讓 .title-1-image 與 .main-image 更靠近 */
-    width: 80%; /* 縮小圖片大小適應手機 */
-    height: auto;
+  .illustration-2 {
+    position: relative;
+    height: 400px;
+    background-color: rgb(212, 172, 234);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 0px;
+    position: relative; /* 讓內部元素可以絕對定位 */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .illustration-2 img {
+    width: 600px;
     max-width: 100%;
+    height: auto;
+  }
+  .illustration-2 p {
+    font-family: "Microsoft JhengHei", sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: left;
+    position: absolute;
+    transform: translateX(-50%);
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 10;
+  }
+  .illustration-2 p:first-of-type {
+    width: 160px;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%) translateX(5px);
+  }
+  .illustration-2 p:last-of-type {
+    width: 180px;
+    top: 210px;
+    left: 50%;
+    transform: translateX(-50%) translateX(-10px);
   }
   .OiO-editing-platform {
     display: block; /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
@@ -1755,7 +1999,7 @@ button img {
     font-weight: bold;
     width: 200px;
     z-index: 10;
-    margin-top: -650px;
+    margin-top: -600px;
     margin-left: -40px;
   }
   .text-OiO-editing-platform p {
@@ -1765,38 +2009,72 @@ button img {
     font-weight: bold;
     text-align: left;
   }
-  /* 調整圖片寬度，確保在手機上不會過大 */
-  .OiO-editing-platform-1 {
-    width: 80%; /* 圖片寬度調整為 90% */
-    max-width: 100%;
-  }
-  /* 隱藏按鈕與點點指示器 */
-  .prev-button, .next-button, .dots-container {
-    display: none;
-  }
-  /* 更換圖片並垂直排列 */
-  #Editing-Platform-image {
-    display: none; /* 原來的圖片隱藏 */
-  }
-  /* 新增 3 張手機版專用圖片 */
-  .mobile-images {
+  .section-introduce {
+    position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%; /* 圖片寬度調整為 90% */
-    max-width: 100%;
-    margin: 10px auto; /* 確保圖片居中並縮小間距 */
+    align-items: center;
+    padding: 40px 20px;
   }
-  .mobile-images img {
-    width: 100%; /* 讓圖片自適應寬度 */
-    max-width: 600px; /* 限制最大寬度 */
+  .section-introduce .OiO-editing-platform {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .title-5-image {
-    display: block; /* 改為 block 讓圖片以區塊顯示 */
-    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
-    margin-bottom: 10px; /* 讓 .title-1-image 與 .main-image 更靠近 */
-    width: 80%; /* 縮小圖片大小適應手機 */
+  .section-introduce .OiO-editing-platform .prev-button,
+  .section-introduce .OiO-editing-platform .next-button {
+    display: none;
+  }
+  .section-introduce .OiO-editing-platform .slide {
+    position: relative;
+    display: flex !important;
+    visibility: visible !important;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .section-introduce .OiO-editing-platform .slide img {
+    width: 300px;
     height: auto;
-    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  .section-introduce .OiO-editing-platform .slide p {
+    text-align: center;
+    font-size: 0.6rem;
+    font-family: "Microsoft JhengHei", sans-serif;
+    color: #333;
+    line-height: 1.5;
+    max-width: 180px;
+    font-weight: bold;
+    text-align: left;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 300px; /* 固定距離圖片頂部 50px，不受視窗大小影響 */
+    left: 200px;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+  }
+  .section-introduce .dots-container {
+    display: none;
+  }
+  .illustration-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .illustration-3__image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  .illustration-3 p {
+    margin-top: 20px;
+    width: 180px;
+    text-align: left;
+    font-size: 0.8rem;
+    left: 225px;
+    color: #000000;
   }
   .about-us {
     display: block;
@@ -1818,9 +2096,9 @@ button img {
     font-size: 1rem;
     line-height: 1.5;
     font-weight: bold;
-    width: 300px;
+    width: 250px;
     margin-left: 0px;
-    margin-top: -350px;
+    margin-top: -320px;
     z-index: 10;
   }
   .text-about-us p {
@@ -1840,14 +2118,6 @@ button img {
   }
   #about-us .title-5-image {
     margin-bottom: 10px; /* 減少圖片下方的間距 */
-  }
-  .title-6-image {
-    display: block; /* 改為 block 讓圖片以區塊顯示 */
-    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
-    margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
-    width: 80%; /* 縮小圖片大小適應手機 */
-    height: auto;
-    max-width: 100%;
   }
   .section-recommend {
     display: block;
@@ -1877,14 +2147,6 @@ button img {
     object-fit: contain; /* 避免圖片被切割，保持完整顯示 */
     margin-right: 10px; /* 控制圖片之間的間距 */
     transition: transform 0.3s ease-in-out; /* 增加平滑過渡效果 */
-  }
-  .title-7-image {
-    display: block; /* 改為 block 讓圖片以區塊顯示 */
-    margin: 60px auto 0; /* 增加 margin-top 讓它往下 */
-    margin-bottom: 100px; /* 讓 .title-1-image 與 .main-image 更靠近 */
-    width: 80%; /* 縮小圖片大小適應手機 */
-    height: auto;
-    max-width: 100%;
   }
   .section-FAQ {
     max-width: 100%; /* 最大寬度為容器的 70% */
