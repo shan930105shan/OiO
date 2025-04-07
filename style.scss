@@ -1494,9 +1494,9 @@ button {
           text-align: left;
           line-height: 1.5;
           font-weight: bold;
-          width: 180px;
-          margin-top: -720px;
-          margin-left: 85px;
+          width: 70%;
+          margin-top: -240%;
+          margin-left: 20%;
           z-index: 10;
       
           p {
@@ -1508,23 +1508,29 @@ button {
             text-align: left;
             margin-bottom: 70px;
             z-index: 1;
+            background-color: rgb(242, 243, 240);     
+            padding: 15px 20px;            
+            border-radius: 30px;   
+            border: 2px solid black;        
           }
           p:first-of-type {
-            width: 180px;
-            top: 120px;
+            width: 70%;
+            top: 100%;
             left: 50%; // 使用50%來確保位置居中
-            transform: translateX(-50%) translateX(85px);
     
         }
       
         p:last-of-type {
-            width: 180px;
-            top: -120px;
+            width: 70%;
+            top: -100%;
             left: 50%; // 使用50%來確保位置居中
-            transform: translateX(-50%) translateX(85px); // 將第二段文字往左移動 10px
+
         }
         }
       }
+      
+      
+
       
 
       .illustration-1 {
@@ -1581,99 +1587,72 @@ button {
         height: auto;
       }
 
-    #introduce-part2 {
-        background-color: rgb(212, 172, 234);
-        display: flex;
-        align-items: center;      /* 垂直居中 */
-        justify-content: center;  /* 水平居中 */
-        height: auto;             /* 根據內容自動調整高度 */
-        min-height: 2000px;       /* 設定最小高度以防止過小 */
-    }
-    .section-introduce-2 img {
-        display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
-        margin: 0 auto; /* 使圖片水平居中 */
-        max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
-        height: auto; /* 保持圖片比例 */
-        margin-top: 20px;
-        margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
-    }
-
-    .text-container-2 {
-        display: flex;
-        flex-direction: column; /* 使文字區塊內的文字垂直排列 */
-        max-width: 100%; /* 文字區塊寬度為父容器的 100% */
-        padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+      #introduce-part2 {
         position: relative;
-    }
-    
-    .text-introduce-part2 {
-        font-family: "Microsoft JhengHei", sans-serif;
-        text-align: right;
-        color: rgb(0, 0, 0);
-        font-size: 1.0rem;
-        line-height: 1.5;
-        font-weight: bold;
-        width: 200px;
-        margin-top: -800px;
-        margin-left: 0px;
-        z-index: 10;
-    }
-    
-    .text-introduce-part2 p {
-        line-height: 1.5; 
-        font-weight: bold; 
-        text-align: left; 
-        z-index: 1;
-    }
-    
-    .feature-container {
         display: flex;
-        flex-direction: column; /* 改為垂直排列 */
-        gap: 10px; /* 設定每個項目之間的間距為100px */
-        margin: 0px 0; /* 設定與上下內容的間距 */
-        top: -210px;
-        margin-left: -380px;
-        z-index: 10;
-    }
-    
-    .feature-item {
-        text-align: center; /* 讓文字置中 */
-        font-family: "Microsoft JhengHei", sans-serif;
-        color: rgb(0, 0, 0);
-        font-size: 1.0rem;
-        line-height: 1.5;
-        font-weight: bold;
-    }
-    
-    .feature-item p {
-        line-height: 1.5; 
-        font-weight: bold; 
-        text-align: left; 
-    }
-
-    .text-introduce-part3 {
-        font-family: "Microsoft JhengHei", sans-serif;
-        text-align: right;
-        color: rgb(0, 0, 0);
-        font-size: 1.0rem;
-        line-height: 1.5;
-        font-weight: bold;
-        width: 200px;
-        margin-top: -200px;
-        margin-left: 0px;
-        z-index: 10;
-    }
-    
-    .text-introduce-part3 p {
-        line-height: 1.5; 
-        font-weight: bold; 
-        text-align: left; 
-        z-index: 1;
-    }
-    .text-introduce-part2,.text-introduce-part3{
-        display: none !important;
-    }
-    
+        flex-direction: column;
+        align-items: center;
+      
+        picture {
+          width: 100%;
+          img {
+            display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
+            margin: 0 auto; /* 使圖片水平居中 */
+            max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
+            height: auto; /* 保持圖片比例 */
+            margin-top: 20px;
+            margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
+          }
+        }
+      
+        .text-container-2 {
+          position: absolute; /* 疊在圖片上 */
+          top: 0;
+          left: 0; /* 調整為 0，讓文字容器保持在圖片上 */
+          width: 100%;
+          height: 100%;
+          z-index: 2; /* 讓文字在圖片之上 */
+          
+          .text-introduce-part2,
+          .feature-container,
+          .text-introduce-part3 {
+            position: absolute;
+            width: 100%;
+            padding: 0 1.5rem;
+            color: rgb(255, 255, 255); /* 白色文字，這樣可以跟圖片背景對比 */
+            z-index: 2; /* 讓文字層級較高 */
+      
+            p {
+              left: 100px;
+              font-size: 1rem;
+              line-height: 1.6;
+            }
+          }
+      
+          .text-introduce-part2 {
+            top: 10%; /* 這裡可以自由調整位置 */
+          }
+      
+          .feature-container {
+            top: 40%;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+      
+            .feature-item {
+              margin-bottom: 0.5rem;
+              font-weight: bold;
+            }
+          }
+      
+          .text-introduce-part3 {
+            top: 70%;
+            left: 0;
+          }
+        }
+      }
+      
    
     #introduce-part1, #introduce-part2,#introduce-part3 {
         min-height: 10px; /* 減少高度 */
@@ -1875,7 +1854,7 @@ button {
         position: relative;
         height: auto;             /* 根據內容自動調整高度 */
         min-height: 300px;       /* 設定最小高度以防止過小 */
-        margin-top: -150px; /* 調整上下距離，可以是負值 */
+        margin-top: 50px; /* 調整上下距離，可以是負值 */
     }
 
     .text-container-3 {
@@ -1892,10 +1871,10 @@ button {
         font-size: 1.0rem;
         line-height: 1.5;
         font-weight: bold;
-        width: 200px;
+        width: 60%;
         z-index: 10;
-        margin-top: -600px;
-        margin-left: -40px;
+        margin-top: -190%;
+        margin-left: -10%;
     }
     
     .text-OiO-editing-platform p {
@@ -1944,15 +1923,15 @@ button {
               text-align: center;
               font-size: 0.6rem;
               font-family: "Microsoft JhengHei", sans-serif;
-              color: #333;
               line-height: 1.5;
-              max-width: 180px;
+              max-width: 300px;
+              width: 55%;
               font-weight: bold;
               text-align: left;
               position: absolute;
               transform: translate(-50%, -50%); // 讓文字以中心為基準定位（可選）
-              top: 300px; /* 固定距離圖片頂部 50px，不受視窗大小影響 */
-              left: 200px;
+              top: 88%;  
+              left: 60%;
               color: rgb(0, 0, 0);
               padding: 10px 15px;
         
@@ -1967,29 +1946,32 @@ button {
       }
       
       .illustration-3 {
+        position: relative;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
       
+        // 圖片直接使用 class 名稱就好
         &__image {
           width: 100%;
           max-width: 400px;
           height: auto;
+          display: block;
         }
       
+        // 懸浮在圖片上的文字
         p {
-          margin-top: 20px;
-          width: 180px;
+          position: absolute;
+          top: 38%;             
+          left: 28%;            
+          width: 48%;           
+          transform: translateX(-50%);  
+          font-size: 0.8rem;   
           text-align: left;
-          font-size: 0.8rem;
-          left: 225px;
-          color: #000000;
+          color: #000;
+          pointer-events: none;
         }
       }
       
-
-   
-
     .about-us{
         display: block;
         justify-content: center;  /* 水平居中 */
@@ -2012,9 +1994,9 @@ button {
         font-size: 1.0rem;
         line-height: 1.5;
         font-weight: bold;
-        width: 250px;
-        margin-left: 0px;
-        margin-top: -320px;
+        width: 75%;
+        margin-left: 0%;
+        margin-top: -102%;
         z-index: 10;
     }
     
@@ -2107,3 +2089,10 @@ button {
     
 
 }
+
+@media screen and (max-width: 375px) {
+    html {
+      font-size: 80%; // 這樣 1rem = 0.8rem
+    }
+  }
+  
