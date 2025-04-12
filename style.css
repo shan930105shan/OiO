@@ -510,6 +510,48 @@ canvas, #bubbleCanvas {
   font-weight: bold;
 }
 
+.popup-item {
+  display: none;
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  animation: fadeIn 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.popup-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.popup-item p {
+  position: absolute;
+  top: 25%; /* 依據圖片的高，比例定位 */
+  left: 33%; /* 依據圖片的寬，比例定位 */
+  width: 45%;
+  padding: 1rem;
+  margin: 0;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .illustration-1 {
   position: relative;
   height: 400px;
@@ -1489,6 +1531,35 @@ button img {
     padding: 10px;
     height: auto;
     margin-left: 0px;
+  }
+  .popup-item {
+    display: none;
+    position: relative;
+    max-width: 900px;
+    width: 90%;
+    animation: fadeIn 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  .popup-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .popup-item p {
+    position: absolute;
+    top: 13%; /* 依據圖片的高，比例定位 */
+    left: 12%; /* 依據圖片的寬，比例定位 */
+    width: 80%;
+    padding: 0.8rem;
+    margin: 0;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.5;
+    box-sizing: border-box;
   }
   .introduce-img-1 {
     width: 130px;

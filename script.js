@@ -116,100 +116,74 @@ function switchLanguage(lang) {
         }
     });
 
-    // 更新 hover-block 的 data-image 屬性，依據螢幕尺寸調整圖片路徑
-    document.querySelectorAll(".hover-block").forEach(block => {
-        const img = block.querySelector("img");
-        const key = img.getAttribute("data-key");
-        if (translations[key] && translations[key][lang]) {
-            let imagePath = translations[key][lang];
-            // 判斷如果是手機版（視窗寬度 ≤ 768），則使用手機版圖片路徑
-            if (window.innerWidth <= 768) {
-                // 假設圖片路徑為 "img/OiO-int-1.png"，則手機版圖片為 "img/mobile-OiO-int-1.png"
-                let parts = imagePath.split('/');
-                let filename = parts.pop();
-                let mobileFilename = 'mobile-' + filename;
-                parts.push(mobileFilename);
-                imagePath = parts.join('/');
-            }
-            block.setAttribute("data-image", imagePath);
-        }
-    });
-
+    // 更新所有 <source> 的語言對應圖片
     document.querySelectorAll('source[data-key]').forEach(source => {
         const key = source.getAttribute('data-key');
         if (translations[key] && translations[key][lang]) {
             source.srcset = translations[key][lang];
         }
     });
-
 }
+
+// 監聽 resize，自動重新套用語言設定（主要為圖片路徑切換）
 window.addEventListener("resize", () => {
     const lang = document.getElementById("languageSelect").value;
     switchLanguage(lang);
 });
 
-
-// hover-block hover 時更新 mainImage，但不影響原始 src
-document.querySelectorAll(".hover-block").forEach(block => {
-    block.addEventListener("click", () => {
-        const mainImage = document.getElementById("mainImage");
-        const newImage = block.getAttribute("data-image");
-        if (mainImage && newImage) {
-            mainImage.src = newImage; // 只有點擊時才改變圖片
-        }
-    });
-});
-
-
 // 語言選單變更事件
-document.getElementById("languageSelect").addEventListener("change", function() {
+document.getElementById("languageSelect").addEventListener("change", function () {
     switchLanguage(this.value);
 });
 
 // 點擊 .introduce-img 更新主圖片
 document.querySelectorAll(".introduce-img").forEach(img => {
-    img.addEventListener("click", function() {
+    img.addEventListener("click", function () {
         const lang = document.getElementById("languageSelect").value;
         const key = this.getAttribute("data-key");
-        
+
         if (translations[key] && translations[key][lang]) {
             document.getElementById("mainImage").src = translations[key][lang];
         }
     });
 });
 
-
-
-
-// hover-block 點擊更新主圖片並置頂
+// hover-block 點擊事件：顯示對應的 popup 項目
 document.addEventListener("DOMContentLoaded", () => {
-    const mainImage = document.getElementById("mainImage");
     const hoverBlocks = document.querySelectorAll(".hover-block");
-    let defaultImage = "img/OiO-introduce-img.png";
-    let isImageAtTop = false;
 
-    hoverBlocks.forEach(block => {
+    hoverBlocks.forEach((block, index) => {
         block.addEventListener("click", (event) => {
-            let newImage = block.getAttribute("data-image");
-            if (mainImage) {
-                mainImage.src = newImage;
-                if (!isImageAtTop) {
-                    mainImage.classList.add("top-position");
-                    isImageAtTop = true;
-                }
+            const popup = document.querySelector(`#popup-${index + 1}`);
+            if (popup) {
+                popup.style.display = "block";
+                showPopup(popup.outerHTML);
             }
-            event.stopPropagation();
+
+            event.stopPropagation(); // 防止事件冒泡導致關閉
         });
     });
-
-    document.addEventListener("click", () => {
-        if (isImageAtTop && mainImage) {
-            mainImage.src = defaultImage;
-            mainImage.classList.remove("top-position");
-            isImageAtTop = false;
-        }
-    });
 });
+
+// 顯示 popup 視窗
+function showPopup(content) {
+    const overlay = document.createElement("div");
+    overlay.style.cssText = `
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,0.6);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 9999;
+    `;
+    overlay.innerHTML = content;
+
+    // 點擊任意處可關閉 popup
+    overlay.addEventListener("click", () => {
+        document.body.removeChild(overlay);
+    });
+
+    document.body.appendChild(overlay);
+}
+
 
 //互動手機監聽事件
 //切換編輯平台教學
