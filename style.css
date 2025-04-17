@@ -1207,9 +1207,11 @@ button img {
 }
 .accordion-item:nth-child(odd) .accordion-button {
   border-color: #D4ACEA;
+  pointer-events: auto;
 }
 .accordion-item:nth-child(even) .accordion-button {
   border-color: #F6FCCE;
+  pointer-events: auto;
 }
 .accordion-button {
   all: unset;
