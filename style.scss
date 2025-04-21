@@ -485,6 +485,51 @@ $text-color: rgb(0, 0, 0);
     to { opacity: 1; transform: scale(1); }
   }
 
+  .speech {
+    position: relative;
+    max-width: 60%;
+    padding: 1em;
+    margin: 1em 0;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    box-shadow: 4px 4px 0 #333;
+  }
+  
+  /* 左邊尾巴（含陰影） */
+  .speech.left::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    filter: drop-shadow(-2px 4px 0 #333); /* 尾巴陰影 */
+  }
+  
+  /* 右邊尾巴（含陰影） */
+  .speech.right {
+    margin-left: auto;
+  }
+  
+  .speech.right::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: -15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent #fff;
+    filter: drop-shadow(2px 4px 0 #333); /* 尾巴陰影 */
+  }
+
+
 .illustration-1 {
     position: relative;
     height: 400px;
@@ -768,7 +813,7 @@ $text-color: rgb(0, 0, 0);
     align-items: center;
     justify-content: center;
     flex-direction: column; // 讓文字和圖片上下排列
-    margin-top: 100px;
+    margin-top: 0px;
     position: relative; /* 讓內部元素可以絕對定位 */
     @include flex-center();
     
@@ -813,7 +858,6 @@ $text-color: rgb(0, 0, 0);
 #OiO-editing-platform {
     display: flex;
     flex-direction: column;
-    background-color: rgb(242, 243, 240);
     justify-content: center;
     align-items: center;
     position: relative;
@@ -834,6 +878,15 @@ $text-color: rgb(0, 0, 0);
     align-items: center;
     max-width: 100%;
     padding-left: 20px;
+}
+
+.OiO-editing-platform-1{
+    max-width: 900px;
+    height: auto;
+    width: 100%;
+    display: block;
+    margin: 100px auto 0;
+
 }
 
 .text-OiO-editing-platform {
@@ -1031,6 +1084,7 @@ button {
 .section-introduce {
 
     background-color:  rgb(242, 243, 240);
+
 
     &__left {
         display: flex;
@@ -1380,7 +1434,7 @@ button {
             position: absolute;
             font-family: "Microsoft JhengHei", sans-serif;
             position: absolute; // 讓文字絕對定位於父元素（圖片）上
-            top: 30px; // 讓文字垂直置中
+            top: 80%; // 讓文字垂直置中
             left: 50%; // 讓文字水平置中
             transform: translate(-50%, -50%); // 讓文字完全居中
             font-size: 1.0rem; // 設置文字大小（可根據需要調整）
@@ -1409,6 +1463,7 @@ button {
         @include image-style(600px, 0px auto 100px);
         height: auto; // 高度根據寬度自動調整
         display: block;
+
       }
       .title5-image {
         @include image-style(600px, 0px auto 100px);
@@ -1600,9 +1655,49 @@ button {
         }
       }
       
+      .speech {
+        position: relative;
+        max-width: 60%;
+        padding: 1em;
+        margin: 1em 0;
+        background: #fff;
+        border: 2px solid #333;
+        border-radius: 10px;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        box-shadow: 4px 4px 0 #333;
+      }
       
-
+      /* 左邊尾巴（含陰影） */
+      .speech.left::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -15px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent #fff transparent transparent;
+        filter: drop-shadow(-2px 2px 0 #333); /* 尾巴陰影 */
+      }
       
+      /* 右邊尾巴（含陰影） */
+      .speech.right {
+        margin-left: auto;
+      }
+      
+      .speech.right::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: -15px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 15px;
+        border-color: transparent transparent transparent #fff;
+        filter: drop-shadow(2px 2px 0 #333); /* 尾巴陰影 */
+      }
 
       .illustration-1 {
         position: relative;
@@ -1638,7 +1733,7 @@ button {
         }
       
         p:first-of-type {
-            width: 150px;
+            width: 40%;
             top: 120px;
             left: 50%; // 使用50%來確保位置居中
             transform: translateX(-50%) translateX(-20px);
@@ -1646,10 +1741,10 @@ button {
         }
       
         p:last-of-type {
-            width: 150px;
+            width: 40%;
             top: 200px;
             left: 50%; // 使用50%來確保位置居中
-            transform: translateX(-50%) translateX(30px); // 將第二段文字往左移動 10px
+            transform: translateX(-50%) translateX(20px); // 將第二段文字往左移動 10px
         }
     }
 
@@ -1901,7 +1996,7 @@ button {
         }
       
         p:first-of-type {
-            width: 160px;
+            width: 40%;
             top: 120px;
             left: 50%; // 使用50%來確保位置居中
             transform: translateX(-50%) translateX(5px);
@@ -1909,24 +2004,42 @@ button {
         }
       
         p:last-of-type {
-            width: 180px;
-            top: 210px;
+            width: 40%;
+            top: 55%;
             left: 50%; // 使用50%來確保位置居中
             transform: translateX(-50%) translateX(-10px); // 將第二段文字往左移動 10px
         }
     }
 
-
-
-    .OiO-editing-platform{
+      
+    #OiO-editing-platform{
         display: block;  /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
         justify-content: center;  /* 水平居中 */
         align-items: center;      /* 垂直居中 */
         position: relative;
         height: auto;             /* 根據內容自動調整高度 */
         min-height: 300px;       /* 設定最小高度以防止過小 */
-        margin-top: 50px; /* 調整上下距離，可以是負值 */
+        margin-top: -200px; 
     }
+    #OiO-editing-platform-1{
+        display: block;  /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
+        justify-content: center;  /* 水平居中 */
+        align-items: center;      /* 垂直居中 */
+        position: relative;
+        height: auto;             /* 根據內容自動調整高度 */
+        min-height: 300px;       /* 設定最小高度以防止過小 */
+        margin-top: -100px; 
+    }
+
+    .OiO-editing-platform-1 {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 150px; /* 與文字距離調整 */
+        margin-top: -50px; /* 與文字距離調整 */
+      }
+      
 
     .text-container-3 {
         display: flex;
@@ -1937,15 +2050,16 @@ button {
     }
     
     .text-OiO-editing-platform {
+        position: absolute;
         text-align: center; /* 讓文字在文字區塊內居中 */
         color: rgb(0, 0, 0);
         font-size: 1.0rem;
         line-height: 1.5;
         font-weight: bold;
-        width: 60%;
-        z-index: 10;
+        width: 50%;
         margin-top: -190%;
         margin-left: -10%;
+
     }
     
     .text-OiO-editing-platform p {
@@ -1968,6 +2082,7 @@ button {
           display: flex;
           flex-direction: column;
           align-items: center;
+          
       
           // 隱藏左右切換按鈕
           .prev-button,
@@ -2154,6 +2269,8 @@ button {
         font-family: "Microsoft JhengHei", sans-serif; /* 設定微軟正黑體 */
         font-weight: bold; /* 讓問題的文字加粗 */
         text-align: left; /* 讓文字在框內靠左對齊 */
+        position: relative;
+        z-index: 10;
     
     }
     

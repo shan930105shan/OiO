@@ -552,6 +552,50 @@ canvas, #bubbleCanvas {
     transform: scale(1);
   }
 }
+.speech {
+  position: relative;
+  max-width: 60%;
+  padding: 1em;
+  margin: 1em 0;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  box-shadow: 4px 4px 0 #333;
+}
+
+/* 左邊尾巴（含陰影） */
+.speech.left::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #fff transparent transparent;
+  filter: drop-shadow(-2px 4px 0 #333); /* 尾巴陰影 */
+}
+
+/* 右邊尾巴（含陰影） */
+.speech.right {
+  margin-left: auto;
+}
+
+.speech.right::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: -15px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #fff;
+  filter: drop-shadow(2px 4px 0 #333); /* 尾巴陰影 */
+}
+
 .illustration-1 {
   position: relative;
   height: 400px;
@@ -876,7 +920,7 @@ canvas, #bubbleCanvas {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 0px;
   position: relative; /* 讓內部元素可以絕對定位 */
   display: flex;
   flex-direction: row;
@@ -918,7 +962,6 @@ canvas, #bubbleCanvas {
 #OiO-editing-platform {
   display: flex;
   flex-direction: column;
-  background-color: rgb(242, 243, 240);
   justify-content: center;
   align-items: center;
   position: relative;
@@ -938,6 +981,14 @@ canvas, #bubbleCanvas {
   align-items: center;
   max-width: 100%;
   padding-left: 20px;
+}
+
+.OiO-editing-platform-1 {
+  max-width: 900px;
+  height: auto;
+  width: 100%;
+  display: block;
+  margin: 100px auto 0;
 }
 
 .text-OiO-editing-platform {
@@ -1435,7 +1486,7 @@ button img {
     position: absolute;
     font-family: "Microsoft JhengHei", sans-serif;
     position: absolute;
-    top: 30px;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1rem;
@@ -1751,6 +1802,46 @@ button img {
     top: -100%;
     left: 50%;
   }
+  .speech {
+    position: relative;
+    max-width: 60%;
+    padding: 1em;
+    margin: 1em 0;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    box-shadow: 4px 4px 0 #333;
+  }
+  /* 左邊尾巴（含陰影） */
+  .speech.left::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    filter: drop-shadow(-2px 2px 0 #333); /* 尾巴陰影 */
+  }
+  /* 右邊尾巴（含陰影） */
+  .speech.right {
+    margin-left: auto;
+  }
+  .speech.right::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: -15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent #fff;
+    filter: drop-shadow(2px 2px 0 #333); /* 尾巴陰影 */
+  }
   .illustration-1 {
     position: relative;
     height: 400px;
@@ -1786,16 +1877,16 @@ button img {
     z-index: 10;
   }
   .illustration-1 p:first-of-type {
-    width: 150px;
+    width: 40%;
     top: 120px;
     left: 50%;
     transform: translateX(-50%) translateX(-20px);
   }
   .illustration-1 p:last-of-type {
-    width: 150px;
+    width: 40%;
     top: 200px;
     left: 50%;
-    transform: translateX(-50%) translateX(30px);
+    transform: translateX(-50%) translateX(20px);
   }
   #about-OiO {
     width: 100%;
@@ -2014,25 +2105,42 @@ button img {
     z-index: 10;
   }
   .illustration-2 p:first-of-type {
-    width: 160px;
+    width: 40%;
     top: 120px;
     left: 50%;
     transform: translateX(-50%) translateX(5px);
   }
   .illustration-2 p:last-of-type {
-    width: 180px;
-    top: 210px;
+    width: 40%;
+    top: 55%;
     left: 50%;
     transform: translateX(-50%) translateX(-10px);
   }
-  .OiO-editing-platform {
+  #OiO-editing-platform {
     display: block; /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
     position: relative;
     height: auto; /* 根據內容自動調整高度 */
     min-height: 300px; /* 設定最小高度以防止過小 */
-    margin-top: 50px; /* 調整上下距離，可以是負值 */
+    margin-top: -200px;
+  }
+  #OiO-editing-platform-1 {
+    display: block; /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    position: relative;
+    height: auto; /* 根據內容自動調整高度 */
+    min-height: 300px; /* 設定最小高度以防止過小 */
+    margin-top: -100px;
+  }
+  .OiO-editing-platform-1 {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 150px; /* 與文字距離調整 */
+    margin-top: -50px; /* 與文字距離調整 */
   }
   .text-container-3 {
     display: flex;
@@ -2042,13 +2150,13 @@ button img {
     padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
   }
   .text-OiO-editing-platform {
+    position: absolute;
     text-align: center; /* 讓文字在文字區塊內居中 */
     color: rgb(0, 0, 0);
     font-size: 1rem;
     line-height: 1.5;
     font-weight: bold;
-    width: 60%;
-    z-index: 10;
+    width: 50%;
     margin-top: -190%;
     margin-left: -10%;
   }
@@ -2230,6 +2338,8 @@ button img {
     font-family: "Microsoft JhengHei", sans-serif; /* 設定微軟正黑體 */
     font-weight: bold; /* 讓問題的文字加粗 */
     text-align: left; /* 讓文字在框內靠左對齊 */
+    position: relative;
+    z-index: 10;
   }
 }
 @media screen and (max-width: 375px) {
