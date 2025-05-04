@@ -268,6 +268,24 @@ document.querySelector(".slider_rec").addEventListener("mouseleave", () => {
   }, 2000);
 });
 
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+if (!isMobile) {
+  // 如果是桌機才啟動自動輪播（可選）
+  let currentIndex = 0;
+  const slider = document.querySelector('.slider_rec');
+  const images = document.querySelectorAll('.slide_rec');
+  const total = images.length;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % total;
+    slider.scrollTo({
+      left: images[currentIndex].offsetLeft,
+      behavior: "smooth"
+    });
+  }, 2000);
+}
+
 // 初始顯示
 updateSlider();
 

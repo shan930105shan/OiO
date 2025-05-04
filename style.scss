@@ -288,7 +288,10 @@ $text-color: rgb(0, 0, 0);
 
 .OiO-introduce {
     background-color: $OiO-bg-color;
-    height: 1100px;
+    height: 700px;
+    display: block;
+    align-items: center;
+    justify-content: center;
 }
 
 .OiO-introduce-img {
@@ -302,6 +305,7 @@ $text-color: rgb(0, 0, 0);
 
 .title {
     position: relative; // 讓圖片作為基準元素
+    width: 100%;
 
     &-text {
         font-family: "Microsoft JhengHei", sans-serif;
@@ -315,41 +319,95 @@ $text-color: rgb(0, 0, 0);
         text-align: center; // 讓文字居中顯示
       }
   }
+  .title1 {
+    background-color: rgb(242, 243, 240);
+    width: 100%;
+    z-index: 1;
   
-  .title1-image {
-    @include image-style(600px, 60px auto 100px);
-    height: auto; // 高度根據寬度自動調整
-    display: block;
+    // 圖片樣式直接寫在裡面，保持結構一致
+    .title1-image {
+      @include image-style(600px, 0px auto 0px); // 假設這是你定義好的 mixin
+      height: auto; // 高度隨寬度自動
+      display: block;
+    }
   }
-  .title2-image {
-    @include image-style(600px, 60px auto 100px);
-    height: auto; // 高度根據寬度自動調整
-    display: block;
+  
+  .title2 {
+    background-color: #D4ACEA;
+    width: 100%;
+    z-index: 1;
+  
+    // 圖片樣式直接寫在裡面，保持結構一致
+    .title2-image {
+      @include image-style(600px, 0px auto 0px); // 假設這是你定義好的 mixin
+      height: auto; // 高度隨寬度自動
+      display: block;
+    }
   }
-  .title3-image {
-    @include image-style(600px, 60px auto 100px);
-    height: auto; // 高度根據寬度自動調整
-    display: block;
+  
+  .title3 {
+    background-color: rgb(242, 243, 240);
+    width: 100%;
+    z-index: 1;
+  
+    // 圖片樣式直接寫在裡面，保持結構一致
+    .title3-image {
+      @include image-style(600px, 0px auto 0px); // 假設這是你定義好的 mixin
+      height: auto; // 高度隨寬度自動
+      display: block;
+    }
   }
-  .title4-image {
-    @include image-style(600px, 60px auto 100px);
-    height: auto; // 高度根據寬度自動調整
-    display: block;
+
+  .title4 {
+    background-color: rgb(242, 243, 240);
+    width: 100%;
+    z-index: 1;
+  
+    // 圖片樣式直接寫在裡面，保持結構一致
+    .title4-image {
+      @include image-style(600px, 0px auto 0px); // 假設這是你定義好的 mixin
+      height: auto; // 高度隨寬度自動
+      display: block;
+    }
   }
-  .title5-image {
-    @include image-style(600px, 0px auto 100px);
-    height: auto; // 高度根據寬度自動調整
-    display: block;
+
+  .title5 {
+    background-color: rgb(242, 243, 240);
+    width: 100%;
+    z-index: 1;
+  
+    // 圖片樣式直接寫在裡面，保持結構一致
+    .title5-image {
+      @include image-style(600px, 0px auto 0px); // 假設這是你定義好的 mixin
+      height: auto; // 高度隨寬度自動
+      display: block;
+    }
   }
-  .title6-image {
-    @include image-style(600px, 0px auto 100px);
-    height: auto; // 高度根據寬度自動調整
-    display: block;
+
+  .title6 {
+    background-color: transparent;
+    width: 100%;
+    z-index: 1;
+  
+    // 圖片樣式直接寫在裡面，保持結構一致
+    .title6-image {
+      @include image-style(600px, 0px auto 0px); // 假設這是你定義好的 mixin
+      height: auto; // 高度隨寬度自動
+      display: block;
+    }
   }
-  .title7-image {
-    @include image-style(600px, 0px auto 100px);
-    height: auto; // 高度根據寬度自動調整
-    display: block;
+
+  .title7 {
+    background-color: rgb(242, 243, 240);
+    width: 100%;
+    z-index: 1;
+  
+    // 圖片樣式直接寫在裡面，保持結構一致
+    .title7-image {
+      @include image-style(600px, 0px auto 0px); // 假設這是你定義好的 mixin
+      height: auto; // 高度隨寬度自動
+      display: block;
+    }
   }
   
 .main-image {
@@ -601,7 +659,7 @@ $text-color: rgb(0, 0, 0);
     position: relative;
 }
 
-.text-introduce-part1, .text-introduce-part2, .text-introduce-part3 {
+.text-introduce-part1{
     @include text-style(left);
     width: 500px;
     margin-top: -420px;
@@ -613,30 +671,80 @@ $text-color: rgb(0, 0, 0);
     }
 }
 
-.text-introduce-part2 {
-    text-align: right;
-    margin-top: -480px;
-    margin-left: -400px;
-}
-
-.text-introduce-part3 {
-    text-align: right;
-    margin-top: 230px;
-    margin-left: -400px;
-}
-
-.feature-container {
-    display: flex;
-    position: absolute;
-    gap: 80px;
-    margin-left: -380px;
-    top: -210px;
-    z-index: 10;
-}
-
-.feature-item {
-    @include text-style(right);
-}
+.section-introduce-2 { 
+    padding: 3rem 1.5rem;
+  
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+  
+      // 圖片排在右側
+      flex-direction: row-reverse;
+    }
+  
+    picture {
+      flex: 1 1 300px;
+  
+      img {
+        max-width: 100%;
+        border-radius: 12px;
+      }
+    }
+  
+    .text-container-2 {
+      flex: 1 1 400px;
+      color: #000000;
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column; // 垂直排列文字區塊
+  
+      .text-introduce-part2,
+      .text-introduce-part3 {
+        text-align: right;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+  
+      .feature-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+  
+        .feature-item {
+          flex: 1;
+          padding: 1rem;
+          text-align: center;
+          transition: transform 0.3s;
+  
+          &:hover {
+            transform: translateY(-5px);
+          }
+  
+          img {
+            max-width: 200px;
+            margin-bottom: 0.5rem;
+          }
+  
+          p {
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            margin-top: -40px;
+          }
+        }
+      }
+    }
+  }
+  
+  
 
 #introduce-part3 {
     min-height: 1536px;
@@ -1128,6 +1236,9 @@ button {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 .slider_rec {
@@ -1149,6 +1260,8 @@ button {
     &:hover {
         transform: scale(1.1);
     }
+    scroll-snap-align: center;
+    border-radius: 10px;
 }
 
 
@@ -1450,7 +1563,7 @@ button {
         display: block;
       }
       .title2-image {
-        @include image-style(600px, 0px auto 100px);
+        @include image-style(600px, 0px auto 0px);
         height: auto; 
         display: block;
       }
@@ -1570,90 +1683,84 @@ button {
       }
       
     
-    .introduce-img-1 { @include introduce-img(130px, 125px, -30px, -100px); }
-    .introduce-img-1-text { @include introduce-text(-125px, -50px); }
+    .introduce-img-1 { @include introduce-img(130px, 125px, 100px, -100px); }
+    .introduce-img-1-text { @include introduce-text(15px, -50px); }
     
-    .introduce-img-2 { @include introduce-img(186px, 125px, -30px, -80px); }
-    .introduce-img-2-text { @include introduce-text(-125px, -15px); }
+    .introduce-img-2 { @include introduce-img(186px, 125px, 100px, -80px); }
+    .introduce-img-2-text { @include introduce-text(15px, -20px); }
     
-    .introduce-img-3 { @include introduce-img(165px, 115px, 100px, -180px); }
-    .introduce-img-3-text { @include introduce-text(10px, -140px); }
+    .introduce-img-3 { @include introduce-img(165px, 115px, 230px, -180px); }
+    .introduce-img-3-text { @include introduce-text(140px, -140px); }
     
-    .introduce-img-4 { @include introduce-img(165px, 115px, -180px, -80px); }
-    .introduce-img-4-text { @include introduce-text(-100px, -70px); }
+    .introduce-img-4 { @include introduce-img(165px, 115px, -125px, -80px); }
+    .introduce-img-4-text { @include introduce-text(-40px, -70px); }
     
-    .introduce-img-5 { @include introduce-img(180px, 125px, -50px, -210px); }
-    .introduce-img-5-text { @include introduce-text(30px, -210px); }
+    .introduce-img-5 { @include introduce-img(180px, 125px, 10px, -210px); }
+    .introduce-img-5-text { @include introduce-text(100px, -210px); }
     
-    .introduce-img-6 { @include introduce-img(173px, 125px, -50px, -170px); }
-    .introduce-img-6-text { @include introduce-text(30px, -170px); }
+    .introduce-img-6 { @include introduce-img(173px, 125px, 10px, -170px); }
+    .introduce-img-6-text { @include introduce-text(100px, -170px); }
 
     
     
 
     #introduce-part1 {
         background-color: rgb(212, 172, 234);
-        display: block;
-        align-items: center;      /* 垂直居中 */
-        justify-content: center;  /* 水平居中 */
-        max-width: 100%;
-        height: auto;             /* 根據內容自動調整高度 */
-        min-height: 1200px;       /* 設定最小高度以防止過小 */
-    }
-
-    .section-introduce-1 img {
-        display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
-        margin: 0 auto; /* 使圖片水平居中 */
-        max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
-        height: auto; /* 保持圖片比例 */
-        margin-top: 20px;
-        margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
-    }
-
-    .text-container-1 {
         display: flex;
         flex-direction: column;
+        align-items: center;        // 垂直置中內容
+        justify-content: flex-start;
         max-width: 100%;
-        padding-left: 20px;
+        height: auto;
+        min-height: 1200px;
+        padding: 2rem 1rem;
+      }
+      
+      .section-introduce-1 img {
+        display: block;
+        margin: 20px auto;
+        max-width: 70%;
+        height: auto;
+      }
+      
+      .text-container-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center; // 讓內部文字區塊水平置中
+        width: 100%;
+        padding: 0 20px;
       
         .text-introduce-part1 {
+          width: 70%;
           text-align: left;
           line-height: 1.5;
           font-weight: bold;
-          width: 70%;
-          margin-top: -240%;
-          margin-left: 20%;
+          margin-left: 15%;
           z-index: 10;
+          margin-top: 2rem;
       
           p {
             font-family: "Microsoft JhengHei", sans-serif;
             font-size: 1rem;
             line-height: 1.5;
             font-weight: bold;
-            color: rgb(0, 0, 0);
+            color: #000;
             text-align: left;
-            margin-bottom: 70px;
-            z-index: 1;
-            background-color: rgb(242, 243, 240);     
-            padding: 15px 20px;            
-            border-radius: 30px;   
-            border: 2px solid black;        
+            margin-bottom: 2.5rem;
+            background-color: rgb(242, 243, 240);
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 2px solid black;
           }
-          p:first-of-type {
-            width: 70%;
-            top: 100%;
-            left: 50%; // 使用50%來確保位置居中
-    
-        }
       
-        p:last-of-type {
-            width: 70%;
-            top: -100%;
+          p:first-of-type,
+          p:last-of-type {
+            width: 70%; // 保持跟文字容器一樣寬
             left: 50%; // 使用50%來確保位置居中
-
-        }
+          }
         }
       }
+      
       
       .speech {
         position: relative;
@@ -1753,71 +1860,56 @@ button {
         height: auto;
       }
 
-      #introduce-part2 {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      
-        picture {
-          width: 100%;
-          img {
-            display: block;  /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
-            margin: 0 auto; /* 使圖片水平居中 */
-            max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
-            height: auto; /* 保持圖片比例 */
-            margin-top: 20px;
-            margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
-          }
+      .section-introduce-2 {
+        .content-wrapper {
+          flex-direction: column; // ✅ 上到下排列（圖片最上）
+          align-items: stretch;
         }
-      
-        .text-container-2 {
-          position: absolute; /* 疊在圖片上 */
-          top: 0;
-          left: 0; /* 調整為 0，讓文字容器保持在圖片上 */
-          width: 100%;
-          height: 100%;
-          z-index: 2; /* 讓文字在圖片之上 */
-          
-          .text-introduce-part2,
-          .feature-container,
-          .text-introduce-part3 {
-            position: absolute;
+            picture {
             width: 100%;
-            padding: 0 1.5rem;
-            color: rgb(255, 255, 255); /* 白色文字，這樣可以跟圖片背景對比 */
-            z-index: 2; /* 讓文字層級較高 */
-      
-            p {
-              left: 100px;
-              font-size: 1rem;
-              line-height: 1.6;
+            max-width: 300px;
+            margin: 0 auto;
             }
-          }
-      
-          .text-introduce-part2 {
-            top: 10%; /* 這裡可以自由調整位置 */
-          }
-      
+        
+            img {
+              max-width: 80%;
+              border-radius: 12px;
+              display: block;
+              margin: 0 auto;
+            }
+    
+        .text-container-2 {
+        
+        .text-introduce-part2,.text-introduce-part3 {
+            width: 80%;
+            margin: 0 auto 1.5rem auto; // 讓整個文字區塊置中
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: left;
+            }
           .feature-container {
-            top: 40%;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-      
+            flex-direction: column; // ✅ 三張功能圖由上到下排列
+            align-items: center;
+    
             .feature-item {
-              margin-bottom: 0.5rem;
-              font-weight: bold;
-            }
-          }
+              width: 100%;         // ✅ 每個功能圖占整欄寬
+              max-width: 300px;    // ✅ 可限制寬度美觀
+            
+              img {
+                max-width: 200px;
+                margin-bottom: 0.5rem;
+              }
       
-          .text-introduce-part3 {
-            top: 70%;
-            left: 0;
+              p {
+                font-weight: bold;
+                font-size: 0.95rem;
+              }
+            
+            }
           }
         }
       }
+      
       
    
     #introduce-part1, #introduce-part2,#introduce-part3 {
@@ -2011,64 +2103,55 @@ button {
         }
     }
 
-      
-    #OiO-editing-platform{
-        display: block;  /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
-        justify-content: center;  /* 水平居中 */
-        align-items: center;      /* 垂直居中 */
-        position: relative;
-        height: auto;             /* 根據內容自動調整高度 */
-        min-height: 300px;       /* 設定最小高度以防止過小 */
-        margin-top: -200px; 
-    }
-    #OiO-editing-platform-1{
-        display: block;  /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
-        justify-content: center;  /* 水平居中 */
-        align-items: center;      /* 垂直居中 */
-        position: relative;
-        height: auto;             /* 根據內容自動調整高度 */
-        min-height: 300px;       /* 設定最小高度以防止過小 */
-        margin-top: -100px; 
-    }
-
-    .OiO-editing-platform-1 {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 150px; /* 與文字距離調整 */
-        margin-top: -50px; /* 與文字距離調整 */
-      }
-      
-
-    .text-container-3 {
-        display: flex;
-        flex-direction: column; /* 使文字區塊內的文字垂直排列 */
-        align-items: center; /* 保證文字區塊水平居中 */
-        max-width: 100%; /* 文字區塊寬度為父容器的 100% */
-        padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
-    }
     
+    #OiO-editing-platform,
+    #OiO-editing-platform-1 {
+      position: relative;
+      display: block;
+      height: auto;
+    }
+  
+    .OiO-editing-platform-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+  
+    .OiO-editing-platform-img1 {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  
     .text-OiO-editing-platform {
-        position: absolute;
-        text-align: center; /* 讓文字在文字區塊內居中 */
-        color: rgb(0, 0, 0);
-        font-size: 1.0rem;
-        line-height: 1.5;
-        font-weight: bold;
-        width: 50%;
-        margin-top: -190%;
-        margin-left: -10%;
-
+      position: absolute;
+      top: 75%;
+      left: -160px;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      pointer-events: none; /* 可視需求移除 */
     }
-    
-    .text-OiO-editing-platform p {
+  
+    .text-container-3 {
+      padding: 1rem;
+      text-align: center;
+      font-size: 1rem;
+      z-index: 11;
+  
+      p {
         font-family: "Microsoft JhengHei", sans-serif;
-        margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
-        line-height: 1.5; 
-        font-weight: bold; 
-        text-align: left; 
-    }
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        color: #000;
+      }
+    }  
+      
 
     .section-introduce {
         position: relative;

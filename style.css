@@ -248,7 +248,10 @@ canvas, #bubbleCanvas {
 
 .OiO-introduce {
   background-color: rgb(242, 243, 240);
-  height: 1100px;
+  height: 700px;
+  display: block;
+  align-items: center;
+  justify-content: center;
 }
 
 .OiO-introduce-img {
@@ -261,6 +264,7 @@ canvas, #bubbleCanvas {
 
 .title {
   position: relative;
+  width: 100%;
 }
 .title-text {
   font-family: "Microsoft JhengHei", sans-serif;
@@ -274,72 +278,107 @@ canvas, #bubbleCanvas {
   text-align: center;
 }
 
-.title1-image {
+.title1 {
+  background-color: rgb(242, 243, 240);
+  width: 100%;
+  z-index: 1;
+}
+.title1 .title1-image {
   display: block;
   width: 600px;
   max-width: 100%;
   height: auto;
-  margin: 60px auto 100px;
+  margin: 0px auto 0px;
   height: auto;
   display: block;
 }
 
-.title2-image {
+.title2 {
+  background-color: #D4ACEA;
+  width: 100%;
+  z-index: 1;
+}
+.title2 .title2-image {
   display: block;
   width: 600px;
   max-width: 100%;
   height: auto;
-  margin: 60px auto 100px;
+  margin: 0px auto 0px;
   height: auto;
   display: block;
 }
 
-.title3-image {
+.title3 {
+  background-color: rgb(242, 243, 240);
+  width: 100%;
+  z-index: 1;
+}
+.title3 .title3-image {
   display: block;
   width: 600px;
   max-width: 100%;
   height: auto;
-  margin: 60px auto 100px;
+  margin: 0px auto 0px;
   height: auto;
   display: block;
 }
 
-.title4-image {
+.title4 {
+  background-color: rgb(242, 243, 240);
+  width: 100%;
+  z-index: 1;
+}
+.title4 .title4-image {
   display: block;
   width: 600px;
   max-width: 100%;
   height: auto;
-  margin: 60px auto 100px;
+  margin: 0px auto 0px;
   height: auto;
   display: block;
 }
 
-.title5-image {
+.title5 {
+  background-color: rgb(242, 243, 240);
+  width: 100%;
+  z-index: 1;
+}
+.title5 .title5-image {
   display: block;
   width: 600px;
   max-width: 100%;
   height: auto;
-  margin: 0px auto 100px;
+  margin: 0px auto 0px;
   height: auto;
   display: block;
 }
 
-.title6-image {
+.title6 {
+  background-color: transparent;
+  width: 100%;
+  z-index: 1;
+}
+.title6 .title6-image {
   display: block;
   width: 600px;
   max-width: 100%;
   height: auto;
-  margin: 0px auto 100px;
+  margin: 0px auto 0px;
   height: auto;
   display: block;
 }
 
-.title7-image {
+.title7 {
+  background-color: rgb(242, 243, 240);
+  width: 100%;
+  z-index: 1;
+}
+.title7 .title7-image {
   display: block;
   width: 600px;
   max-width: 100%;
   height: auto;
-  margin: 0px auto 100px;
+  margin: 0px auto 0px;
   height: auto;
   display: block;
 }
@@ -668,7 +707,7 @@ canvas, #bubbleCanvas {
   position: relative;
 }
 
-.text-introduce-part1, .text-introduce-part2, .text-introduce-part3 {
+.text-introduce-part1 {
   font-family: "Microsoft JhengHei", sans-serif;
   text-align: left;
   color: rgb(0, 0, 0);
@@ -680,38 +719,69 @@ canvas, #bubbleCanvas {
   margin-left: 200px;
   z-index: 10;
 }
-.text-introduce-part1 p, .text-introduce-part2 p, .text-introduce-part3 p {
+.text-introduce-part1 p {
   margin-bottom: 50px;
 }
 
-.text-introduce-part2 {
-  text-align: right;
-  margin-top: -480px;
-  margin-left: -400px;
+.section-introduce-2 {
+  padding: 3rem 1.5rem;
 }
-
-.text-introduce-part3 {
-  text-align: right;
-  margin-top: 230px;
-  margin-left: -400px;
-}
-
-.feature-container {
+.section-introduce-2 .content-wrapper {
   display: flex;
-  position: absolute;
-  gap: 80px;
-  margin-left: -380px;
-  top: -210px;
-  z-index: 10;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: row-reverse;
 }
-
-.feature-item {
+.section-introduce-2 picture {
+  flex: 1 1 300px;
+}
+.section-introduce-2 picture img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+.section-introduce-2 .text-container-2 {
+  flex: 1 1 400px;
+  color: #000000;
   font-family: "Microsoft JhengHei", sans-serif;
-  text-align: right;
-  color: rgb(0, 0, 0);
-  font-size: 1rem;
-  line-height: 1.5;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+.section-introduce-2 .text-container-2 .text-introduce-part2,
+.section-introduce-2 .text-container-2 .text-introduce-part3 {
+  text-align: right;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.section-introduce-2 .text-container-2 .feature-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-introduce-2 .text-container-2 .feature-container .feature-item {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.section-introduce-2 .text-container-2 .feature-container .feature-item:hover {
+  transform: translateY(-5px);
+}
+.section-introduce-2 .text-container-2 .feature-container .feature-item img {
+  max-width: 200px;
+  margin-bottom: 0.5rem;
+}
+.section-introduce-2 .text-container-2 .feature-container .feature-item p {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  margin-top: -40px;
 }
 
 #introduce-part3 {
@@ -1217,6 +1287,9 @@ button img {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .slider_rec {
@@ -1235,6 +1308,8 @@ button img {
   object-fit: contain;
   margin-right: 10px;
   transition: transform 0.3s ease-in-out;
+  scroll-snap-align: center;
+  border-radius: 10px;
 }
 .slide_rec:hover {
   transform: scale(1.1);
@@ -1508,7 +1583,7 @@ button img {
     width: 600px;
     max-width: 100%;
     height: auto;
-    margin: 0px auto 100px;
+    margin: 0px auto 0px;
     height: auto;
     display: block;
   }
@@ -1617,13 +1692,13 @@ button img {
   .introduce-img-1 {
     width: 130px;
     height: 125px;
-    margin-top: -30px;
+    margin-top: 100px;
     margin-left: -100px;
   }
   .introduce-img-1-text {
     font-family: "Microsoft JhengHei", sans-serif;
     position: absolute;
-    top: -125px;
+    top: 15px;
     left: -50px;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
@@ -1639,14 +1714,14 @@ button img {
   .introduce-img-2 {
     width: 186px;
     height: 125px;
-    margin-top: -30px;
+    margin-top: 100px;
     margin-left: -80px;
   }
   .introduce-img-2-text {
     font-family: "Microsoft JhengHei", sans-serif;
     position: absolute;
-    top: -125px;
-    left: -15px;
+    top: 15px;
+    left: -20px;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
     font-size: 10px;
@@ -1661,13 +1736,13 @@ button img {
   .introduce-img-3 {
     width: 165px;
     height: 115px;
-    margin-top: 100px;
+    margin-top: 230px;
     margin-left: -180px;
   }
   .introduce-img-3-text {
     font-family: "Microsoft JhengHei", sans-serif;
     position: absolute;
-    top: 10px;
+    top: 140px;
     left: -140px;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
@@ -1683,13 +1758,13 @@ button img {
   .introduce-img-4 {
     width: 165px;
     height: 115px;
-    margin-top: -180px;
+    margin-top: -125px;
     margin-left: -80px;
   }
   .introduce-img-4-text {
     font-family: "Microsoft JhengHei", sans-serif;
     position: absolute;
-    top: -100px;
+    top: -40px;
     left: -70px;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
@@ -1705,13 +1780,13 @@ button img {
   .introduce-img-5 {
     width: 180px;
     height: 125px;
-    margin-top: -50px;
+    margin-top: 10px;
     margin-left: -210px;
   }
   .introduce-img-5-text {
     font-family: "Microsoft JhengHei", sans-serif;
     position: absolute;
-    top: 30px;
+    top: 100px;
     left: -210px;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
@@ -1727,13 +1802,13 @@ button img {
   .introduce-img-6 {
     width: 173px;
     height: 125px;
-    margin-top: -50px;
+    margin-top: 10px;
     margin-left: -170px;
   }
   .introduce-img-6-text {
     font-family: "Microsoft JhengHei", sans-serif;
     position: absolute;
-    top: 30px;
+    top: 100px;
     left: -170px;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
@@ -1748,58 +1823,53 @@ button img {
   }
   #introduce-part1 {
     background-color: rgb(212, 172, 234);
-    display: block;
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     max-width: 100%;
-    height: auto; /* 根據內容自動調整高度 */
-    min-height: 1200px; /* 設定最小高度以防止過小 */
+    height: auto;
+    min-height: 1200px;
+    padding: 2rem 1rem;
   }
   .section-introduce-1 img {
-    display: block; /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
-    margin: 0 auto; /* 使圖片水平居中 */
-    max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
-    height: auto; /* 保持圖片比例 */
-    margin-top: 20px;
-    margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
+    display: block;
+    margin: 20px auto;
+    max-width: 70%;
+    height: auto;
   }
   .text-container-1 {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    padding-left: 20px;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
   }
   .text-container-1 .text-introduce-part1 {
+    width: 70%;
     text-align: left;
     line-height: 1.5;
     font-weight: bold;
-    width: 70%;
-    margin-top: -240%;
-    margin-left: 20%;
+    margin-left: 15%;
     z-index: 10;
+    margin-top: 2rem;
   }
   .text-container-1 .text-introduce-part1 p {
     font-family: "Microsoft JhengHei", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: #000;
     text-align: left;
-    margin-bottom: 70px;
-    z-index: 1;
+    margin-bottom: 2.5rem;
     background-color: rgb(242, 243, 240);
     padding: 15px 20px;
     border-radius: 30px;
     border: 2px solid black;
   }
-  .text-container-1 .text-introduce-part1 p:first-of-type {
-    width: 70%;
-    top: 100%;
-    left: 50%;
-  }
+  .text-container-1 .text-introduce-part1 p:first-of-type,
   .text-container-1 .text-introduce-part1 p:last-of-type {
     width: 70%;
-    top: -100%;
     left: 50%;
   }
   .speech {
@@ -1892,64 +1962,43 @@ button img {
     width: 100%;
     height: auto;
   }
-  #introduce-part2 {
-    position: relative;
-    display: flex;
+  .section-introduce-2 .content-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .section-introduce-2 picture {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .section-introduce-2 img {
+    max-width: 80%;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+  }
+  .section-introduce-2 .text-container-2 .text-introduce-part2, .section-introduce-2 .text-container-2 .text-introduce-part3 {
+    width: 80%;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .section-introduce-2 .text-container-2 .feature-container {
     flex-direction: column;
     align-items: center;
   }
-  #introduce-part2 picture {
+  .section-introduce-2 .text-container-2 .feature-container .feature-item {
     width: 100%;
+    max-width: 300px;
   }
-  #introduce-part2 picture img {
-    display: block; /* 改為 block 使圖片顯示為區塊元素，並使其垂直排列 */
-    margin: 0 auto; /* 使圖片水平居中 */
-    max-width: 70%; /* 設置最大寬度為 100%，防止超過父容器 */
-    height: auto; /* 保持圖片比例 */
-    margin-top: 20px;
-    margin-bottom: 20px; /* 設定圖片之間的垂直間距 */
-  }
-  #introduce-part2 .text-container-2 {
-    position: absolute; /* 疊在圖片上 */
-    top: 0;
-    left: 0; /* 調整為 0，讓文字容器保持在圖片上 */
-    width: 100%;
-    height: 100%;
-    z-index: 2; /* 讓文字在圖片之上 */
-  }
-  #introduce-part2 .text-container-2 .text-introduce-part2,
-  #introduce-part2 .text-container-2 .feature-container,
-  #introduce-part2 .text-container-2 .text-introduce-part3 {
-    position: absolute;
-    width: 100%;
-    padding: 0 1.5rem;
-    color: rgb(255, 255, 255); /* 白色文字，這樣可以跟圖片背景對比 */
-    z-index: 2; /* 讓文字層級較高 */
-  }
-  #introduce-part2 .text-container-2 .text-introduce-part2 p,
-  #introduce-part2 .text-container-2 .feature-container p,
-  #introduce-part2 .text-container-2 .text-introduce-part3 p {
-    left: 100px;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  #introduce-part2 .text-container-2 .text-introduce-part2 {
-    top: 10%; /* 這裡可以自由調整位置 */
-  }
-  #introduce-part2 .text-container-2 .feature-container {
-    top: 40%;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  #introduce-part2 .text-container-2 .feature-container .feature-item {
+  .section-introduce-2 .text-container-2 .feature-container .feature-item img {
+    max-width: 200px;
     margin-bottom: 0.5rem;
-    font-weight: bold;
   }
-  #introduce-part2 .text-container-2 .text-introduce-part3 {
-    top: 70%;
-    left: 0;
+  .section-introduce-2 .text-container-2 .feature-container .feature-item p {
+    font-weight: bold;
+    font-size: 0.95rem;
   }
   #introduce-part1, #introduce-part2, #introduce-part3 {
     min-height: 10px; /* 減少高度 */
@@ -2116,56 +2165,47 @@ button img {
     left: 50%;
     transform: translateX(-50%) translateX(-10px);
   }
-  #OiO-editing-platform {
-    display: block; /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    position: relative;
-    height: auto; /* 根據內容自動調整高度 */
-    min-height: 300px; /* 設定最小高度以防止過小 */
-    margin-top: -200px;
-  }
+  #OiO-editing-platform,
   #OiO-editing-platform-1 {
-    display: block; /* 使圖片成為區塊級元素，這樣它們會在一行的下面顯示 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
     position: relative;
-    height: auto; /* 根據內容自動調整高度 */
-    min-height: 300px; /* 設定最小高度以防止過小 */
-    margin-top: -100px;
-  }
-  .OiO-editing-platform-1 {
     display: block;
-    margin: 0 auto;
-    max-width: 100%;
     height: auto;
-    margin-bottom: 150px; /* 與文字距離調整 */
-    margin-top: -50px; /* 與文字距離調整 */
   }
-  .text-container-3 {
-    display: flex;
-    flex-direction: column; /* 使文字區塊內的文字垂直排列 */
-    align-items: center; /* 保證文字區塊水平居中 */
-    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
-    padding-left: 20px; /* 可選，為文字區塊添加左邊距 */
+  .OiO-editing-platform-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+  }
+  .OiO-editing-platform-img1 {
+    width: 100%;
+    height: auto;
+    display: block;
   }
   .text-OiO-editing-platform {
     position: absolute;
-    text-align: center; /* 讓文字在文字區塊內居中 */
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: bold;
-    width: 50%;
-    margin-top: -190%;
-    margin-left: -10%;
+    top: 75%;
+    left: -160px;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none; /* 可視需求移除 */
   }
-  .text-OiO-editing-platform p {
+  .text-container-3 {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    z-index: 11;
+  }
+  .text-container-3 p {
     font-family: "Microsoft JhengHei", sans-serif;
-    margin-bottom: 1rem; /* 讓每個段落有一定的間距 */
     line-height: 1.5;
+    margin-bottom: 1rem;
     font-weight: bold;
-    text-align: left;
+    color: #000;
   }
   .section-introduce {
     position: relative;
