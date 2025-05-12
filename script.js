@@ -230,68 +230,64 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-//推薦作品
-let currentIndex_rec = 0; // 目前顯示的圖片起始索引
+// 推薦作品輪播僅電腦版
 const images_rec = document.querySelectorAll(".slide_rec");
-const totalImages = images_rec.length;
+const slider = document.querySelector(".slider_rec");
 
-// 更新圖片顯示
+let currentIndex_rec = 0;
+let autoSlide = null;
+
+// 更新圖片顯示（只限桌機）
 function updateSlider() {
-  for (let i = 0; i < images_rec.length; i++) {
-    const imgIndex = (currentIndex_rec + i) % totalImages; // 計算每張圖片的索引（循環）
-    images_rec[i].src = `img/recommend-img${imgIndex + 1}.png`; // 更新圖片源
-    // 根據索引顯示或隱藏圖片
-    if (i >= 4) {
-      images_rec[i].style.display = 'none'; // 超過四張的圖片隱藏
-    } else {
-      images_rec[i].style.display = 'block'; // 顯示前四張圖片
-    }
+  images_rec.forEach((img) => {
+    img.style.display = "none";
+  });
+
+  for (let i = 0; i < 4; i++) {
+    const imgIndex = (currentIndex_rec + i) % images_rec.length;
+    images_rec[imgIndex].style.display = "block";
   }
 }
 
-// 自動輪播，每2秒切換
-let autoSlide = setInterval(() => {
-  currentIndex_rec = (currentIndex_rec + 1) % totalImages; // 每2秒輪播一張
+// 啟動桌機輪播
+function startDesktopSlider() {
   updateSlider();
-}, 2000);
-
-// 當鼠標懸停在圖片上時停止輪播
-document.querySelector(".slider_rec").addEventListener("mouseenter", () => {
-  clearInterval(autoSlide); // 停止輪播
-});
-
-// 當鼠標離開圖片時恢復輪播
-document.querySelector(".slider_rec").addEventListener("mouseleave", () => {
   autoSlide = setInterval(() => {
-    currentIndex_rec = (currentIndex_rec + 1) % totalImages; // 每2秒輪播一張
+    currentIndex_rec = (currentIndex_rec + 1) % images_rec.length;
     updateSlider();
-  }, 2000);
-});
-
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-if (!isMobile) {
-  // 如果是桌機才啟動自動輪播（可選）
-  let currentIndex = 0;
-  const slider = document.querySelector('.slider_rec');
-  const images = document.querySelectorAll('.slide_rec');
-  const total = images.length;
-
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % total;
-    slider.scrollTo({
-      left: images[currentIndex].offsetLeft,
-      behavior: "smooth"
-    });
   }, 2000);
 }
 
-// 初始顯示
-updateSlider();
+// 清除所有樣式（手機用）
+function showAllImages() {
+  clearInterval(autoSlide);
+  images_rec.forEach((img) => {
+    img.style.display = "block";
+  });
+}
 
+// 根據螢幕寬度初始化
+function handleResize() {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  if (isMobile) {
+    showAllImages();
+    slider.classList.add("mobile-mode");
+    slider.classList.remove("desktop-mode");
+  } else {
+    currentIndex_rec = 0;
+    startDesktopSlider();
+    slider.classList.add("desktop-mode");
+    slider.classList.remove("mobile-mode");
+  }
+}
 
+// 初始執行一次
+handleResize();
 
-
+// 監聽視窗變化
+window.addEventListener("resize", () => {
+  handleResize();
+});
 
 
 // 監聽所有具有 "fade-in" 類別的元素

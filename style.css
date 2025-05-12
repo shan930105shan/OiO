@@ -1067,31 +1067,46 @@ canvas, #bubbleCanvas {
   margin: 100px auto 0;
 }
 
-.OiO-editing-platform-1 {
-  max-width: 900px;
+#OiO-editing-platform-1 {
+  display: flex;
+  flex-direction: row; /* 預設電腦版：左右排列 */
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  flex-wrap: wrap; /* 防止內容溢出 */
+}
+
+.OiO-editing-platform-img1 {
+  width: 500px;
   height: auto;
-  width: 100%;
+  max-width: 100%;
+  margin-right: 1rem;
   display: block;
-  margin: 100px auto 0;
 }
 
 .text-OiO-editing-platform {
-  text-align: center;
-  color: rgb(0, 0, 0);
+  width: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.text-container-3 {
+  padding: 1rem;
+  font-size: 1rem;
+}
+.text-container-3 p {
+  font-family: "Microsoft JhengHei", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
   font-weight: bold;
-  width: 350px;
-  margin-left: 650px;
-  margin-top: -360px;
-  z-index: 10;
-}
-.text-OiO-editing-platform p {
-  font-family: "Microsoft JhengHei", sans-serif;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  font-weight: bold;
+  color: #000;
   text-align: left;
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 2px solid black;
 }
 
 .slide {
@@ -1205,58 +1220,49 @@ button img {
   color: rgb(0, 0, 0);
   padding: 10px 15px;
   border-radius: 5px;
-  z-index: 10px;
+  z-index: 10;
 }
 
-.about-us {
+#about-us {
+  background-color: #f2f3f0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  height: 100%;
-  background-color: rgb(242, 243, 240);
-  padding: 50px 20px;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
 }
-.about-us img {
-  max-width: 100%;
+
+.about-us__image {
+  width: 600px;
   height: auto;
+  max-width: 100%;
+  margin-top: 50px;
   display: block;
-  margin-bottom: 30px;
 }
 
 .text-container-4 {
+  width: 500px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  padding-left: 20px;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .text-about-us {
-  text-align: center;
-  color: rgb(0, 0, 0);
   font-size: 1rem;
-  line-height: 1.5;
-  font-weight: bold;
-  width: 450px;
-  margin-left: 400px;
-  margin-top: -250px;
-  z-index: 10;
-}
-.text-about-us p {
   font-family: "Microsoft JhengHei", sans-serif;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  font-weight: bold;
-  text-align: left;
 }
 
-.about-us-img img {
-  max-width: 100%;
-  height: auto;
-  width: 900px;
-  display: block;
-  margin: 100px auto 0;
+.text-about-us p {
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 2px solid black;
+  margin-bottom: 50px;
+  line-height: 1.5;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
 }
 
 .section-introduce {
@@ -1344,6 +1350,7 @@ button img {
 .accordion-item {
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
+  width: 100%;
 }
 .accordion-item:nth-child(odd) .accordion-button {
   border-color: #D4ACEA;
@@ -1355,6 +1362,7 @@ button img {
 }
 .accordion-button {
   all: unset;
+  z-index: 10;
   display: block;
   width: 100%;
   padding: 15px 20px;
@@ -2179,47 +2187,22 @@ button img {
     left: 50%;
     transform: translateX(-50%) translateX(-10px);
   }
-  #OiO-editing-platform,
   #OiO-editing-platform-1 {
-    position: relative;
-    display: block;
-    height: auto;
+    flex-direction: column;
+    padding: 1rem;
   }
-  .OiO-editing-platform-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    display: block;
-  }
-  .OiO-editing-platform-img1 {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  .OiO-editing-platform-img1,
   .text-OiO-editing-platform {
-    position: absolute;
-    top: 75%;
-    left: -600px;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    pointer-events: none; /* 可視需求移除 */
+    width: 100%;
+    margin: 3rem 0 2rem 0;
   }
   .text-container-3 {
-    padding: 1rem;
+    align-items: center;
     text-align: center;
-    font-size: 1rem;
-    z-index: 11;
   }
   .text-container-3 p {
-    font-family: "Microsoft JhengHei", sans-serif;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: #000;
+    text-align: left;
+    width: 70%;
   }
   .section-introduce {
     position: relative;
@@ -2292,45 +2275,21 @@ button img {
     color: #000;
     pointer-events: none;
   }
-  .about-us {
-    display: block;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    height: auto; /* 根據內容自動調整高度 */
-    min-height: 500px; /* 設定最小高度以防止過小 */
+  #about-us {
+    height: auto;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .about-us__image {
+    margin-top: -20px;
+    width: 90%;
   }
   .text-container-4 {
-    display: flex;
-    flex-direction: column; /* 文字區塊內的文字垂直排列 */
-    align-items: center; /* 保證文字區塊居中 */
-    max-width: 100%; /* 文字區塊寬度為父容器的 100% */
-    padding-left: 20px; /* 可選：為文字區塊添加左邊距 */
-  }
-  .text-about-us {
-    text-align: center; /* 使文字區塊內的文字居中 */
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: bold;
-    width: 75%;
-    margin-left: 0%;
-    margin-top: -102%;
-    z-index: 10;
+    margin-top: 20px;
+    width: 70%;
   }
   .text-about-us p {
-    font-family: "Microsoft JhengHei", sans-serif;
-    margin-bottom: 1rem; /* 每段文字之間的間隔 */
-    line-height: 1.5;
-    font-weight: bold;
     text-align: left;
-  }
-  .about-us-img img {
-    max-width: 100%;
-    height: auto; /* 高度自動調整以保持比例 */
-    width: 80%; /* 寬度自動調整以保持比例 */
-    display: block; /* 去除圖片的底部空白間隙 */
-    margin: 0 auto; /* 保證圖片水平居中 */
-    margin-top: 10px;
   }
   #about-us .title-5-image {
     margin-bottom: 10px; /* 減少圖片下方的間距 */
@@ -2340,6 +2299,7 @@ button img {
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
     height: auto; /* 根據內容自動調整高度 */
+    width: 100%; /* 寬度自動調整以保持比例 */
     min-height: 500px; /* 設定最小高度以防止過小 */
   }
   #recommend .title-6-image {
@@ -2354,15 +2314,23 @@ button img {
   .slider_rec {
     display: flex;
     height: 300px;
-    justify-content: center;
-    overflow: hidden; /* 隱藏超出容器的部分 */
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 10px;
+    min-width: fit-content;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
   }
   .slide_rec {
     width: 150px; /* 每張圖片的寬度 */
     height: 100%; /* 保持圖片比例 */
     object-fit: contain; /* 避免圖片被切割，保持完整顯示 */
-    margin-right: 10px; /* 控制圖片之間的間距 */
+    gap: 10px;
     transition: transform 0.3s ease-in-out; /* 增加平滑過渡效果 */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
   .section-FAQ {
     max-width: 100%; /* 最大寬度為容器的 70% */
