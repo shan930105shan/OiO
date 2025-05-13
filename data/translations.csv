@@ -54,16 +54,16 @@ Download,如何下載 OiO APP？,"How to download OiO APP?","OiOアプリのダ�
 Contact-us,聯絡我們,"Contact us","お問い合わせ"
 Phone,電話: 02-21001400,"Tel: 02-21001400","電話: 02-21001400"
 Address,地址: 台北市中山區吉林路218巷19號1樓,"Address: 1st Floor, No. 19, Lane 218, Jilin Road, Zhongshan District, Taipei City","住所: 台北市中山区吉林路218巷19号1階"
-question-1,這個應用程式是免費的嗎？APP是免費下載的，內含的電子內容有部分需付費體驗。,"Is this app free? The APP is free to download, and some of the electronic content it contains requires payment.","このアプリは無料ですか？アプリは無料でダウンロードできますが、一部の電子コンテンツは有料です。"
+question-1,"這個應用程式是免費的嗎？","Is this app free? ","このアプリは無料ですか？"
 answer-1,"APP是免費下載的，內含的電子內容有部分需付費體驗。","The APP is free to download, and some of the electronic content it contains requires payment.","アプリは無料でダウンロードできますが、一部の電子コンテンツは有料です。"
 question-2,一定要開啟GPS授權嗎？,"Do I have to turn on GPS authorization?","GPSの許可をオンにする必要がありますか？"
 answer-2,是的，多數電子內容會使用GPS觸發，讓您有專屬導覽員般的體驗。,"Yes, most electronic content will be triggered by GPS, giving you an exclusive tour guide-like experience.","はい、ほとんどの電子コンテンツはGPSによってトリガーされ、専属ガイドのような体験ができます。"
-question-3,電子內容一定要下載嗎？,"Do electronic contents have to be downloaded?",電子コンテンツはダウンロードする必要がありますか？
+question-3,"電子內容一定要下載嗎？","Do electronic contents have to be downloaded?",電子コンテンツはダウンロードする必要がありますか？
 answer-3,為使您的使用體驗盡可能不被網路連線問題所影響，我們的電子內容都需要下載後才能使用。,"In order to ensure that your user experience is not affected by network connection problems, our electronic contents need to be downloaded before use.",ネットワーク接続の問題による影響を防ぐために、電子コンテンツは使用前にダウンロードする必要があります。
-question-4,在沒有網路的狀態下還能體驗電子內容嗎？,"Can I still experience electronic content without the Internet?",インターネットがない状態でも電子コンテンツを体験できますか？
-answer-4,在開啟電子內容後，只要不關閉APP，仍可進行非連網的應用操作，包含但不限於GPS觸發、辨識觸發之圖像、音檔、AR方位指引等電子內容。,"After opening the electronic content, as long as the APP is not closed, you can still perform non-connected application operations, including but not limited to GPS-triggered, recognition-triggered images, audio files, AR orientation guidance, and other electronic content.",電子コンテンツを開いた後、アプリを閉じなければ、GPSトリガー、画像認識トリガー、音声ファイル、ARナビゲーションなどのオフライン機能を利用できます。
+question-4,"在沒有網路的狀態下還能體驗電子內容嗎？","Can I still experience electronic content without the Internet?",インターネットがない状態でも電子コンテンツを体験できますか？
+answer-4,"在開啟電子內容後，只要不關閉APP，仍可進行非連網的應用操作，包含但不限於GPS觸發、辨識觸發之圖像、音檔、AR方位指引等電子內容。","After opening the electronic content, as long as the APP is not closed, you can still perform non-connected application operations, including but not limited to GPS-triggered, recognition-triggered images, audio files, AR orientation guidance, and other electronic content.",電子コンテンツを開いた後、アプリを閉じなければ、GPSトリガー、画像認識トリガー、音声ファイル、ARナビゲーションなどのオフライン機能を利用できます。
 question-5,已經下載的電子內容能不能移除？,"Can the downloaded electronic content be removed?",ダウンロードした電子コンテンツを削除できますか？
 answer-5,可以移除，並可在已購入電子書清單中重新下載，但內建的觸發紀錄會於移除時一併刪除，GPS觸發將會重置，請務必確認是否刪除。,"It can be removed and re-downloaded in the purchased e-book list, but the built-in trigger record will be deleted when removed, and the GPS trigger will be reset. Please confirm whether to delete it.",削除可能で、購入済みの電子書籍リストから再ダウンロードできますが、削除時にトリガー履歴が消去され、GPSトリガーがリセットされます。削除するかどうかを確認してください。
-question-6,為什麼在Google Play 及 App store 找不到 OiO 應用程式下載？,"Why can't I find the OiO app download on Google Play and App Store?",Google PlayやApp StoreでOiOアプリのダウンロードが見つからないのはなぜですか？
+question-6,"為什麼在Google Play 及 App store 找不到 OiO 應用程式下載？","Why can't I find the OiO app download on Google Play and App Store?",Google PlayやApp StoreでOiOアプリのダウンロードが見つからないのはなぜですか？
 answer-6,請先確認手機作業系統是否已升級至 Android13 / iOS 11 以上，若系統已達最低作業環境需求仍未找到OiO App，請來信與我們聯繫，我們會協助您排除問題。,"Please first confirm whether the mobile operating system has been upgraded to Android 13 / iOS 11 or above. If the system has met the minimum operating environment requirements and still cannot find the OiO App, please contact us by email and we will help you troubleshoot the problem.",まず、スマートフォンのOSがAndroid 13 / iOS 11以上にアップグレードされているか確認してください。システム要件を満たしているにも関わらずOiOアプリが見つからない場合は、メールでお問い合わせください。問題解決をサポートいたします。
 

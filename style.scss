@@ -1284,56 +1284,67 @@ button {
 
 
 .section-FAQ {
-    max-width: 100%;
-    height: auto;
-    width: auto;
-    display: block;
-    background-color: rgb(242, 243, 240);
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+  background-color: rgb(242, 243, 240);
 }
 
 .accordion {
-    max-width: 880px;
-    margin: auto;
-    &-item {
-        border-bottom: 1px solid #ccc;
-        margin-bottom: 10px;
-        width: 100%;
-        &:nth-child(odd) .accordion-button {
-            border-color: #D4ACEA;
-            pointer-events: auto;
-        }
-        &:nth-child(even) .accordion-button {
-            border-color: #F6FCCE;
-            pointer-events: auto;
-        }
+  max-width: 880px;
+  margin: auto;
+
+  &-item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%;
+
+    &:nth-child(odd) .accordion-button {
+      border-color: #D4ACEA;
+      pointer-events: auto;
     }
-    &-button {
-        all: unset;
-        z-index: 10;
-        display: block;
-        width: 100%;
-        padding: 15px 20px;
-        border: 10px solid;
-        cursor: pointer;
-        font-size: 20px;
-        background: white;
-        border-radius: 30px;
-        font-family: "Microsoft JhengHei", sans-serif;
-        font-weight: bold;
-        text-align: left;
-        &.active {
-            background: #ddd;
-        }
+
+    &:nth-child(even) .accordion-button {
+      border-color: #F6FCCE;
+      pointer-events: auto;
     }
-    &-content {
-        display: none;
-        overflow: hidden;
-        p {
-            font-family: "Microsoft JhengHei", sans-serif;
-            font-weight: normal;
-        }
+  }
+
+  &-button {
+    z-index: 10;
+    display: flex; // 使用 flex 排版
+    all: unset;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px 20px;
+    border: 10px solid; // 減少邊框寬度
+    cursor: pointer;
+    font-size: 20px;
+    background: white;
+    border-radius: 30px;
+    font-family: "Microsoft JhengHei", sans-serif;
+    font-weight: bold;
+    text-align: left;
+
+    &.active {
+      background: #ddd;
     }
+  }
+
+  &-content {
+    display: none; // 預設隱藏
+    overflow: hidden;
+
+    p {
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-weight: normal;
+    }
+  }
 }
+
+
 
 .fade-in {
     opacity: 0;
