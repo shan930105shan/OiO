@@ -2301,7 +2301,6 @@ button img {
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
     height: auto; /* 根據內容自動調整高度 */
-    width: 100%; /* 寬度自動調整以保持比例 */
     min-height: 500px; /* 設定最小高度以防止過小 */
   }
   #recommend .title-6-image {
@@ -2312,27 +2311,31 @@ button img {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow-x: auto; /* 確保 container 可橫向捲動 */
   }
   .slider_rec {
     display: flex;
     height: 300px;
-    width: 100%;
+    min-width: max-content; /* 根據內容總寬自動展開 */
     justify-content: flex-start;
     padding: 0 10px;
-    min-width: fit-content;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
+    gap: 10px;
   }
   .slide_rec {
-    width: 150px; /* 每張圖片的寬度 */
-    height: 100%; /* 保持圖片比例 */
-    object-fit: contain; /* 避免圖片被切割，保持完整顯示 */
-    gap: 10px;
-    transition: transform 0.3s ease-in-out; /* 增加平滑過渡效果 */
+    width: 150px;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
     flex: 0 0 auto;
     scroll-snap-align: start;
+  }
+  .slider_rec::after {
+    content: "";
+    flex: 0 0 10px;
   }
   .section-FAQ {
     max-width: 100%; /* 最大寬度為容器的 70% */
