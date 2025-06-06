@@ -269,7 +269,7 @@ canvas, #bubbleCanvas {
 .title-text {
   font-family: "Microsoft JhengHei", sans-serif;
   position: absolute;
-  top: 50px;
+  top: 65px;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.8rem;
@@ -753,7 +753,7 @@ canvas, #bubbleCanvas {
 }
 .section-introduce-2 .text-container-2 .text-introduce-part2,
 .section-introduce-2 .text-container-2 .text-introduce-part3 {
-  text-align: right;
+  text-align: left;
   margin-bottom: 1.5rem;
   font-size: 1rem;
   line-height: 1.6;

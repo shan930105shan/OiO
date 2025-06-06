@@ -310,7 +310,7 @@ $text-color: rgb(0, 0, 0);
     &-text {
         font-family: "Microsoft JhengHei", sans-serif;
         position: absolute; // 讓文字絕對定位於父元素（圖片）上
-        top: 50px; // 讓文字垂直置中
+        top: 65px; // 讓文字垂直置中
         left: 50%; // 讓文字水平置中
         transform: translate(-50%, -50%); // 讓文字完全居中
         font-size: 1.8rem; // 設置文字大小（可根據需要調整）
@@ -706,7 +706,7 @@ $text-color: rgb(0, 0, 0);
   
       .text-introduce-part2,
       .text-introduce-part3 {
-        text-align: right;
+        text-align: left;
         margin-bottom: 1.5rem;
         font-size: 1rem;
         line-height: 1.6;
